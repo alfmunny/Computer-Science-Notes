@@ -1,4 +1,4 @@
-# Notes on Algorithm 4th
+# Notes on Algorithms 4th
 
 Online Content:
 - [Algorithm, 4th Edition](https://algs4.cs.princeton.edu/home/)
