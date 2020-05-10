@@ -21,7 +21,8 @@ Preparations:
 6. Practice until you get it.
 
 We will skip the first chapter (Fundamentals) for now. You can also go through it quickly yourself. 
-Those are basic knowledge of java programming and We assume you have already most of it. A quick recap should help.
+Those are basic knowledge of java programming.
+We assume you have already known most of it. A quick recap should help.
 
 ## Learning Progress (0%)
 
