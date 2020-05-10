@@ -9,7 +9,7 @@ Preparations:
 
 - How to set up a java environment?
 
-[Max OS](https://lift.cs.princeton.edu/java/mac/), [Windows](https://lift.cs.princeton.edu/java/windows/)
+    [Mac OS](https://lift.cs.princeton.edu/java/mac/), [Windows](https://lift.cs.princeton.edu/java/windows/)
 
 - How to approach?
 
