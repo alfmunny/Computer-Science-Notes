@@ -27,36 +27,36 @@ Those are basic knowledge of java programming and We assume you have already mos
 
 First Week: Sorting
 
-[ ] Elementary Sorts
-[ ] Quick Sort
-[ ] Priority Queues
+- [ ] Elementary Sorts
+- [ ] Quick Sort
+- [ ] Priority Queues
 
 Second Week: Searching
 
-[ ] Symbol Tables 
-[ ] Binary Search
-[ ] Balanced Search Trees
-[ ] Hash Tables
+- [ ] Symbol Tables 
+- [ ] Binary Search
+- [ ] Balanced Search Trees
+- [ ] Hash Tables
 
 Third Week: Graphs
 
-[ ] Undirected Graphs
-[ ] Directed Graphs
+- [ ] Undirected Graphs
+- [ ] Directed Graphs
 
 Forth Week: Graphs
 
-[ ] Minimum Spanning Trees
-[ ] Shortest Paths
+- [ ] Minimum Spanning Trees
+- [ ] Shortest Paths
 
 Fifth Week: Strings
 
-[ ] String sorts
-[ ] Tries
-[ ] Substring Search
-
+- [ ] String sorts
+- [ ] Tries
+- [ ] Substring Search
+ 
 Sixth Week: Strings
-[ ] Regular Expressions
-[ ] Data Compression
+- [ ] Regular Expressions
+- [ ] Data Compression
 
 ## First Week
 
