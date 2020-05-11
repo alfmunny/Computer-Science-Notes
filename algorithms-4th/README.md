@@ -16,7 +16,7 @@ Preparations:
 1. Watch the videos before you dive into each chapter.
 2. Browse the chapter in book and read the code.
 3. Learning by doing, understand it, implement the code once yourself, and run for tests.
-4. If you encounter problems, please refer to the codes presented on the [online](https://algs4.cs.princeton.edu/code/).
+4. If you encounter problems, please refer to the codes presented [online](https://algs4.cs.princeton.edu/code/).
 5. Pick some problems from exercises and solve them. The solutions can be found [online](https://algs4.cs.princeton.edu/code/) as well.
 6. Practice until you get it.
 
