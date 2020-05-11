@@ -156,4 +156,4 @@ Comparison between Shell and Insertion
 
     % java SortCompare Shell Insertion 100000 100
     For 100000 random Doubles
-        Shell is 600 times faster than Insertion
+        Shell is 418.1 times faster than Insertion

@@ -24,6 +24,14 @@ We will skip the first chapter (Fundamentals) for now. You can also go through i
 Those are basic knowledge of java programming.
 We assume you have already known most of it. A quick recap should help.
 
+## Table of Content
+
+1. [Foundamentals](/1-Foundamentals.md)
+2. [Sorting](/2-Sorting.md)
+3. Searching
+4. Graphs
+5. Strings
+
 ## Learning Progress (0%)
 
 First Week: Sorting
