@@ -33,6 +33,8 @@ We assume you have already known most of it. A quick recap should help.
 5. Strings
 
 ## Learning Progress (1/17)
+Start date: 12.May.2020
+End date: ...
 
 First Week: Sorting
 
@@ -115,6 +117,12 @@ Priority Queues
 2. Exercise
 
 ## Second Week
+### Monday
+### Tuesday
+### Wednesday
+### Thursday
+### Friday
+### Saturday
 ## Third Week
 ## Forth Week
 ## Fifth Week
