@@ -61,10 +61,6 @@ Excellent method for partially sorted arrays and is also a fine method for tiny 
 
 Improvement see exercise 2.1.25  
 
-## Comparison
-
-TODO  
-
 ## 2.3 Shellsort
 
 Insertion sort moves an item only one place each time.  
@@ -94,3 +90,58 @@ public class Shell {
     }
 }
 ```
+
+## Comparison
+
+Use the random library to do some interesting comparison  
+
+```java
+public class SortCompare {
+    public static double time(String alg, Double[] a) {
+        Stopwatch timer = new Stopwatch();
+        if (alg.equals("Insertion")) Insertion.sort(a);
+        if (alg.equals("Selection")) Insertion.sort(a);
+        if (alg.equals("Shell")) Insertion.sort(a);
+    }
+
+    // Use alg to srot T random arrays of length N
+    public static double timeRandomInput(String alg, int N, int T) {
+        double total = 0.0;
+        Double[] a = new Double[N];
+        for (int t = 0; t < T; t++) {
+            for (int i = 0; i < N; i++) {
+                a[i] = StdRandom.uniform();
+            }
+            total += time(alf, a);
+        }
+        return total;
+    }
+
+    public static void main(String[] args) {
+        String alg1 = args[0];
+        String alg2 = args[1];
+        int N = Integer.parseInt(args[2]);
+        int T = Integer.parseInt(args[3]);
+        double t1 = timeRandomInput(alg1, N, T);
+        double t2 = timeRandomInput(alg2, N, T);
+        StdOut.printf("For %d random Doubles\n    %s is", N, alg1);
+        StdOut.printf("%.1f times faster than %s\n", t2/t1, alg2);
+    }
+}
+```
+
+Comparison between Insertion and Selction  
+
+100 arrays of length 1000  
+
+    % java SortCompare Insertion Selection 1000 100
+    For 1000 random Doubles
+      Insertion is 1.7 times faster than Selection
+
+Comparison between Shell and Insertion  
+
+100 arrays of length 100000  
+
+    % java SortCompare Shell Insertion 100000 100
+    For 100000 random Doubles
+      Shell is 600 times faster than Insertion
