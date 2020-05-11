@@ -26,8 +26,8 @@ We assume you have already known most of it. A quick recap should help.
 
 ## Table of Content
 
-1. [Foundamentals](1-Foundamentals.md), [code](algs/foundamatals)
-2. [Sorting](2-Sorting.md), [code](algs/sorting)
+1. [Foundamentals](1-Foundamentals.md), [code](algs4/foundamatals)
+2. [Sorting](2-Sorting.md), [code](algs4/sorting)
 3. Searching
 4. Graphs
 5. Strings
