@@ -80,7 +80,7 @@ Finish Elementary Sort:
 
 Merge Sort
 
-1. [Video content](https://www.coursera.org/lecture/algorithms-part1/quicksort-vjvnC)
+1. [Video content](https://www.coursera.org/lecture/algorithms-part1/mergesort-ARWDq)
 2. Read the code
 3. Implement
 
@@ -88,7 +88,7 @@ Merge Sort
 
 Quick Sort
 
-1. [Video content](https://www.coursera.org/lecture/algorithms-part1/mergesort-ARWDq)
+1. [Video content](https://www.coursera.org/lecture/algorithms-part1/quicksort-vjvnC)
 2. Read the code
 3. Implement
 
