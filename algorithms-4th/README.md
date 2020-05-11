@@ -26,17 +26,17 @@ We assume you have already known most of it. A quick recap should help.
 
 ## Table of Content
 
-1. [Foundamentals](/1-Foundamentals.md)
-2. [Sorting](/2-Sorting.md)
+1. [Foundamentals](/1-Foundamentals.md), [code](/algs/foundamatals)
+2. [Sorting](/2-Sorting.md), [code](/algs/sorting)
 3. Searching
 4. Graphs
 5. Strings
 
-## Learning Progress (0%)
+## Learning Progress (1/17)
 
 First Week: Sorting
 
-- [ ] Elementary Sorts
+- [X] Elementary Sorts
 - [ ] Merge Sort
 - [ ] Quick Sort
 - [ ] Priority Queues
