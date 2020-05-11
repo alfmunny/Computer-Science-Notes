@@ -29,6 +29,7 @@ We assume you have already known most of it. A quick recap should help.
 First Week: Sorting
 
 - [ ] Elementary Sorts
+- [ ] Merge Sort
 - [ ] Quick Sort
 - [ ] Priority Queues
 
@@ -77,17 +78,19 @@ Finish Elementary Sort:
 
 ### Wednesday
 
-Quick Sort
+Merge Sort
 
 1. [Video content](https://www.coursera.org/lecture/algorithms-part1/quicksort-vjvnC)
 2. Read the code
+3. Implement
 
 ### Thursday
 
 Quick Sort
 
-1. Implement
-2. Exercise
+1. [Video content](https://www.coursera.org/lecture/algorithms-part1/mergesort-ARWDq)
+2. Read the code
+3. Implement
 
 ### Friday
 
@@ -104,6 +107,7 @@ Priority Queues
 2. Exercise
 
 ## Second Week
+## Third Week
 ## Forth Week
 ## Fifth Week
 ## Sixth Week
