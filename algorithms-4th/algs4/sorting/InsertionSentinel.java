@@ -5,13 +5,24 @@ public class InsertionSentinel {
 
     public static void sort(Comparable[] a) {
         int n = a.length;
-        for (int i = 1; i < n; i++) {
-            if (less(a[i], a[0])) exch(a, 0, i);
+        int exchanges = 0;
+        for (int i = n-1; i > 0; i--) {
+            if (less(a[i], a[i-1])) {
+                exch(a, i, i-1);
+                exchanges++;
+            }
         }
 
-        for (int i = 1; i < n; i++) {
-            for (int j = i; less(a[j], a[j-1]); j--)
-                exch(a, j, j-1);
+        if (exchanges == 0) return;
+
+        for (int i = 2; i < n; i++) {
+            Comparable v = a[i];
+            int j = i;
+            while (less(v, a[j-1])) {
+                a[j] = a[j-1];
+                j--;
+            }
+            a[j] = v;
         }
     }
 
