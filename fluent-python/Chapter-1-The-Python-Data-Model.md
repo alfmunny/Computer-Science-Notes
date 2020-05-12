@@ -1,5 +1,14 @@
 # Chapter 1: The Python Data Model
 
+1.  [A Pythonic Card Deck](#org418266c)
+2.  [How Special Methods Are Used](#org28c5216)
+    1.  [Emulatin Numeric Types](#orgef9ede3)
+    2.  [String Representation](#orgf6daeb2)
+    3.  [Arithmetic Operators](#org2ed80cc)
+    4.  [Boolean Value of a Custom Type](#orgf09bfab)
+3.  [Overview of Special Methods](#org0782e58)
+4.  [Why len Is Not a Method](#org66c1051)
+
 You can think of the data model as a description of Python as a framework.  
 It formalizes the interfaces of the building blocks of the language itself,  
 such as sequences, iterators, functions, classes, context managers, and so on.  
@@ -232,7 +241,7 @@ Here we return the magnitude of the vector.
 `bool(x)` calls `x.__bool__()`.  
 If `x.__bool__()` is not implemented, call `x.__len__()`, zero returns False. Otherwise bool returns True.  
 
-### Overview of Special Methods
+## Overview of Special Methods
 
 Table 1-1. Special method names (operators excluded)  
 
@@ -258,11 +267,11 @@ Table 1-2. Special method names for operators
 | Arithmeric operators                      | \_\_add\_\_+, <span class="underline"><span class="underline">sub</span></span>-, \_\_mul\_\_\*, \_\_truediv\_\_/, \_\_floordiv\_\_//, \_\_mod\_\_%, \_\_divmod\_\_divmod() \_\_pow\_\_\*\* or pow(), \_\_round\_\_round()                                                                                                                                                                                                                                                                                            |
 | Reversed arithmeric operators             | \_\_radd\_\_, <span class="underline"><span class="underline">rsub</span></span>, <span class="underline"><span class="underline">rmul</span></span>, <span class="underline"><span class="underline">rtruediv</span></span>, <span class="underline"><span class="underline">rfloordiv</span></span>, <span class="underline"><span class="underline">rmode</span></span>, <span class="underline"><span class="underline">rdivmod</span></span>, <span class="underline"><span class="underline">rpow</span></span> |
 | Augmented assignment arithmeric operators | \_\_iadd\_\_, <span class="underline"><span class="underline">isub</span></span>, <span class="underline"><span class="underline">imul</span></span>, <span class="underline"><span class="underline">itrediv</span></span>, <span class="underline"><span class="underline">ifloordiv</span></span>, <span class="underline"><span class="underline">imod</span></span>, <span class="underline"><span class="underline">ipow</span></span>                                                                          |
-| Bitwise operators                         | \_\_invert\_\_~, <span class="underline"><span class="underline">lshift\_\_<a id="orge12da81"></a>, \_\_and\_\_&, \_\_or</span></span>, \_\_xor\_\_^                                                                                                                                                                                                                                                                                                                                                                  |
+| Bitwise operators                         | \_\_invert\_\_~, <span class="underline"><span class="underline">lshift\_\_<a id="orgebef5ef"></a>, \_\_and\_\_&, \_\_or</span></span>, \_\_xor\_\_^                                                                                                                                                                                                                                                                                                                                                                  |
 | Reversed Bitwise operators                | \_\_rlshift\_\_, <span class="underline"><span class="underline">rrshift</span></span>, <span class="underline"><span class="underline">rand</span></span>, <span class="underline"><span class="underline">ror</span></span>, <span class="underline"><span class="underline">rxor</span></span>                                                                                                                                                                                                                     |
 | Augmented Bitwise operators               | \_\_ilshift\_\_, <span class="underline"><span class="underline">irshift</span></span>, <span class="underline"><span class="underline">iand</span></span>, <span class="underline"><span class="underline">ior</span></span>, <span class="underline"><span class="underline">ixor</span></span>                                                                                                                                                                                                                     |
 
-### Why len Is Not a Method
+## Why len Is Not a Method
 
 > "The Zen of Python": "Practicality beats purity"  
 
