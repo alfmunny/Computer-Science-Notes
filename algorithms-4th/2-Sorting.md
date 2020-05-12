@@ -3,12 +3,11 @@
 
 ## 2.1 Selection sort
 
-> Slection sort uses ~N^2/2 compares and N exchanges to sort an array of length N.  
+> Slection sort uses ~N^2/2 compares and N exchanges to sort an array of length N.
 
-**Running time is insensitive to input**. It taks about as long t orun selection sort for an array  
-that is already in order or for an array with all keys equal as it does for a randomly-ordered array.  
+**Running time is insensitive to input**. It taks about as long to run selection sort for an array that is already in order or for an array with all keys equal as it does for a randomly-ordered array.
 
-**Data movement is minimal**. N changes. None of the orther sorting algorithms that we consider have this property.  
+**Data movement is minimal**. N changes. None of the orther sorting algorithms that we consider have this property.
 
 ```java
 public class Selection {
@@ -26,8 +25,7 @@ public class Selection {
 
 ## 2.2 Insertion sort
 
-> Insertion sort uses ~N^2/4 compares and ~N^2/4 exchanges to sort a randomly ordered array of length N with distinct keys, on the average.  
-> The worst cas is ~N^2/2 compares and ~N^2/2 exchanges (reversed) and the best case is N - 1 compares and 0 exchanges (already sorted)  
+> Insertion sort uses ~N^2/4 compares and ~N^2/4 exchanges to sort a randomly ordered array of length N with distinct keys, on the average. The worst cas is ~N^2/2 compares and ~N^2/2 exchanges (reversed) and the best case is N - 1 compares and 0 exchanges (already sorted)
 
 ```java
 public class Insertion {
@@ -41,37 +39,35 @@ public class Insertion {
 }
 ```
 
-\*Partially sorted array:  
+\*Partially sorted array:
 
-For instance,  
+For instance,
 
-E X A M P L E has 11 inversions: E-A, X-A, X-M, X-P, X-L, X-E, M-L, M-E, P-L, P-E, and L-E.  
+E X A M P L E has 11 inversions: E-A, X-A, X-M, X-P, X-L, X-E, M-L, M-E, P-L, P-E, and L-E.
 
-If the number of inversions in an array is less than a constant multiple of the array size, we say that the array is partially sorted.  
+If the number of inversions in an array is less than a constant multiple of the array size, we say that the array is partially sorted.
 
-Typical examples of partially sorted arrays:  
+Typical examples of partially sorted arrays:
 
 -   An array where each entry is not for from its final position
 -   A small array appended to a large sorted array
 -   An array with ouly a few entries that are not in place
 
-**Insertion sort is an efficient method for such arrays; selection sort is not**.  
+**Insertion sort is an efficient method for such arrays; selection sort is not**.
 
-Excellent method for partially sorted arrays and is also a fine method for tiny arrays.  
+Excellent method for partially sorted arrays and is also a fine method for tiny arrays.
 
-Improvement see exercise 2.1.25  
+Improvement see exercise 2.1.25
 
 ## 2.3 Shellsort
 
-Insertion sort moves an item only one place each time.  
-When the smallest item happends to be at the end of array, we need to moves N-1 steps.  
+Insertion sort moves an item only one place each time. When the smallest item happends to be at the end of array, we need to moves N-1 steps.
 
-Shellsort basically gains speed to exchanges items that for far apart,  
-to produce **partially sorted** array, which can be sorted eventually by insertion sort.  
+Shellsort basically gains speed to exchanges items that for far apart, to produce **partially sorted** array, which can be sorted eventually by insertion sort.
 
-Increment sequences here is 1, 4, 13, 40, 121, 364, 1093&#x2026;  
+Increment sequences here is 1, 4, 13, 40, 121, 364, 1093&#x2026;
 
-> Increment sequences that are substantially better still may be waiting to be discovered.  
+> Increment sequences that are substantially better still may be waiting to be discovered.
 
 ```java
 public class Shell {
@@ -93,7 +89,7 @@ public class Shell {
 
 ## Comparison
 
-Use the random library to do some interesting comparison  
+Use the random library to do some interesting comparison
 
 ```java
 public class SortCompare {
@@ -130,29 +126,29 @@ public class SortCompare {
 }
 ```
 
-Comparison between Insertion and Selction  
+Comparison between Insertion and Selction
 
-100 arrays of length 1000  
+100 arrays of length 1000
 
     % java SortCompare Insertion Selection 1000 100
     For 1000 random Doubles
       Insertion is 1.7 times faster than Selection
 
-Comparison between Shell and Insertion  
+Comparison between Shell and Insertion
 
-100 arrays of length 1000  
+100 arrays of length 1000
 
     % java SortCompare Shell Insertion 1000 100
     For 1000 random Doubles
         Shell is 4.0 times faster than Insertion
 
-100 arrays of length 10000  
+100 arrays of length 10000
 
     % java SortCompare Shell Insertion 10000 100
     For 10000 random Doubles
         Shell is 48.4 times faster than Insertion
 
-100 arrays of length 100000  
+100 arrays of length 100000
 
     % java SortCompare Shell Insertion 100000 100
     For 100000 random Doubles

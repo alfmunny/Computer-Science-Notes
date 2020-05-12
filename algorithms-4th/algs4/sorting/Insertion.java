@@ -30,7 +30,7 @@ public class Insertion {
 
     public static void main(String[] args) {
         String[] a = StdIn.readAllStrings();
-        Selection.sort(a);
+        Insertion.sort(a);
         show(a);
     }
 }

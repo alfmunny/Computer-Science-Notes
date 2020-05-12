@@ -7,10 +7,12 @@ public class SortCompare {
     public static double time(String alg, Double[] a) {
         Stopwatch timer = new Stopwatch();
         if (alg.equals("Insertion")) Insertion.sort(a);
+        if (alg.equals("InsertionSentinel")) InsertionSentinel.sort(a);
         if (alg.equals("Selection")) Selection.sort(a);
         if (alg.equals("Shell")) Shell.sort(a);
         return timer.elapsedTime();
     }
+
     public static double timeRandomInput(String alg, int N, int T) {
         double total = 0.0;
         Double[] a = new Double[N];
