@@ -1,7 +1,9 @@
 # 2. Sorting
 
 
-## 2.1 Selection sort
+## 2.1 Elementary Sort
+
+### Selection sort
 
 > Slection sort uses ~N^2/2 compares and N exchanges to sort an array of length N.
 
@@ -23,7 +25,7 @@ public class Selection {
 }
 ```
 
-## 2.2 Insertion sort
+### Insertion sort
 
 > Insertion sort uses ~N^2/4 compares and ~N^2/4 exchanges to sort a randomly ordered array of length N with distinct keys, on the average. The worst cas is ~N^2/2 compares and ~N^2/2 exchanges (reversed) and the best case is N - 1 compares and 0 exchanges (already sorted)
 
@@ -59,7 +61,7 @@ Excellent method for partially sorted arrays and is also a fine method for tiny 
 
 Improvement see exercise 2.1.25
 
-## 2.3 Shellsort
+### Shellsort
 
 Insertion sort moves an item only one place each time. When the smallest item happends to be at the end of array, we need to moves N-1 steps.
 
@@ -87,7 +89,7 @@ public class Shell {
 }
 ```
 
-## Comparison
+### Comparison
 
 Use the random library to do some interesting comparison
 
@@ -153,3 +155,76 @@ Comparison between Shell and Insertion
     % java SortCompare Shell Insertion 100000 100
     For 100000 random Doubles
         Shell is 418.1 times faster than Insertion
+
+### Exercise
+
+## 2.2 Mergesort
+
+### Top-Down MergeSort
+
+Notes:
+
+1.  Use an auxiliary array for saving the original order temporarily. Don't create this aux array in the merge or sort method to avoid extra memory usage.
+2.  We have to copy the original array between lo and hi into aux, every time before we merge, because the array in aux is alreay old.
+
+```java
+public class MergeSort {
+
+    public static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
+        int l1 = lo;
+        int l2 = mid + 1;
+
+        // Don't forget to copy every time
+        for (int k = lo; k <= hi; k++) {
+            aux[k] = a[k];
+        }
+
+        for (int k = lo; k <= hi; k++) {
+            if (l1 > mid) a[k] = aux[l2++];
+            else if (l2 > hi) a[k] = aux[l1++];
+            else if (less(aux[l1], aux[l2])) a[k] = aux[l1++];
+            else a[k] = aux[l2++];
+        }
+    }
+
+    public static void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
+        if (hi <= lo) return;
+
+        int mid = lo + (hi - lo) / 2;
+        sort(a, aux, lo, mid);
+        sort(a, aux, mid+1, hi);
+        merge(a, aux, lo, mid, hi);
+    }
+}
+```
+
+> Top-Down mergesort uses at most 6NlgN array access to sort an array of length N.
+> 
+> Each merge uses at most 6N array access (2N for the copy, 2N for the move back, and at most 2N for compares).
+
+Possible improvement:
+
+**Use insertion sort for small subarrays**.
+
+**Test wether the array is already in order**. if (a[mid] <= a[mid+1]) return (skip call merge())
+
+**Eliminate the copy to the auxiliary array**. Switch roles of aux and a.
+
+### Bottom-Up MergeSort
+
+Start by doing a pass of 1-by-1 merge, then 2-by-2, then 4-by-4 and so forth.
+
+```java
+public class MergeBU {
+    public static void sort(Comparable[] a) {
+        int N = a.lenght;
+        aux = new Comparable[N];
+        for (int sz = 1; sz < N; sz = sz + sz)
+            for (int lo = 0; lo < N - sz;  lo += sz+sz) { // the mid is at maximum at N-2, otherwise you can merge when the right half is empty
+                merge(a, aux, lo, lo+sz-1, Math.min(N-1, lo+sz+sz-1));
+            }
+    }
+}
+```
+
+> Bottom-up mergesort uses between 1⁄2NlgN and NlgN compares and at most 6N lg N array accesses to sort an array of length N.
