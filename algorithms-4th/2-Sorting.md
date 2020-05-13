@@ -1,5 +1,14 @@
 # 2. Sorting
 
+-   [2.1 Elementary Sort](#orgd90811c)
+    -   [Selection sort](#org1b0bd55)
+    -   [Insertion sort](#org7b99a4f)
+    -   [Shellsort](#org1d01f5f)
+    -   [Comparison](#org5c555ac)
+    -   [Exercise](#org94e704e)
+-   [2.2 Mergesort](#orgdce38a3)
+    -   [Top-Down MergeSort](#org4be3129)
+    -   [Bottom-Up MergeSort](#org9851185)
 
 ## 2.1 Elementary Sort
 

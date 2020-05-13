@@ -24,7 +24,7 @@ We will skip the first chapter (Fundamentals) for now. You can also go through i
 Those are basic knowledge of java programming.
 We assume you have already known most of it. A quick recap should help.
 
-## Table of Content
+## Table of Contents
 
 1. [Foundamentals](1-Foundamentals.md), [code](algs4/foundamentals)
 2. [Sorting](2-Sorting.md), [code](algs4/sorting)
@@ -39,7 +39,7 @@ End date: ...
 First Week: Sorting
 
 - [X] Elementary Sorts
-- [ ] Merge Sort
+- [X] Merge Sort
 - [ ] Quick Sort
 - [ ] Priority Queues
 
