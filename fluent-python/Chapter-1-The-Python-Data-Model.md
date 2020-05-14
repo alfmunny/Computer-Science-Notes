@@ -1,37 +1,10 @@
-# Fluent Python
+# Chapter 1: The Python Data Model
 
+You can think of the data model as a description of Python as a framework. It formalizes the interfaces of the building blocks of the language itself, such as sequences, iterators, functions, classes, context managers, and so on.
 
-# Table of Contents
+## A Pythonic Card Deck
 
-1.  [Fluent Python](#org3cda2ae)
-    1.  [Chapter 1: The Python Data Model](#org55de9f4)
-        1.  [A Pythonic Card Deck](#orgdf05e19)
-        2.  [How Special Methods Are Used](#org05d9a5b)
-            1.  [Emulatin Numeric Types](#orga42dcc2)
-            2.  [String Representation](#org209cda5)
-            3.  [Arithmetic Operators](#org4c89860)
-            4.  [Boolean Value of a Custom Type](#orgd1cad68)
-        3.  [Overview of Special Methods](#orgc2e7c1b)
-        4.  [Why len Is Not a Method](#org3a94b11)
-
-## Chapter 1: The Python Data Model
-
-1.  [A Pythonic Card Deck](#orgdf05e19)
-2.  [How Special Methods Are Used](#org05d9a5b)
-    1.  [Emulatin Numeric Types](#orga42dcc2)
-    2.  [String Representation](#org209cda5)
-    3.  [Arithmetic Operators](#org4c89860)
-    4.  [Boolean Value of a Custom Type](#orgd1cad68)
-3.  [Overview of Special Methods](#orgc2e7c1b)
-4.  [Why len Is Not a Method](#org3a94b11)
-
-You can think of the data model as a description of Python as a framework.  
-It formalizes the interfaces of the building blocks of the language itself,  
-such as sequences, iterators, functions, classes, context managers, and so on.  
-
-### A Pythonic Card Deck
-
-Special methods: `__getitem__` and `__len__`.  
+Special methods: `__getitem__` and `__len__`.
 
 ```python
 import collections
@@ -52,21 +25,21 @@ class FrenchDeck:
         return self._cards[position]
 ```
 
-`nametuple` can be used to build classes of objects that are just bundles of attributes with no custom methods.  
+`nametuple` can be used to build classes of objects that are just bundles of attributes with no custom methods.
 
 ```python
 beer_card = Card('7', 'diamonds')
 beer_card
 ```
 
-`len()` function returns the number of cards in it.  
+`len()` function returns the number of cards in it.
 
 ```python
 deck = FrenchDeck()
 len(deck)
 ```
 
-index operation, provided by `__getitem__` method.  
+index operation, provided by `__getitem__` method.
 
 ```python
 deck[0]
@@ -80,7 +53,7 @@ deck[-1]
 
     Card(rank='A', suit='hearts')
 
-Get a random item from a sequence  
+Get a random item from a sequence
 
 ```python
 from random import choice
@@ -93,7 +66,7 @@ choice(deck)
 
     Card(rank='9', suit='hearts')
 
-Slicing support, because `__getitem__`  delegates to the [] oeprator of `self._cards`  
+Slicing support, because `__getitem__` delegates to the [] oeprator of `self._cards`
 
 ```python
 deck[:3]
@@ -107,7 +80,7 @@ deck[12::13]
 
     [Card(rank='A', suit='spades'), Card(rank='A', suit='diamonds'), Card(rank='A', suit='clubs'), Card(rank='A', suit='hearts')]
 
-`__getitem__` method make the deck iterable  
+`__getitem__` method make the deck iterable
 
 ```python
 for card in deck:
@@ -121,7 +94,7 @@ Card(rank='4', suit='spades')
 ...
 ```
 
-Iterated in reverse  
+Iterated in reverse
 
 ```python
 for card in reversed(deck):
@@ -135,7 +108,7 @@ Card(rank='Q', suit='hearts')
 ...
 ```
 
-If a collection has no `__contains__`, the `in` oeprator does a sequential scan.  
+If a collection has no `__contains__`, the `in` oeprator does a sequential scan.
 
 ```python
 Card('Q', 'hearts') in deck
@@ -149,7 +122,7 @@ Card('7', 'beasts') in deck
 
     False
 
-Sorting  
+Sorting
 
 ```python
 suit_values = dict(spades=3, hearts=2, diamonds=1, clubs=0)
@@ -167,16 +140,15 @@ for card in sorted(deck, key=spades_high):
     Card(rank='2', suit='hearts')
     ...
 
-### How Special Methods Are Used
+## How Special Methods Are Used
 
-Special methods are meant to be called by Python intepreter, and not by you.  
-You don't write `my_object.__len__()`. You write len(my\_object) and, then Python calls the `__len__` instance method you implemented.  
+Special methods are meant to be called by Python intepreter, and not by you. You don't write `my_object.__len__()`. You write len(my\_object) and, then Python calls the `__len__` instance method you implemented.
 
-`i in x:` invocates `iter(x)`, which in turn may call `x.__iter()` if that is available.  
+`i in x:` invocates `iter(x)`, which in turn may call `x.__iter()` if that is available.
 
-It is usually bette to call the relted built-in function, len, iter, str, etc. These built-ins call the corresponding special method.  
+It is usually bette to call the relted built-in function, len, iter, str, etc. These built-ins call the corresponding special method.
 
-#### Emulatin Numeric Types
+### Emulatin Numeric Types
 
 ```python
 from math import hypot
@@ -236,30 +208,29 @@ bool(v)
 
     True
 
-#### String Representation
+### String Representation
 
-Use %r to obtain the standard representation  
+Use %r to obtain the standard representation
 
-`str()` will call `__repr__` as a fallback, if `__str__` is not available.  
+`str()` will call `__repr__` as a fallback, if `__str__` is not available.
 
-`__repr` is to be unambiguous.  
+`__repr` is to be unambiguous.
 
-`__str__` is to be readable.  
+`__str__` is to be readable.
 
-#### Arithmetic Operators
+### Arithmetic Operators
 
-`__add__` and `__mul__` return new instance, not touching either operand.  
+`__add__` and `__mul__` return new instance, not touching either operand.
 
-#### Boolean Value of a Custom Type
+### Boolean Value of a Custom Type
 
-Here we return the magnitude of the vector.  
+Here we return the magnitude of the vector.
 
-`bool(x)` calls `x.__bool__()`.  
-If `x.__bool__()` is not implemented, call `x.__len__()`, zero returns False. Otherwise bool returns True.  
+`bool(x)` calls `x.__bool__()`. If `x.__bool__()` is not implemented, call `x.__len__()`, zero returns False. Otherwise bool returns True.
 
-### Overview of Special Methods
+## Overview of Special Methods
 
-Table 1-1. Special method names (operators excluded)  
+Table 1-1. Special method names (operators excluded)
 
 | Category                          | Method names                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |--------------------------------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -274,7 +245,7 @@ Table 1-1. Special method names (operators excluded)
 | Attribute descriptors             | \_\_get\_\_, <span class="underline"><span class="underline">set</span></span>, <span class="underline"><span class="underline">delete</span></span>                                                                                                                                                                                                                                                                                                          |
 | Class services                    | \_\_prepare\_\_, <span class="underline"><span class="underline">instancecheck</span></span>, <span class="underline"><span class="underline">subclasscheck</span></span>                                                                                                                                                                                                                                                                                     |
 
-Table 1-2. Special method names for operators  
+Table 1-2. Special method names for operators
 
 | Category                                  | Method names and related oeprators                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 |----------------------------------------- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -283,14 +254,14 @@ Table 1-2. Special method names for operators
 | Arithmeric operators                      | \_\_add\_\_+, <span class="underline"><span class="underline">sub</span></span>-, \_\_mul\_\_\*, \_\_truediv\_\_/, \_\_floordiv\_\_//, \_\_mod\_\_%, \_\_divmod\_\_divmod() \_\_pow\_\_\*\* or pow(), \_\_round\_\_round()                                                                                                                                                                                                                                                                                            |
 | Reversed arithmeric operators             | \_\_radd\_\_, <span class="underline"><span class="underline">rsub</span></span>, <span class="underline"><span class="underline">rmul</span></span>, <span class="underline"><span class="underline">rtruediv</span></span>, <span class="underline"><span class="underline">rfloordiv</span></span>, <span class="underline"><span class="underline">rmode</span></span>, <span class="underline"><span class="underline">rdivmod</span></span>, <span class="underline"><span class="underline">rpow</span></span> |
 | Augmented assignment arithmeric operators | \_\_iadd\_\_, <span class="underline"><span class="underline">isub</span></span>, <span class="underline"><span class="underline">imul</span></span>, <span class="underline"><span class="underline">itrediv</span></span>, <span class="underline"><span class="underline">ifloordiv</span></span>, <span class="underline"><span class="underline">imod</span></span>, <span class="underline"><span class="underline">ipow</span></span>                                                                          |
-| Bitwise operators                         | \_\_invert\_\_~, <span class="underline"><span class="underline">lshift\_\_<a id="org4be2f75"></a>, \_\_and\_\_&, \_\_or</span></span>, \_\_xor\_\_^                                                                                                                                                                                                                                                                                                                                                                  |
+| Bitwise operators                         | \_\_invert\_\_~, <span class="underline"><span class="underline">lshift\_\_<a id="org94c747b"></a>, \_\_and\_\_&, \_\_or</span></span>, \_\_xor\_\_^                                                                                                                                                                                                                                                                                                                                                                  |
 | Reversed Bitwise operators                | \_\_rlshift\_\_, <span class="underline"><span class="underline">rrshift</span></span>, <span class="underline"><span class="underline">rand</span></span>, <span class="underline"><span class="underline">ror</span></span>, <span class="underline"><span class="underline">rxor</span></span>                                                                                                                                                                                                                     |
 | Augmented Bitwise operators               | \_\_ilshift\_\_, <span class="underline"><span class="underline">irshift</span></span>, <span class="underline"><span class="underline">iand</span></span>, <span class="underline"><span class="underline">ior</span></span>, <span class="underline"><span class="underline">ixor</span></span>                                                                                                                                                                                                                     |
 
-### Why len Is Not a Method
+## Why len Is Not a Method
 
-> "The Zen of Python": "Practicality beats purity"  
+> "The Zen of Python": "Practicality beats purity"
 
-`len(x)` reads from a filed in a C struct of CPython, when x is a built-in type.  
+`len(x)` reads from a filed in a C struct of CPython, when x is a built-in type.
 
-You can still customize it through `__len__`.  
+You can still customize it through `__len__`.
