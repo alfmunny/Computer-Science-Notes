@@ -1,3 +1,23 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Chapter 2: An Array of Sequences](#chapter-2-an-array-of-sequences)
+  - [List Comprehensions and Generator Expressions](#list-comprehensions-and-generator-expressions)
+  - [Tuples Ate Not Just Immutable Lists](#tuples-ate-not-just-immutable-lists)
+    - [Tuple as Records](#tuple-as-records)
+    - [Tuple Unpacking](#tuple-unpacking)
+    - [Nested Tuple Unpacking](#nested-tuple-unpacking)
+    - [Named Tuples](#named-tuples)
+    - [Tuple as Immutable Lists](#tuple-as-immutable-lists)
+  - [Slicing](#slicing)
+  - [Using + and \* with Sequences](#using--and-%5C-with-sequences)
+  - [Augmented Assignment with Sequences](#augmented-assignment-with-sequences)
+  - [Managing Ordered Sequences with bisect](#managing-ordered-sequences-with-bisect)
+  - [When a List is Not the Answer](#when-a-list-is-not-the-answer)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Chapter 2: An Array of Sequences
 
 Container sequences: can hold different types. They contain references to the objects.

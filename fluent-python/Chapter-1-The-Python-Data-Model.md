@@ -1,3 +1,19 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Chapter 1: The Python Data Model](#chapter-1-the-python-data-model)
+  - [A Pythonic Card Deck](#a-pythonic-card-deck)
+  - [How Special Methods Are Used](#how-special-methods-are-used)
+    - [Emulatin Numeric Types](#emulatin-numeric-types)
+    - [String Representation](#string-representation)
+    - [Arithmetic Operators](#arithmetic-operators)
+    - [Boolean Value of a Custom Type](#boolean-value-of-a-custom-type)
+  - [Overview of Special Methods](#overview-of-special-methods)
+  - [Why len Is Not a Method](#why-len-is-not-a-method)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Chapter 1: The Python Data Model
 
 You can think of the data model as a description of Python as a framework. It formalizes the interfaces of the building blocks of the language itself, such as sequences, iterators, functions, classes, context managers, and so on.
