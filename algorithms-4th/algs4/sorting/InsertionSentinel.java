@@ -3,6 +3,16 @@ import edu.princeton.cs.algs4.StdOut;
 
 public class InsertionSentinel {
 
+    private static void exch(Object[] a, int i, int j) {
+        Object swap = a[i];
+        a[i] = a[j];
+        a[j] = swap;
+    }
+
+    private static boolean less(Comparable v, Comparable w) {
+        return v.compareTo(w) < 0;
+    }
+
     public static void sort(Comparable[] a) {
         int n = a.length;
         int exchanges = 0;
@@ -24,16 +34,6 @@ public class InsertionSentinel {
             }
             a[j] = v;
         }
-    }
-
-    public static void exch(Object[] a, int i, int j) {
-        Object swap = a[i];
-        a[i] = a[j];
-        a[j] = swap;
-    }
-
-    public static boolean less(Comparable v, Comparable w) {
-        return v.compareTo(w) < 0;
     }
     
     public static void show(Comparable[] a) {

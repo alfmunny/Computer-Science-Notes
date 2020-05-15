@@ -198,6 +198,10 @@ public class MergeSort {
 }
 ```
 
+> Top-down mergesort uses between 1⁄2NlgN and NlgN compares to sort any array of length N.
+> 
+> 1/2N: When the elements on one side is all greater or smaller than the other side, than on side gets copied back at first. N: When all elements have to be compared.
+
 > Top-Down mergesort uses at most 6NlgN array access to sort an array of length N.
 > 
 > Each merge uses at most 6N array access (2N for the copy, 2N for the move back, and at most 2N for compares).
@@ -266,3 +270,58 @@ public class QuickSort {
     }
 }
 ```
+
+> Quicksort uses ~ 2NlnN compares (and one-sixth that many exchanges) on the average to sort an array of length N with distinct keys.
+
+**Partitioning in place**.
+
+**Staying in bounds**. Do not run oof the left or right ends of the array. The test (j==lo) is redundant, since the partitioning item is at a[lo] and not less than it self.
+
+**Terminating the loop**. i >= j. Consider why i > j won't work. For example when the array is decending [2, 1]. i will reach 1 and break, but j will stop at 1, because it is smaller than the pivot 2. They will never cross each other. If you don't have i >= j, there will be an endless loop.
+
+**Handling items with keys equal to partitioning item's key**. It is best to stop the left scan for items with keys greater than or equal to the partitioning item’s key and the right scan for items with key less than or equal to the partitioning item’s key. Consider [1, 1, 1, 1, 1], if you don't stop for equal element, i will reach the end of the array, and split the array into 1 and N-1. The running time will be quadratic (1 + 2 + &#x2026; + N - 1).
+
+**Terminating the recursion** if (hi <= lo) return. One item is always put into position.
+
+Average Case:
+
+> Quicksort uses ~2NlnN compares on average to sort an array of length N with distinct keys.
+
+Worst Case:
+
+> QuickSort uses ~ N^2/2 compares in the worst case, but random shuffling protects against this case.
+> 
+> For example: when you always partition the array into 1 and N-1 size, with a smallest (or greatest) partition item's key
+
+### Possible Improvements
+
+**Cutoff to insertion sort**. Insertion for tiny subarrays. if (hi <= lo + M) { Insertion.sort(a, lo, hi); return }
+
+**Median-of-three partitioning**. Choosing a sample of size 3 and then partitioning on the middle item.
+
+**Entropy-optimal sorting**. Improvement for arrays with large numbers of duplicate keys.
+
+Partition into three parts, smaller than, equal to, and larget than. <https://en.wikipedia.org/wiki/Dutch_national_flag_problem>
+
+```java
+public class QuickSort3Way {
+    public static void sort(Comparable[] a, int lo, int hi) {
+        if (hi <= lo) return;
+        int lt = lo, gt = hi, i = lo+1;
+        Comparable v = a[lo];
+        while (i <= gt) {
+            if (less(a[i], v)) exch(a, i++, lt++);
+            else if (less(v, a[i])) exch(a, i, gt--);
+            else i++;
+        }
+        sort(a, lo, lt - 1);
+        sort(a, gt + 1, hi);
+    }
+}
+```
+
+> Quicksort with 3-way partitioning uses ~(2ln2)NH compares to sort N items, where H is the Shannon entropy, defined from the frequencies of key values.
+
+H = lgN when the keys are all distinct.
+
+3-way quicksort’s running time to be proportional to N times the entropy of the distribution of input key values.
