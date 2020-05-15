@@ -325,3 +325,107 @@ public class QuickSort3Way {
 H = lgN when the keys are all distinct.
 
 3-way quicksort’s running time to be proportional to N times the entropy of the distribution of input key values.
+
+## 2.4 Priority Queue
+
+### Heap
+
+> A binary tree is heap-ordered if the key in each node is larger than or equal to the keys in that node’s two children (if any).
+
+> The largest key in a heap-ordered binary tree is found at the root.
+
+> A binary heap is a collection of keys arranged in a complete heap-or- dered binary tree, represented in level order in an array (not using the first entry).
+
+In a heap, the parent of the node in position k is in position [k/2] and, conversely, the two children of the node in position k are in positions 2k and 2k+1.
+
+Move up the tree from a[k], we set k to k/2.
+
+Move down the tree we set k to 2\*l or 2\*k + 1.
+
+> Proposition P. The height of a complete binary tree of size N is ⎣ lg N ⎦ .
+
+### Algorithms on heaps (Max Heap)
+
+**Bottom-up reheapify(swim)**
+
+```java
+private void swim(int k) {
+    while (k > 1 && less(k/2, k)) {
+      exch(k/2, k);
+      k = k/2;
+    }
+} 
+```
+
+**Top-down reheapify(sink)**
+
+```java
+private void sink(int k) {
+    while (2*k < N) {
+        int j = 2*k;
+        if (j <= N && less(j, j+1)) j++;
+        if (!less(k, j)) break;
+        exch(k, j);
+        k = j;
+    }
+}
+```
+
+**Insert**
+
+Add the new key at the end of the array, and swim up.
+
+**Remove the maximum**
+
+Take the largest key off the top, put the last key on the top and sink it.
+
+```java
+public class MaxPQ<Key extends Comparable<Key>> {
+    private Key[] pg;
+    private int N = 0;
+    public MaxPQ(int maxN) {
+        pg = (Key[]) new Comparable[maxN+1];
+    }
+
+    public boolean isEmpty() {
+        return N == 0;
+    }
+
+    public int size() {
+        return N;
+    }
+
+    public void insert(Key v) {
+        Key max = pq[1];
+        exch(1, N);
+        pq[N--] = null;
+        sink(1);
+        return max;
+    }
+
+    private boolean less(int i, int j);
+    private void exch(int i, int j);
+    private void swim(int k);
+    private void sink(int k);
+}
+```
+
+### Heapsort
+
+1.  delMax to get the max value, put it to the end
+2.  reheapify
+3.  repeat until the heap is empty
+
+```java
+public static void sort(Comparable[] a) {
+    int N = a.length;
+    for (int k = N/2; k >= 1; k--) { //start from the last parent, construct the heap
+        sink(a, k, N);
+    }
+
+    while (N > 1) { // sort
+        exch(a, 1, N--);
+        sink(a, 1, N);
+    }
+}
+```

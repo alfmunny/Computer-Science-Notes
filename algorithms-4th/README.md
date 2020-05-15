@@ -33,14 +33,16 @@ We assume you have already known most of it. A quick recap should help.
 5. Strings
 
 ## Learning Progress (1/17)
+
 Start date: 12.May.2020
+
 End date: ...
 
 First Week: Sorting
 
 - [X] Elementary Sorts
 - [X] Merge Sort
-- [ ] Quick Sort
+- [X] Quick Sort
 - [ ] Priority Queues
 
 Second Week: Searching
