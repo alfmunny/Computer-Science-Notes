@@ -228,3 +228,41 @@ public class MergeBU {
 ```
 
 > Bottom-up mergesort uses between 1⁄2NlgN and NlgN compares and at most 6N lg N array accesses to sort an array of length N.
+
+## 2.3 Quicksort
+
+1.  stop left pointer when left side equal or greater than pivot
+2.  stop right pointer when right side equal or less than pivot
+
+```java
+public class QuickSort {
+    public static void sort(Comparablep[] a, int lo, int hi) {
+        if (hi <= lo) return;
+        int j = partition(a, lo, hi);
+        sort(a, lo, j-1);
+        sort(a, j+1, hi);
+    }
+
+    public static int partition(Comparable[] a, int lo, int hi) {
+        int i = lo+1;
+        int j = hi;
+        int p = lo;
+
+        while (true) {
+            while (less(a[i], a[p])) {
+                i++;
+                if (i == hi) break;
+            }
+            while (less(a[p], a[j])) {
+                j--;
+                if (j == lo) break;
+            }
+            if (i >= j) break;
+            swap(a, i, j);
+        }
+
+        swap(a, p, j);
+        return j;
+    }
+}
+```
