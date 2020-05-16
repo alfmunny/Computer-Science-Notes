@@ -328,6 +328,8 @@ H = lgN when the keys are all distinct.
 
 ## 2.4 Priority Queue
 
+It provides an easy way to guarrantee an logarithmetic running time for dynamic situations where large number of **insert** and **remove the maximum operations** are intermixed.
+
 ### Heap
 
 > A binary tree is heap-ordered if the key in each node is larger than or equal to the keys in that node’s two children (if any).
@@ -412,7 +414,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
 
 ### Heapsort
 
-1.  delMax to get the max value, put it to the end
+1.  exchange the maximum value(top one) to the end
 2.  reheapify
 3.  repeat until the heap is empty
 
@@ -429,3 +431,11 @@ public static void sort(Comparable[] a) {
     }
 }
 ```
+
+**Complexity**
+
+> It is the only method that we have seen that is optimal (within a constant factor) in its use of both time and space—it is guaranteed to use ~2N lg N compares and constant extra space in the worst case.
+
+**Cache Performance**
+
+> However, it is rarely used in typical applications on modern systems because it has poor cache performance: array entries are rarely compared with nearby array entries, so the number of cache misses is far higher than for quicksort, mergesort, and even shellsort, where most compares are with nearby entries.

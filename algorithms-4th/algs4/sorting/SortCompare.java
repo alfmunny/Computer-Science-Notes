@@ -10,8 +10,10 @@ public class SortCompare {
         if (alg.equals("InsertionSentinel")) InsertionSentinel.sort(a);
         if (alg.equals("Selection")) Selection.sort(a);
         if (alg.equals("Shell")) Shell.sort(a);
-        if (alg.equals("MergeSort")) MergeSort.sort(a);
-        if (alg.equals("QuickSort")) QuickSort.sort(a);
+        if (alg.equals("Merge")) Merge.sort(a);
+        if (alg.equals("Quick")) Quick.sort(a);
+        if (alg.equals("Quick3Way")) Quick3Way.sort(a);
+        if (alg.equals("Heap")) Heap.sort(a);
         return timer.elapsedTime();
     }
 
