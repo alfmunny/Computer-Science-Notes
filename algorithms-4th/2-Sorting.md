@@ -8,7 +8,7 @@
 | quick       | x         |         | N^2/2 | 2NlgN   | NlgN  | NlogN probablistic guarantee fastest in practice |
 | 3-way-quick | x         |         | N^2/2 | 2NlgN   | N     | improves quicksort in presence of duplicate keys |
 | merge       |           | x       | NlgN  | NlgN    | NlgN  | NlogN guarantee, stable                          |
-| heap        |           |         | 2NlgN | 2NlgN   | NlgN  | NlgN guarantee, in-place                         |
+| heap        | x         |         | 2NlgN | 2NlgN   | NlgN  | NlgN guarantee, in-place                         |
 
 ## 2.1 Elementary Sort
 
