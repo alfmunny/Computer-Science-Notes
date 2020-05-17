@@ -5,9 +5,9 @@
 | selection   | x         |         | N^2/2 | N^2/2   | N^2/2 | N exchangesj                                     |
 | insertion   | x         | x       | N^2/2 | N^2/4   | N     | use for small N or partially ordered             |
 | shell       | x         |         | ?     | ?       | N     | tight code, subquadratic                         |
-| quick       | x         |         | N^2/2 | 2NlgN   | NlgN  | NlogN probablistic guarantee fastest in practice |
+| quick       | x         |         | N^2/2 | 2NlgN   | NlgN  | NlgN probablistic guarantee fastest in practice |
 | 3-way-quick | x         |         | N^2/2 | 2NlgN   | N     | improves quicksort in presence of duplicate keys |
-| merge       |           | x       | NlgN  | NlgN    | NlgN  | NlogN guarantee, stable                          |
+| merge       |           | x       | NlgN  | NlgN    | NlgN  | NlgN guarantee, stable                          |
 | heap        | x         |         | 2NlgN | 2NlgN   | NlgN  | NlgN guarantee, in-place                         |
 
 ## 2.1 Elementary Sort
