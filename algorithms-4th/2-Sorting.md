@@ -1,5 +1,14 @@
 # 2. Sorting
 
+|             | in-place? | stable? | worst | average | best  | remarks                                          |
+|----------- |--------- |------- |----- |------- |----- |------------------------------------------------ |
+| selection   | x         |         | N^2/2 | N^2/2   | N^2/2 | N exchangesj                                     |
+| insertion   | x         | x       | N^2/2 | N^2/4   | N     | use for small N or partially ordered             |
+| shell       | x         |         | ?     | ?       | N     | tight code, subquadratic                         |
+| quick       | x         |         | N^2/2 | 2NlgN   | NlgN  | NlogN probablistic guarantee fastest in practice |
+| 3-way-quick | x         |         | N^2/2 | 2NlgN   | N     | improves quicksort in presence of duplicate keys |
+| merge       |           | x       | NlgN  | NlgN    | NlgN  | NlogN guarantee, stable                          |
+| heap        |           |         | 2NlgN | 2NlgN   | NlgN  | NlgN guarantee, in-place                         |
 
 ## 2.1 Elementary Sort
 
@@ -24,6 +33,10 @@ public class Selection {
     }
 }
 ```
+
+Selection sort is not stable. It swaps the min value with the first element, which changes the order of the first element.
+
+> A sorting algorithm is said to be stable if two objects with equal keys appear in the same order in sorted output as they appear in the input array to be sorted.
 
 ### Insertion sort
 
