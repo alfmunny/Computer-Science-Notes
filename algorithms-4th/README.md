@@ -38,14 +38,14 @@ Start date: 12.May.2020
 
 End date: ...
 
-First Week: Sorting
+[First Week: Sorting](#First Week)
 
 - [X] Elementary Sorts
 - [X] Merge Sort
 - [X] Quick Sort
 - [X] Priority Queues
 
-Second Week: Searching
+[Second Week: Searching](#Second Week)
 
 - [ ] ~Symbol Tables~
 - [ ] Binary Search
@@ -119,6 +119,7 @@ Priority Queues
 2. Exercise
 
 ## Second Week
+
 ### Monday
 
 Binary Tree 
@@ -126,9 +127,15 @@ Binary Tree
 1. [Video content](https://www.coursera.org/lecture/algorithms-part1/symbol-table-api-7WFvG)
 2. Read the code and Implement
 
+### Tuesday
+
+Binary Tree 
+
+1. Implement it
+
 Additional content: [MIT: Binary Search Trees, BST sort](https://www.youtube.com/watch?v=9Jry5-82I68&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=5)
 
-### Tuesday
+### Wednesday
 
 2-3 Search Trees
 
@@ -137,14 +144,14 @@ Red-Black BST
 1. [Video content](https://www.coursera.org/lecture/algorithms-part1/2-3-search-trees-wIUNW)
 2. Read the code
 
-### Wednesday
+### Thursday
 
 1. (optional) B-Trees [Video content](https://www.coursera.org/lecture/algorithms-part1/2-3-search-trees-wIUNW)
 2. Read the Red-Black BST
 
 Additional content [MIT AVL Trees](https://www.youtube.com/watch?v=FNeL18KsWPc&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=7&t=155s)
 
-### Thursday
+### Friday
 
 Hash Table
 
@@ -153,15 +160,13 @@ Hash Table
 
 Additional content [MIT: Hashing with Chaining](https://www.youtube.com/watch?v=0M_kIqhwbFo&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=8)
 
-### Friday
-
 Hash Table
+
+### Saturday
 
 1. Implement the Separate Chaining Hash Table
 
 Additional content [MIT: Open Addressing, Cryptographic Hashing](https://www.youtube.com/watch?v=rvdJDijO2Ro&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=10)
-
-### Saturday
 
 Optional: [Symbol Table Applications](https://www.coursera.org/lecture/algorithms-part1/symbol-table-applications-sets-optional-ewcSx)
 
