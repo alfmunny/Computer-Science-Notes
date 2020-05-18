@@ -32,7 +32,7 @@ We assume you have already known most of it. A quick recap should help.
 4. Graphs
 5. Strings
 
-## Learning Progress (1/17)
+## Learning Progress (4/16)
 
 Start date: 12.May.2020
 
@@ -43,24 +43,24 @@ First Week: Sorting
 - [X] Elementary Sorts
 - [X] Merge Sort
 - [X] Quick Sort
-- [ ] Priority Queues
+- [X] Priority Queues
 
 Second Week: Searching
 
-- [ ] Symbol Tables 
+- [ ] ~Symbol Tables~
 - [ ] Binary Search
 - [ ] Balanced Search Trees
 - [ ] Hash Tables
 
 Third Week: Graphs
 
-- [ ] Undirected Graphs
+- [ ] Undirected Graphs (DFS, BFS)
 - [ ] Directed Graphs
 
 Forth Week: Graphs
 
-- [ ] Minimum Spanning Trees
-- [ ] Shortest Paths
+- [ ] Minimum Spanning Trees (Kruskal, Prim)
+- [ ] Shortest Paths (Djikstra)
 
 Fifth Week: Strings
 
@@ -120,11 +120,53 @@ Priority Queues
 
 ## Second Week
 ### Monday
+
+Binary Tree 
+
+1. [Video content](https://www.coursera.org/lecture/algorithms-part1/symbol-table-api-7WFvG)
+2. Read the code and Implement
+
+Additional content: [MIT: Binary Search Trees, BST sort](https://www.youtube.com/watch?v=9Jry5-82I68&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=5)
+
 ### Tuesday
+
+2-3 Search Trees
+
+Red-Black BST
+
+1. [Video content](https://www.coursera.org/lecture/algorithms-part1/2-3-search-trees-wIUNW)
+2. Read the code
+
 ### Wednesday
+
+1. (optional) B-Trees [Video content](https://www.coursera.org/lecture/algorithms-part1/2-3-search-trees-wIUNW)
+2. Read the Red-Black BST
+
+Additional content [MIT AVL Trees](https://www.youtube.com/watch?v=FNeL18KsWPc&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=7&t=155s)
+
 ### Thursday
+
+Hash Table
+
+1. [Video content](https://www.coursera.org/lecture/algorithms-part1/hash-tables-CMLqa)
+2. Read
+
+Additional content [MIT: Hashing with Chaining](https://www.youtube.com/watch?v=0M_kIqhwbFo&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=8)
+
 ### Friday
+
+Hash Table
+
+1. Implement the Separate Chaining Hash Table
+
+Additional content [MIT: Open Addressing, Cryptographic Hashing](https://www.youtube.com/watch?v=rvdJDijO2Ro&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=10)
+
 ### Saturday
+
+Optional: [Symbol Table Applications](https://www.coursera.org/lecture/algorithms-part1/symbol-table-applications-sets-optional-ewcSx)
+
+Summary
+
 ## Third Week
 ## Forth Week
 ## Fifth Week
