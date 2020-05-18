@@ -1,13 +1,3 @@
-# 3. Searching
-
-
-## 3.2 Binary Search Trees
-
-> A binary search tree (BST) is a binary tree where each node has a Comparable key (and an associated value) and satisfied the restriction that the key in any node is larger than the keys in all nodes in that node's left subtree and smaller than the keys in all nodes in that node's right subtree
-
-> size(x) = size(x.left) + size(x.right) + 1
-
-```java
 public class BST<Key extends Comparable<Key>, Value> {
     private Node root;
     private class Node {
@@ -58,8 +48,3 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
     }
 }
-```
-
-### Deletion
-
-TODO
