@@ -1,6 +1,10 @@
 # 3. Searching
 
 
+## 3.1 Symbol Tables
+
+TODO
+
 ## 3.2 Binary Search Trees
 
 > A binary search tree (BST) is a binary tree where each node has a Comparable key (and an associated value) and satisfied the restriction that the key in any node is larger than the keys in all nodes in that node's left subtree and smaller than the keys in all nodes in that node's right subtree
@@ -62,4 +66,48 @@ public class BST<Key extends Comparable<Key>, Value> {
 
 ### Deletion
 
-TODO
+**Delete Minimum**
+
+```java
+public void deleteMin() {
+    root = deleteMin(root);
+
+}
+private Node deleteMin(Node x) {
+    if (x.left == null) return x.right;
+    x.left = deleteMin(x.left);
+    x.N = size(x.left) + size(x.right) + 1;
+    return x;
+}
+```
+
+**Hibbard deletion**
+
+```java
+public void delete(Key key)
+{ root = delete(root, key); }
+
+private Node delete(Node x, Key key)
+{
+    if (x==null) return null;
+    int cmp = key.compareTo(x.key);
+    if (cmp < 0) x.left = delete(x.left, key);
+    else if (cmp > 0) x.right = delete(x.right, key);
+    else {
+        if (x.right == null) return x.left;
+        else if (x.left == null) return x.right;
+        Node t = x;
+        x = min(t.right);
+        x.right = deleteMin(t.right);
+        x.left = t.left;
+    }
+    x.N = size(x.left) + size(x.right) + 1;
+    return x;
+}
+```
+
+**Hibbard deletion** always align to the right side of the tree.
+
+With a large amount of deletion operation, the tree would become likely unbalanced.
+
+To optimize the BST we will consider another tree data structure in the next: Red-Black Tree.
