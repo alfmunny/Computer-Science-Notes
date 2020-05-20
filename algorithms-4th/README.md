@@ -28,7 +28,7 @@ We assume you have already known most of it. A quick recap should help.
 
 1. [Foundamentals](1-Foundamentals.md), [code](algs4/foundamentals)
 2. [Sorting](2-Sorting.md), [code](algs4/sorting)
-3. Searching
+3. [Searching](3-Searching.md), [code](algs4/searching)
 4. Graphs
 5. Strings
 
@@ -139,15 +139,15 @@ Additional content: [MIT: Binary Search Trees, BST sort](https://www.youtube.com
 
 2-3 Search Trees
 
-Red-Black BST
-
 1. [Video content](https://www.coursera.org/lecture/algorithms-part1/2-3-search-trees-wIUNW)
 2. Read the code
 
 ### Thursday
 
-1. (optional) B-Trees [Video content](https://www.coursera.org/lecture/algorithms-part1/2-3-search-trees-wIUNW)
-2. Read the Red-Black BST
+Red-Black BST
+1. [Video Content](https://www.coursera.org/lecture/algorithms-part1/red-black-bsts-GZe13)
+2. (optional) Implement Red-Black BST
+3. (optional) B-Trees [Video content](https://www.coursera.org/lecture/algorithms-part1/b-trees-optional-HIlHd)
 
 Additional content [MIT AVL Trees](https://www.youtube.com/watch?v=FNeL18KsWPc&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=7&t=155s)
 
