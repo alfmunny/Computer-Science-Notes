@@ -6,16 +6,49 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         Key key;
         Node left;
         Node right;
-        Value value;
+        Value val;
+        boolean color;
         int N;
+
+        public Node(Key key, Value val, int N, boolean color) {
+            this.key = key;
+            this.val = val; 
+            this.N = N;
+            this.color = color;
+        }
     }
 
-    private Node rotateLeft(Node h) {}
-    private Node rotateRight(Node h) {}
-    private Node flipColors(Node h) {}
-    private isRed(Node h) {
+    private boolean isRed(Node h) {
         if (h == null) return BLACK;
         return h.color == RED;
+    }
+
+    private Node rotateLeft(Node h) {
+        Node x = h.right;
+        h.right = x.left;
+        x.left = h;
+        x.color = h.color;
+        h.color = RED;
+        x.N = h.N;
+        h.N = 1 + size(h.right) + size(h.left);
+        return x;
+    }
+
+    private Node rotateRight(Node h) {
+        Node x = h.left;
+        h.left = x.right;
+        x.right = h;
+        x.color = h.color;
+        h.color = RED;
+        x.N = h.N;
+        h.N = 1 + size(h.left) + size(h.right);
+        return x;
+    }
+
+    private void flipColors(Node h) {
+        h.color = RED;
+        h.left.color = BLACK;
+        h.right.color = BLACK;
     }
 
     public void put(Key key, Value val) {
@@ -23,12 +56,14 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         root.color = BLACK;
     }
 
+    public int size(Node h) { return h.N; }
+
     public Node put(Node h, Key key, Value val) {
         if (h == null)
-            return new Node(Key, val, 1, RED);
+            return new Node(key, val, 1, RED);
 
-        it cmp = key.compareTo(h.key);
-        if (cmp < 0) return put(root.left, key. val);
+        int cmp = key.compareTo(h.key);
+        if (cmp < 0) return put(root.left, key, val);
         else if (cmp > 0) return put(root.right, key, val);
         else h.val = val;
 
@@ -38,5 +73,6 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
         h.N = 1 + size(h.right) + size(h.left);
 
-        return h
+        return h;
+    }
 }
