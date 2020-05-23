@@ -111,3 +111,92 @@ private Node delete(Node x, Key key)
 With a large amount of deletion operation, the tree would become likely unbalanced.
 
 To optimize the BST we will consider another tree data structure in the next: Red-Black Tree.
+
+## 3.3 Red-Black BST
+
+> 1.  Red links lean left
+> 2.  No node has two read links connected to it
+> 3.  The tree has perfect balck balance: every path from the root to a null link has the same number of black links.
+
+```java
+Node rotateLeft(Node h) {
+    Node x = h.right;
+    h.right = x.left;
+    x.left = h;
+    x.color = h.color;
+    h.color = RED;
+    x.N = h.N;
+    h.N = 1 + size(h.right) + size(h.left);
+    return x;
+}
+```
+
+```java
+Node rotateRight(Node h) {
+    Node x = h.left;
+    h.left = x.right;
+    x.right = h;
+    x.color = h.color;
+    h.color = RED;
+    x.N = h.N;
+    h.N = 1 + size(h.left) + size(h.right);
+    return x;
+}
+```
+
+```java
+void flipColors(Node h) {
+    h.color = RED;
+    h.left.color = BLACK;
+    h.right.color = BLACK;
+}
+```
+
+-   if the right child is red and the left child is black, rotate left;
+-   if both the left child and its left child are red, rotate left;
+-   if both children are red, flip colors;
+
+```java
+public class RedBlackBST<Key extends Comparable<Key>, Value> {
+    private static final boolean RED = true;
+    private static final boolean BLACK = false;
+    private Node root;
+    private class Node {
+        Key key;
+        Node left;
+        Node right;
+        Value value;
+        int N;
+    }
+
+    private Node rotateLeft(Node h) {}
+    private Node rotateRight(Node h) {}
+    private Node flipColors(Node h) {}
+    private isRed(Node h) {
+        if (h == null) return BLACK;
+        return h.color == RED;
+    }
+
+    public void put(Key key, Value val) {
+        root = put(root, key, val);
+        root.color = BLACK;
+    }
+
+    public Node put(Node h, Key key, Value val) {
+        if (h == null)
+            return new Node(Key, val, 1, RED);
+
+        it cmp = key.compareTo(h.key);
+        if (cmp < 0) return put(root.left, key. val);
+        else if (cmp > 0) return put(root.right, key, val);
+        else h.val = val;
+
+        if (!isRed(h.left) && isRed(h.right)) rotateLeft(h);
+        if (isRed(h.left) && isRed(h.left.left)) rotateRight(h);
+        if (isRed(h.left) && isRed(h.right)) flipColors(h);
+
+        h.N = 1 + size(h.right) + size(h.left);
+
+        return h
+}
+```
