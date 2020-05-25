@@ -186,6 +186,50 @@ Optional: [Symbol Table Applications](https://www.coursera.org/lecture/algorithm
 Summary
 
 ## Week 3
+
+### Monday
+
+Undirected Graph
+
+1. [Introduction to Graphs](https://www.coursera.org/lecture/algorithms-part2/introduction-to-graphs-dKTI4)
+2. [Graph API](https://www.coursera.org/lecture/algorithms-part2/graph-api-4ZE6G)
+3. [Depth-First Search](https://www.coursera.org/lecture/algorithms-part2/depth-first-search-mW9aG)
+
+### Tuesday
+
+Undirected Graph
+
+1. Implement Undirected Graph and DFS
+
+### Wednesday
+
+Undirected Graph
+1. [Breadth-First Search](https://www.coursera.org/lecture/algorithms-part2/breadth-first-search-DjaET)
+2. [Connected Components](https://www.coursera.org/lecture/algorithms-part2/connected-components-Dzl65)
+3. (optional)[Graph Challenges](https://www.coursera.org/lecture/algorithms-part2/graph-challenges-6kk3F)
+4. Implement BFS
+
+### Thursday
+
+Directed Graph
+
+1. [Digraph Search](https://www.coursera.org/lecture/algorithms-part2/introduction-to-digraphs-QKBnh)
+2. Implement digraph search
+
+### Friday
+
+Directed Graph
+
+1. [Topological Sort](https://www.coursera.org/lecture/algorithms-part2/topological-sort-RAMNS)
+2. Implement sort
+
+### Saturday
+
+Directed Graph
+
+1. [Strong Components](https://www.coursera.org/lecture/algorithms-part2/strong-components-fC5Yw)
+2. Implement strong components
+
 ## Week 4
 ## Week 5
 ## Week 6
