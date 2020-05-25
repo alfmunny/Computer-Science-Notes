@@ -32,48 +32,48 @@ We assume you have already known most of it. A quick recap should help.
 4. Graphs
 5. Strings
 
-## Learning Progress (4/16)
+## Learning Progress (8/18)
 
 Start date: 12.May.2020
 
 End date: ...
 
-[Week 0: Foundamentals](#Week 0)
+[Week 0: Foundamentals](#Week-0)
 
-- [ ] Stacks and Queues
+- [X] Stacks and Queues
 - [ ] Union-Find
 
-[Week 1: Sorting](#Week 1)
+[Week 1: Sorting](#Week-1)
 
 - [X] Elementary Sorts
 - [X] Merge Sort
 - [X] Quick Sort
 - [X] Priority Queues
 
-[Week 2: Searching](#Week 2)
+[Week 2: Searching](#Week-2)
 
 - [ ] ~Symbol Tables~
 - [X] Binary Search
-- [ ] Balanced Search Trees
-- [ ] Hash Tables
+- [X] Balanced Search Trees
+- [X] Hash Tables (Implementation missed)
 
-Third Week: Graphs
+[Week 3: Graphs](#Week-3)
 
 - [ ] Undirected Graphs (DFS, BFS)
 - [ ] Directed Graphs
 
-Forth Week: Graphs
+[Week 4: Graphs](#Week-4)
 
 - [ ] Minimum Spanning Trees (Kruskal, Prim)
 - [ ] Shortest Paths (Djikstra)
 
-Fifth Week: Strings
+[Week 5: Strings](#Week-5)
 
 - [ ] String sorts
 - [ ] Tries
 - [ ] Substring Search
  
-Sixth Week: Strings
+[Week 6: Strings](#Week-6)
 - [ ] Regular Expressions
 - [ ] Data Compression
 

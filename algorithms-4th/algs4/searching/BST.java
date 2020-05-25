@@ -119,6 +119,18 @@ public class BST<Key extends Comparable<Key>, Value> {
         else return x.key;
     }
 
+    public Key selectMe(int k) {
+        if (k < 1 && k > size(root)) return null;
+        return selectMe(root, k);
+    }
+
+    private Key selectMe(Node x, int k) {
+        if (x == null) return null;
+        if (size(x.left) < k - 1) return selectMe(x.right, k - size(x.left));
+        else if (size(x.left) > k - 1) return selectMe(x.left, k);
+        else return x.key;
+    }
+
     private void inorder(Node x) {
         if (x == null) return;
         inorder(x.left);
@@ -132,10 +144,12 @@ public class BST<Key extends Comparable<Key>, Value> {
         for (int i = 0; i < a.length; i++) { 
             bst.put(a[i], a[i]);
         }
-        bst.deleteMin();
+        //bst.deleteMin();
         bst.inorder();
-        StdOut.println(bst.select(2));
-        StdOut.println(bst.select(1));
-        StdOut.println(bst.select(0));
+        //StdOut.println(bst.select(2));
+        //StdOut.println(bst.select(1));
+        //StdOut.println(bst.select(0));
+        StdOut.println();
+        StdOut.println(bst.selectMe(1));
     }
 }
