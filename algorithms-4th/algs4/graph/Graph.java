@@ -1,6 +1,7 @@
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.Queue;
 
 public class Graph {
     private int V;
@@ -8,6 +9,7 @@ public class Graph {
     private Bag<Integer>[] adj;
     boolean[] marked;
     int[] path;
+    Queue<Integer> queue;
 
     public Graph(int v) {
         V = v;
@@ -81,11 +83,33 @@ public class Graph {
         }
     }
 
+    public void bfs(int v) {
+        marked = new boolean[V];
+        path = new int[V];
+        queue = new Queue<Integer>();
+
+        marked[v] = true;
+        queue.enqueue(v);
+
+        while (!queue.isEmpty()) {
+            int q = queue.dequeue();
+            for (int w : adj[q]) {
+                if (!marked[w]) {
+                    queue.enqueue(w);
+                    path[w] = q;
+                    marked[w] = true;
+                    StdOut.println(q + " -> " + w);
+                }
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
         In in = new In(args[0]);
         Graph graph = new Graph(in);
         StdOut.println(graph);
-        graph.dfs(0);
+        graph.bfs(0);
     }
 
 }
