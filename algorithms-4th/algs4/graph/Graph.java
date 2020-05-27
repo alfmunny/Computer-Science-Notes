@@ -7,9 +7,12 @@ public class Graph {
     private int V;
     private int E;
     private Bag<Integer>[] adj;
-    boolean[] marked;
-    int[] path;
-    Queue<Integer> queue;
+    private boolean[] marked;
+    private int[] path;
+    private Queue<Integer> queue;
+    private boolean hasCycle;
+    private boolean[] colors;
+    private boolean bipartite;
 
     public Graph(int v) {
         V = v;
@@ -104,12 +107,65 @@ public class Graph {
         }
     }
 
+    public boolean hasCycle() {
+        marked = new boolean[V];
+        path = new int[V];
+        for (int v = 0; v < V; v++) {
+            if (!marked[v]) dfsCycle(v, v);
+        }
+        return hasCycle;
+    }
+
+    private void dfsCycle(int v, int s) { 
+        marked[v] = true;
+        for (int w : adj[v]) {
+            if (!marked[w]) {
+                dfsCycle(w, v);
+            }
+            else if (w != s) hasCycle = true;
+        }
+    }
+
+    public boolean bipartite() {
+        marked = new boolean[V];
+        colors = new boolean[V];
+        bipartite = true;
+
+        for (int v = 0; v < V; v++) {
+            if (!marked[v]) {
+                dfsBipartite(v);
+            }
+        }
+        return bipartite;
+    }
+
+    private void dfsBipartite(int v) {
+        marked[v] = true;
+
+        for (int w : adj[v]) {
+            if (!marked[w]) {
+                colors[w] = !colors[v];
+                dfsBipartite(w);
+            }
+            else if (colors[w] == colors[v]) bipartite = false;
+        }
+    }
 
     public static void main(String[] args) {
         In in = new In(args[0]);
         Graph graph = new Graph(in);
         StdOut.println(graph);
         graph.bfs(0);
+        if (graph.hasCycle()) 
+        {
+            StdOut.println("Cycle Detected!");
+        }
+
+        if (graph.bipartite()) 
+        {
+            StdOut.println("Graph Bipartite!");
+        }
+
     }
 
 }
