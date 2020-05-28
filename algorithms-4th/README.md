@@ -32,7 +32,7 @@ We assume you have already known most of it. A quick recap should help.
 4. Graphs
 5. Strings
 
-## Learning Progress (8/18)
+## Learning Progress (9/18)
 
 Start date: 12.May.2020
 
@@ -59,7 +59,7 @@ End date: ...
 
 [Week 3: Graphs](#Week-3)
 
-- [ ] Undirected Graphs (DFS, BFS)
+- [X] Undirected Graphs (DFS, BFS)
 - [ ] Directed Graphs
 
 [Week 4: Graphs](#Week-4)
