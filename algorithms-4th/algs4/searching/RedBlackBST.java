@@ -67,8 +67,8 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         else if (cmp > 0) return put(root.right, key, val);
         else h.val = val;
 
-        if (!isRed(h.left) && isRed(h.right)) rotateLeft(h);
-        if (isRed(h.left) && isRed(h.left.left)) rotateRight(h);
+        if (!isRed(h.left) && isRed(h.right)) h = rotateLeft(h);
+        if (isRed(h.left) && isRed(h.left.left)) h = rotateRight(h);
         if (isRed(h.left) && isRed(h.right)) flipColors(h);
 
         h.N = 1 + size(h.right) + size(h.left);
