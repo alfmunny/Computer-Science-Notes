@@ -1,4 +1,4 @@
-# Graphs
+# 4. Graphs
 
 
 ## Undirected Graph
@@ -107,3 +107,157 @@ private void dfs(Graph G, int v) {
         if (!marked[w])
             dfs(G, w)
 ```
+
+## Directed Graph
+
+### Reachability
+
+The identical code with Graph changed to Digraph solves the analogous problem for digraphs: Single-source reachability
+
+Multi-source reachability:
+
+Given a digraph and a set of source vertices, is there a directed path from any vertex in the set to a given target vertex v.
+
+An import application of multiple-source reachability is found in typical memory management systems. A mark-and-weep garbage collection strategy reserves one bit per object for the purpose of gargage collection, then periodically marks the set of potentially accesible objects by running a digraph reachability.
+
+### Cycles and DAGs
+
+> A directed acylic graph is a digraph with no directed cycles
+
+Cycle Detect
+
+Use an onStack array to remember the trace of the cycle.
+
+```java
+public class DirectedCycle {
+    private boolean[] onStack;
+    private boolean[] marked;
+    private int[] edgeTo;
+    private Stack<Integer> cycle;
+
+    public DirectedCycle(Digraph G) {
+        onStack = new boolean[G.V()];
+        marked = new boolean[G.V()];
+        for (int v = 0; v < G.V(); v++) {
+            if (!marked[v]) dfs(G, v);
+        }
+    }
+
+    private void dfs(Digraph G, int v) {
+        onStack[v] = true;
+        marked[v] = true;
+
+        for (int w : G.adj(v)) {
+            if (this.hasCycle()) return;
+            else if (!marked[w]) {
+                edgeTo[w] = v;
+                dfs(G, w);
+            }
+            else if (onStack[v]) {
+                cycle = new Stack<Integer>();
+                for (int x = v; x != w; x = edgeTo[x]) {
+                    cycle.push(x);
+                }
+                cycle.push(w);
+                cycle.push(v);
+            }
+            onStack[v] = false;
+        }
+    }
+
+    public boolean hasCycle() {
+        return cycle != null;
+    }
+
+    public Iterable<Integer> cycle() {
+        return cycle;
+    }
+
+}
+```
+
+### Topogogical Sort
+
+> A digraph has topological order if and only if it is a DAG
+
+Three vertex orderings are of interest in typical applications
+
+1.  Preorder: Put the vertex on a queue before the recursive calls. (order of dfs calls)
+2.  Postorder: Put the vertex on a queue after the recursive calls. (order in which vertices are done)
+3.  Reverse postorder: Put the vertex on a stack after the recursive calls.
+
+```java
+private void dfs(Digraph G, int v) {
+  preorder.enqueue(v);
+  marked[v] = true;
+  for (int w : G.adj(v))
+      if (!marked[w])
+          dfs(G, w);
+  post.enqueue(v);
+  reversePost.push(v);
+}
+```
+
+> Reverse postorder in a DAG is a topological sort
+
+If the graph is a DAG, there is a reversed post order, which solves the job scheduling problem, otherwise, the order is null.
+
+```java
+public class Topological {
+    private Iterable<Integer> order;
+
+    public Topological(Digraph G) {
+        DirectedCycle cyclefinder = new DirectedCycle(G);
+        if (!cyclefinder.hasCycle()) {
+            DepthFirstOrder dfs = new DepthFirstOrder(G);
+            order = dfs.reversePost();
+        }
+    }
+}
+```
+
+> With DFS, we can topological sort a DAG in time proportional to V+E
+
+### Strong components
+
+> Definition. Two vertices v and w are strongly connected if they are mutually reachable: that is, if there is a directed path from v to w and directed path from w to v. A digraph is strongly connected if all its vertices are strongly connected to one another.
+
+**Kosaraju's algorithm**
+
+1.  GIven a digraph G, compute the reverse postorder of its reverse G\_R
+2.  Run a strandard DFS on G, but consider the unmarked vertices in reverse postorder
+3.  All vertices reach on a call to the outer dfs() are in a strong component
+
+```java
+public class KosarajuSCC {
+    private boolean[] marked;
+    private int[] id;
+    private int count;
+
+    public KosarajuSCC(Digraph G) {
+        marked = new boolean[G.V()];
+        id = new int[G.V()];
+        DepthFirstOrder order = new DepthFirstOrder(G.reverse());
+        for (int s : order.reversePost()) {
+            if (!marked[s]) {
+                dfs(G, s);
+                count++;
+            }
+        }
+    }
+
+    private void dfs(Digraph G, int v) {
+        marked[v] = true;
+        id[v] = count;
+        for (int w : G.adj(v))
+            if (!marked[w])
+                dfs(G, w)
+    }
+}
+```
+
+## Minimum Spanning Trees
+
+### Prim Algorithm
+
+### Kruskal Algorithm
