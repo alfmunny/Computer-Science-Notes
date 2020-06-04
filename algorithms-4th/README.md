@@ -32,7 +32,7 @@ We assume you have already known most of it. A quick recap should help.
 4. Graphs
 5. Strings
 
-## Learning Progress (9/18)
+## Learning Progress (10/18)
 
 Start date: 12.May.2020
 
@@ -60,7 +60,7 @@ End date: ...
 [Week 3: Graphs](#Week-3)
 
 - [X] Undirected Graphs (DFS, BFS)
-- [ ] Directed Graphs
+- [X] Directed Graphs
 
 [Week 4: Graphs](#Week-4)
 
@@ -231,5 +231,23 @@ Directed Graph
 2. Implement strong components
 
 ## Week 4
+
+### Monday - Wednesday
+
+Minimum Spanning Trees
+
+1. [Introduction to MSTs](https://www.coursera.org/lecture/algorithms-part2/introduction-to-msts-lEPxc)
+2. [Kruskal Algorithm](https://www.coursera.org/lecture/algorithms-part2/kruskals-algorithm-KMCRd)
+3. [Prim Algorithm](https://www.coursera.org/lecture/algorithms-part2/prims-algorithm-HoHKu)
+4. Implementation for Prim and Kruskal Algorithms
+
+### Thursday - Saturday
+
+1. [Shortest Path](https://www.coursera.org/lecture/algorithms-part2/shortest-paths-apis-e3UfD)
+1. [Single Source Shortest Path: Djikstra Algorithm](https://www.coursera.org/lecture/algorithms-part2/dijkstras-algorithm-2e9Ic)
+2. [All Pairs Shortest Path: Bellman-Ford Algorithm](https://www.coursera.org/lecture/algorithms-part2/negative-weights-PKCKQ)
+3. [Maxflow](https://www.coursera.org/lecture/algorithms-part2/introduction-to-maxflow-jZVUm)
+3. Implementation for for Djikstra and Bellman-Ford Algorithms
+
 ## Week 5
 ## Week 6
