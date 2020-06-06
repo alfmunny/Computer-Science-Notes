@@ -294,11 +294,11 @@ public class EdgeWeightedGraph {
 }
 ```
 
-### Prim Algorithm
+### Prim's Algorithm
 
-Start with any vertex as single-vertex tree; then add V-1 edges to it, always taking next the minimum-weight edge that connects a vertex on the tree to a vertex not yet on the tree.
+Start with any vertex as single-vertex tree; then add V-1 edges to it, always taking the next minimum-weight edge that connects a vertex on the tree to a vertex not yet on the tree.
 
-Data structures.
+Data structures:
 
 -   Vertices on the tree: we use a vertex-indexed boolean array `marked[]`
 -   Edges on the tree; We use on of two data structures: a queue `mst` to collect MST edges or a vertex-indexed array `edgeTo[]` of Edge objects.
@@ -350,7 +350,7 @@ public class LazyPrimMST {
 
 > The lazy version of Prim's algorithm uses extra space proportional to E and time proportional to ElogE to compute the MST fo a connected edge-weighted graph with E edges and V vertices
 
-\*Eager Version: only keep the smallest weight edge of a non-tree vertex
+**Eager Versionl**: only keep the smallest weight edge of a non-tree vertex
 
 ```java
 public class EagerPrimMST {
@@ -392,7 +392,7 @@ public class EagerPrimMST {
 
 > The eager version of Prim;s algorithm uses extra space proportional to V and time proportional to ElogV to compute the MST fo a connected edge-weighted graph with E edges and V vertices
 
-### Kruskal Algorithm
+### Kruskal's Algorithm
 
 Process the all the edges in order of their weight values, taking for the MST each edge taht does not fom a cycle with edges previously added, stopping after adding V - 1 edges have been taken.
 
@@ -431,6 +431,7 @@ Kruskal’s algorithm is generally slower than Prim’s algorithm because it has
 ### Summary
 
 | algorithm  | space | ttime |
+|---------- |----- |----- |
 | lazy Prim  | E     | ElogE |
 | eager Prim | E     | ElogV |
 | Kruskal    | E     | ElogE |

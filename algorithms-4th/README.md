@@ -64,7 +64,7 @@ End date: ...
 
 [Week 4: Graphs](#Week-4)
 
-- [ ] Minimum Spanning Trees (Kruskal, Prim)
+- [X] Minimum Spanning Trees (Kruskal's, Prim's)
 - [ ] Shortest Paths (Djikstra)
 
 [Week 5: Strings](#Week-5)
@@ -237,9 +237,9 @@ Directed Graph
 Minimum Spanning Trees
 
 1. [Introduction to MSTs](https://www.coursera.org/lecture/algorithms-part2/introduction-to-msts-lEPxc)
-2. [Kruskal Algorithm](https://www.coursera.org/lecture/algorithms-part2/kruskals-algorithm-KMCRd)
-3. [Prim Algorithm](https://www.coursera.org/lecture/algorithms-part2/prims-algorithm-HoHKu)
-4. Implementation for Prim and Kruskal Algorithms
+2. [Prim's Algorithm](https://www.coursera.org/lecture/algorithms-part2/prims-algorithm-HoHKu)
+3. [Kruskal's Algorithm](https://www.coursera.org/lecture/algorithms-part2/kruskals-algorithm-KMCRd)
+4. Implementation for Prim's and Kruskal's Algorithms
 
 ### Thursday - Saturday
 
