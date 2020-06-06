@@ -258,6 +258,185 @@ public class KosarajuSCC {
 
 ## Minimum Spanning Trees
 
+Given an undirected edgeweighted graph, find an MST.
+
+> Definition. Recall that a spanning tree of a graph is a connectec subgraph with no cycles that includes all the vertices. A minumum spanning tree (MST) of an edge-weighted graph is a spanninng tree whose weight is no larger than the weight of any other spanning tree.
+
+Assumptions:
+
+-   The graph is connected.
+-   The edge weights are not neccessarily distances.
+-   The edge weights may be zero or negative.
+-   The edge weights are all different. (The MST may not be unique. But the algorithms work without modification in the presence of equal weights)
+
+### Edge-weighted graph
+
+```java
+public class Edge implements Comparable<Edge> {
+    public double weight() {}
+    public int either() {}
+    public int other(int v) {}
+    int compareTo(Edge that) {}
+    String toString()
+}
+```
+
+```java
+public class EdgeWeightedGraph {
+    public EdgeWeightedGraph(int V) {}
+    public EdgeWeightedGraph(In in) {}
+    public int V() {}
+    public int E() {}
+    public void addEdge(Edge e) {}
+    public Iterable<Edge> adj(int v) {}
+    public ITerable<Edge> edges() {}
+    public String toString() {}
+}
+```
+
 ### Prim Algorithm
 
+Start with any vertex as single-vertex tree; then add V-1 edges to it, always taking next the minimum-weight edge that connects a vertex on the tree to a vertex not yet on the tree.
+
+Data structures.
+
+-   Vertices on the tree: we use a vertex-indexed boolean array `marked[]`
+-   Edges on the tree; We use on of two data structures: a queue `mst` to collect MST edges or a vertex-indexed array `edgeTo[]` of Edge objects.
+-   Crossing edges: We use a `MinPQ<Edge>` priority queue that compares edges by weight.
+
+**Lazy Version**: putting all of the incidet edges that are not ineligible onto the priority queue
+
+```java
+public class LazyPrimMST {
+    private boolean[] marked;
+    private Queue<Edge> mst;
+    private MinPQ<Edge> pq;
+    public LazyPrimMST(EdgeWeightedGraph G)
+    {
+        pq = new MinPQ<Edge>();
+        marked = new boolean[G.V()];
+        mst = new Queue<Edge>();
+        visit(G, 0);   // assumes G is connected (see Exercise 4.3.22)
+        while (!pq.isEmpty()) {
+            Edge e = pq.delMin();                  // Get lowest-weight
+            int v = e.either(), w = e.other(v);    //    edge from pq.
+            if (marked[v] && marked[w]) continue;  // Skip if ineligible.
+            mst.enqueue(e); // Add edge to tree.
+            if (!marked[v]) visit(G, v); // Add vertex to tree
+            if (!marked[w]) visit(G, w); //   (either v or w).
+        }
+    }
+
+    private void visit(EdgeWeightedGraph G, int v) {
+        // Mark v and add to pq all edges from v to unmarked vertices.
+        marked[v] = true;
+        for (Edge e : G.adj(v))
+            if (!marked[e.other(v)]) pq.insert(e);
+    }
+
+    public Iterable<Edge> edges() {
+        return mst;
+    }
+
+    public double weight() {
+        double w = 0.0;
+        for (Edge e : mst) {
+            w += e.weight();
+        }
+        return w;
+    }
+}
+```
+
+> The lazy version of Prim's algorithm uses extra space proportional to E and time proportional to ElogE to compute the MST fo a connected edge-weighted graph with E edges and V vertices
+
+\*Eager Version: only keep the smallest weight edge of a non-tree vertex
+
+```java
+public class EagerPrimMST {
+    private boolean[] marked;
+    private IndexMinPQ<Double> pq;
+    private double[] distTo;
+    private Edge[] edgeTo;
+
+    public EagerPrimMST(EdgeWeightedGraph G) {
+        edgeTo = new Edge[G.V()];
+        distTo = new double[G.V()];
+        for (int v = 0l v < G.V(); v++) {
+            distTo[v] = Double.POSTIVE_INFINITY;
+        }
+        pq = new IndexMinPQ<Double>(G.V());
+
+        distTo[0] = 0.0;
+        pq.insert(0, 0.0);
+        while (!pq.empty()) {
+            visit(G, pq.delMin());
+        }
+    }
+
+    private void visit(EdgeWeightedGraph G, int v) {
+        marked[v] = true;
+        for (Edge e : G.adj(v)) {
+            int w = e.other(v);
+            if (marked[w]) continue;
+            if (e.weight() < distTo[w]) {
+                distTo[w] = e.weight();
+                edgeTo[w] = e;
+                if (pq.contains(w)) pq.changeKey(w, e.weight());
+                else pq.insert(w, e.wieght());
+            }
+        }
+    }
+}
+```
+
+> The eager version of Prim;s algorithm uses extra space proportional to V and time proportional to ElogV to compute the MST fo a connected edge-weighted graph with E edges and V vertices
+
 ### Kruskal Algorithm
+
+Process the all the edges in order of their weight values, taking for the MST each edge taht does not fom a cycle with edges previously added, stopping after adding V - 1 edges have been taken.
+
+```java
+public class KruskalMST {
+    private Queue<Edge> mst;
+
+    public KruskalMST(EdgeWeightedGraph G) {
+        mst = new Queue<Edge>();
+        MinPQ<Edge> pq = new MinPQ<Edge>();
+        for (Edge e : G.edges()) {
+            pq.insert(e);
+        }
+
+        UF uf = new UF(G.V());
+
+        while (!pq.isEmpty() && mst.size() < G.V() - 1) { // stop early
+            Edge e = pq.delMin();
+            int v = e.either(), w = e.other(v);
+            if (uf.find(v) == uf.find(w)) continue;
+            uf.union(v, w);
+            mst.enqueue(e);
+        }
+    }
+
+    public Iterable<Edge> edges() {
+        return mst;
+    }
+}
+```
+
+> Kruskal’s algorithm uses space proportional to E and time proportional to E log E (in the worst case) to compute the MST of an edge-weighted connected graph with E edges and V vertices.
+
+Kruskal’s algorithm is generally slower than Prim’s algorithm because it has to do a connected() operation for each edge, in addition to the priority-queue operations that both algorithms do for each edge processed
+
+### Summary
+
+| algorithm  | space | ttime |
+| lazy Prim  | E     | ElogE |
+| eager Prim | E     | ElogV |
+| Kruskal    | E     | ElogE |
+
+> Do Prim's and Kruskal's algorithms work for directed graphs?
+> 
+> No. not at all. That is a more difficult graph-processing problem known as the minimum cost arborescence problem
+
+## Shortest Path
