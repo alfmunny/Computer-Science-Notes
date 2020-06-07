@@ -362,6 +362,7 @@ public class EagerPrimMST {
     public EagerPrimMST(EdgeWeightedGraph G) {
         edgeTo = new Edge[G.V()];
         distTo = new double[G.V()];
+        marked = new boolean[G.V()];
         for (int v = 0l v < G.V(); v++) {
             distTo[v] = Double.POSTIVE_INFINITY;
         }
@@ -441,3 +442,165 @@ Kruskal’s algorithm is generally slower than Prim’s algorithm because it has
 > No. not at all. That is a more difficult graph-processing problem known as the minimum cost arborescence problem
 
 ## Shortest Path
+
+> Definition. A shortest path from vertex s to vertex t in an edge-weighted digraph is a directed path from s to t with the property that no other such path has a lower weight.
+
+### Edge-weighted digraph data types
+
+```java
+public class DirectedEdge
+{
+    private final int v;
+    private final int w;
+    private final double weight;
+    public DirectedEdge(int v, int w, double weight) {
+        this.v = v;
+        this.w = w;
+        this.weight = weight;
+    }
+
+    public double weight() {  return weight;  }
+    public int from() {  return v;  }
+    public int to() {  return w;  }
+
+    public String toString() {
+        return String.format("%d->%d %.2f", v, w, weight);
+    }
+}
+```
+
+Edge relaxation
+
+```java
+private void relax(DirectedEdge e) {
+    int v = e.from(), w = e.to();
+    if (distTo[w] > distTo[v] + e.weight()) {
+        distTo[w] = distTo[v] + e.weight();
+        edgeTo[w] = e;
+    }
+}
+```
+
+### Dijkstra's Algorithm
+
+> Dijkstra’s algorithm solves the single-source shortest-paths prob- lem in edge-weighted digraphs with nonnegative weights.
+
+> Dijkstra’s algorithm uses extra space proportional to V and time proportional to E log V (in the worst case) to compute the SPT rooted at a given source in an edge-weighted digraph with E edges and V vertices.
+
+> The marked[] array is not needed, because the condition !marked[w] is equivalent to the condition that distTo[w] is infinite. In other words, switching to undirected graphs and edges and omitting the references to distTo[v] in the relax() code in Algorithm 4.9 gives an implementation of Algorithm 4.7, the eager version of Prim’s algorithm (!). Also, a lazy version of Dijkstra’s algorithm along the lines of LazyPrimMST (page 619) is not difficult to develop.
+
+```java
+public class DijkstraSP {
+    private DirectedEdge[] edgeTo;
+    private double[] distTo;
+    private IndexMinPQ<Double> pq;
+
+    public DijkstraSP(EdgeWeightedDigraph G, int s) {
+        edgeTo = new DirectedEdge[G.V()];
+        distTo = new double[G.V()];
+        pq = new IndexMinPQ<Double>(G.V());
+        for (int v = 0; v < G.V(); v++)
+            distTo[v] = Double.POSITIVE_INFINITY;
+        distTo[s] = 0.0;
+        pq.insert(s, 0.0);
+        while (!pq.isEmpty())
+            relax(G, pq.delMin());
+    }
+
+    private void relax(EdgeWeightedDigraph G, int v) {
+        for(DirectedEdge e : G.adj(v)) {
+            int w = e.to();
+            if (distTo[w] > distTo[v] + e.weight()) {
+                distTo[w] = distTo[v] + e.weight();
+                edgeTo[w] = e;
+                if (pq.contains(w)) pq.change(w, distTo[w]);
+                else                pq.insert(w, distTo[w]);
+            }
+        }
+    }
+
+    public double distTo(int v) {}
+    public boolean hasPathTo(int v) {}
+    public Iterable<Edge> pathTo(int v) {}
+}
+```
+
+### Acylic edge-weighted digraphs
+
+An algorithm for finding shortest paths that is simpler and faster than Dijkstra's algorithm for edge-weighted DAGs.
+
+-   Solves the single-source problem in linear time
+-   Handles negative edge weights
+-   Solves related problems, such as finding longest paths
+
+```java
+public class AcyclicSP {
+    private DirectedEdge[] edgeTo;
+    private double[] distTo;
+
+    public AcyclicSP(EdgeWeightedDigraph G, int s) {
+        edgeTo = new DirectedEdge[G.V()];
+        distTo = new double[G.V()];
+        for (int v = 0; v < G.V(); v++)
+            distTo[v] = Double.POSITIVE_INFINITY;
+        distTo[s] = 0.0;
+        Topological top = new Topological(G);
+        for (int v : top.order())
+            relax(G, v);
+    }
+
+    private void relax(EdgeWeightedDigraph G, int v) {}
+    public double distTo(int v) {}          // standard client query methods
+    public boolean hasPathTo(int v) {}      //   for SPT implementatations
+    public Iterable<Edge> pathTo(int v) {}
+}
+
+```
+
+### Bellman-Fold's Algorithm
+
+```java
+public class BellmanFordSP {
+    private double[] distTo;
+    private DirectedEdge[] edgeTo;
+    private boolean[] onQ;
+    private Queue<Integer> queue;
+    private int cost;
+    private Iterable<DirectedEdge> cycle;
+
+    public BellmanFordSP(EdgeWeightedDigraph G, int s) {
+        distTo = new double[G.V()];
+        edgeTo = new DirectedEdge[G.V()];
+        onQ = new boolean[G.V()];
+        queue = new Queue<Integer>();
+        for (int v = 0; v < G.V(); v++)
+            distTo[v] = Double.POSITIVE_INFINITY;
+        distTo[s] = 0.0;
+
+        queue.enqueue(s);
+        onQ[s] = true;
+        while (!queue.isEmpty() && !this.hasNegativeCycle()) {
+            int v = queue.dequeue();
+            onQ[v] = false;
+            relax(v);
+        }
+
+        private void relax(int v) {
+            for (DirectedEdge e : G.adj(v)) {
+                int w = e.to();
+                if (distTo[w] > distTo[v] + e.weight()) {
+                    distTo[w] = disTo[v] + e.weight();
+                    edgeTo[w] = e;
+                    if (!onQ[w]) {
+                        queue.enqueue(w);
+                        onQ[w] = true;
+                    }
+                }
+            }
+        }
+
+        private void findNegativeCycle() {}
+        public boolean hasNegativeCycle() {}
+        public Iterable<Edge> negativeCycle() {}
+}
+```
