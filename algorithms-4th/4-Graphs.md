@@ -584,23 +584,24 @@ public class BellmanFordSP {
             onQ[v] = false;
             relax(v);
         }
+    }
 
-        private void relax(int v) {
-            for (DirectedEdge e : G.adj(v)) {
-                int w = e.to();
-                if (distTo[w] > distTo[v] + e.weight()) {
-                    distTo[w] = disTo[v] + e.weight();
-                    edgeTo[w] = e;
-                    if (!onQ[w]) {
-                        queue.enqueue(w);
-                        onQ[w] = true;
-                    }
+    private void relax(int v) {
+        for (DirectedEdge e : G.adj(v)) {
+            int w = e.to();
+            if (distTo[w] > distTo[v] + e.weight()) {
+                distTo[w] = distTo[v] + e.weight();
+                edgeTo[w] = e;
+                if (!onQ[w]) {
+                    queue.enqueue(w);
+                    onQ[w] = true;
                 }
             }
         }
+    }
 
-        private void findNegativeCycle() {}
-        public boolean hasNegativeCycle() {}
-        public Iterable<Edge> negativeCycle() {}
+    private void findNegativeCycle() {}
+    public boolean hasNegativeCycle() {}
+    public Iterable<Edge> negativeCycle() {}
 }
 ```
