@@ -29,10 +29,11 @@ We assume you have already known most of it. A quick recap should help.
 1. [Foundamentals](1-Foundamentals.md), [code](algs4/foundamentals)
 2. [Sorting](2-Sorting.md), [code](algs4/sorting)
 3. [Searching](3-Searching.md), [code](algs4/searching)
-4. Graphs
-5. Strings
+4. [Graphs](4-Graphs.md), [code](algs4/graphs)
+5. [Strings](5-Strings.md), [code](algs4/strings)
+6. [Context](6-Context.md)
 
-## Learning Progress (10/18)
+## Learning Progress (12/21)
 
 Start date: 12.May.2020
 
@@ -65,7 +66,7 @@ End date: ...
 [Week 4: Graphs](#Week-4)
 
 - [X] Minimum Spanning Trees (Kruskal's, Prim's)
-- [ ] Shortest Paths (Djikstra)
+- [X] Shortest Paths (Djikstra's, Bellman-Ford's)
 
 [Week 5: Strings](#Week-5)
 
@@ -73,9 +74,18 @@ End date: ...
 - [ ] Tries
 - [ ] Substring Search
  
-[Week 6: Strings](#Week-6)
+[Week 6: Strings and Context](#Week-6)
+
+Strings
+
 - [ ] Regular Expressions
 - [ ] Data Compression
+
+Context 
+
+- [ ] Reductions
+- [ ] Linear Programming
+- [ ] Intractability (P vs. NP, NP-Completeness)
 
 ## Week 0
 
@@ -236,18 +246,98 @@ Directed Graph
 
 Minimum Spanning Trees
 
-1. [Introduction to MSTs](https://www.coursera.org/lecture/algorithms-part2/introduction-to-msts-lEPxc)
-2. [Prim's Algorithm](https://www.coursera.org/lecture/algorithms-part2/prims-algorithm-HoHKu)
-3. [Kruskal's Algorithm](https://www.coursera.org/lecture/algorithms-part2/kruskals-algorithm-KMCRd)
+1. Introduction to MSTs [Video](https://www.coursera.org/lecture/algorithms-part2/introduction-to-msts-lEPxc)
+2. Prim's Algorithm [Video](https://www.coursera.org/lecture/algorithms-part2/prims-algorithm-HoHKu)
+3. Kruskal's Algorithm [Video](https://www.coursera.org/lecture/algorithms-part2/kruskals-algorithm-KMCRd)
 4. Implementation for Prim's and Kruskal's Algorithms
 
 ### Thursday - Saturday
 
-1. [Shortest Path](https://www.coursera.org/lecture/algorithms-part2/shortest-paths-apis-e3UfD)
-1. [Single Source Shortest Path: Djikstra Algorithm](https://www.coursera.org/lecture/algorithms-part2/dijkstras-algorithm-2e9Ic)
-2. [All Pairs Shortest Path: Bellman-Ford Algorithm](https://www.coursera.org/lecture/algorithms-part2/negative-weights-PKCKQ)
-3. [Maxflow](https://www.coursera.org/lecture/algorithms-part2/introduction-to-maxflow-jZVUm)
+1. Shortest Path [Video](https://www.coursera.org/lecture/algorithms-part2/shortest-paths-apis-e3UfD)
+1. Single Source Shortest Path: Djikstra Algorithm [Video](https://www.coursera.org/lecture/algorithms-part2/dijkstras-algorithm-2e9Ic)
+2. Negative Weighted Digraph: Bellman-Ford Algorithm [Video](https://www.coursera.org/lecture/algorithms-part2/negative-weights-PKCKQ)
+3. Maxflow [Video](https://www.coursera.org/lecture/algorithms-part2/introduction-to-maxflow-jZVUm)
 3. Implementation for for Djikstra and Bellman-Ford Algorithms
 
 ## Week 5
+
+### Monday - Wednesday
+
+Strings Sorts
+
+1. Strings in Java [Video](https://www.coursera.org/lecture/algorithms-part2/strings-in-java-vGHvb)
+2. Radix Sort [Video](https://www.coursera.org/lecture/algorithms-part2/key-indexed-counting-2pi1Z)
+3. Suffix Array [Video](https://www.coursera.org/lecture/algorithms-part2/suffix-arrays-TH18W)
+4. Implement Radix Sort 
+
+### Thursday
+
+Tries
+
+1. R-Way Tries [Video](https://www.coursera.org/lecture/algorithms-part2/r-way-tries-CPVdr)
+2. Ternary Search Tries [Video](https://www.coursera.org/lecture/algorithms-part2/ternary-search-tries-yQM8K)
+3. Implement Tries
+
+### Friday - Saturday
+
+Substring Search
+
+1. Introduction [Video](https://www.coursera.org/lecture/algorithms-part2/introduction-to-substring-search-n3ZpG)
+2. Knuth-Morris-Pratt [Video](https://www.coursera.org/learn/algorithms-part2/lecture/TAtDr/knuth-morris-pratt)
+3. Boyer-Moore [Video](https://www.coursera.org/lecture/algorithms-part2/boyer-moore-CYxOT)
+4. Rabin-Karp [Video](https://www.coursera.org/lecture/algorithms-part2/rabin-karp-3KiqT)
+
 ## Week 6
+
+### Monday
+
+Regular Expressions
+
+1. Regular Expressions [Video](https://www.coursera.org/learn/algorithms-part2/lecture/go3D7/regular-expressions)
+2. NFAs [Video](https://www.coursera.org/learn/algorithms-part2/lecture/go3D7/regular-expressions)
+
+
+### Tuesday
+
+Regular Expressions
+
+1. NFA Simulation [Video](https://www.coursera.org/lecture/algorithms-part2/nfa-simulation-oBemg)
+2. NFA Construction [Video](https://www.coursera.org/lecture/algorithms-part2/nfa-construction-CPhIB)
+
+### Wednesday
+
+Regular Expressions
+
+1. Regular Expressions Applications [Video](https://www.coursera.org/lecture/algorithms-part2/regular-expression-applications-7RfPB)
+2. Implement NFA
+
+### Thursday
+
+Data Compression
+
+1. Introduction to Data Compression [Video](https://www.coursera.org/learn/algorithms-part2/lecture/OtmHU/introduction-to-data-compression)
+2. Run-Length-Coding [Video](https://www.coursera.org/lecture/algorithms-part2/introduction-to-data-compression-OtmHU)
+
+### Friday
+
+Data Compression
+
+1. Huffman Compression [Video](https://www.coursera.org/lecture/algorithms-part2/huffman-compression-6Hzrx)
+2. LZW Compression [Video](https://www.coursera.org/lecture/algorithms-part2/lzw-compression-lQ4b0)
+3. Implement Huffman Compression and LZW Compression
+
+### Saturday
+
+Context
+
+1. Reductions [Videp](https://www.coursera.org/lecture/algorithms-part2/introduction-to-reductions-oLAm2)
+2. Linear Programming [Video](https://www.coursera.org/lecture/algorithms-part2/brewers-problem-qcFRy)
+
+### Sunday
+
+Context
+
+1. P vs. NP [Video](https://www.coursera.org/lecture/algorithms-part2/p-vs-np-rN2J6)
+2. NP Completeness [Video](https://www.coursera.org/learn/algorithms-part2/lecture/c28Sw/np-completeness)
+
+
