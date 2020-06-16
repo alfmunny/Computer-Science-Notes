@@ -24,17 +24,13 @@ public class MSD {
 
         for (int i = lo; i <= hi; i++)
             count[charAt(a[i], d)+2]++;
-        for (int r = 0; r < R+1; r++) {
+        for (int r = 0; r < R+1; r++)
             count[r+1] += count[r];
-        }
-
-        for (int i = 0; i <= hi; i++) {
+        for (int i = 0; i <= hi; i++)
             aux[count[charAt(a[i], d)+1]++] = a[i];
-        }
-
         for (int i = lo; i <= hi; i++)
             a[i] = aux[i - lo];
-
         for (int r = 0; r < R; r++)
-            sort(a, lo+count[r], lo+count[r+1], d+1)
+            sort(a, lo+count[r], lo+count[r+1], d+1);
+    }
 }

@@ -104,22 +104,30 @@ public class MSD {
 
         for (int i = lo; i <= hi; i++)
             count[charAt(a[i], d)+2]++;
-        for (int r = 0; r < R+1; r++) {
+        for (int r = 0; r < R+1; r++)
             count[r+1] += count[r];
-        }
-
-        for (int i = 0; i <= hi; i++) {
+        for (int i = 0; i <= hi; i++)
             aux[count[charAt(a[i], d)+1]++] = a[i];
-        }
-
         for (int i = lo; i <= hi; i++)
             a[i] = aux[i - lo];
-
         for (int r = 0; r < R; r++)
-            sort(a, lo+count[r], lo+count[r+1], d+1)
+            sort(a, lo+count[r], lo+count[r+1], d+1);
+    }
 }
 
 ```
+
+> To sort N strings taken from an R-character alphabet, the amount of space needed by MSD string sort is proportional to R times the length of the longest string (plus N), in the worst case.
+
+| algorithm              | stable? | inplace? | running time        |
+|---------------------- |------- |-------- |------------------- |
+| insertion sort         | yes     | yes      | between N and N^2   |
+| quicksort              | no      | yes      | NlogN               |
+| mergesort              | yes     | no       | NlogN               |
+| 3-way quicksort        | no      | yes      | between N and NlogN |
+| LSD string sort        | yes     | no       | NW                  |
+| MSD string sort        | yes     | no       | between N and NW    |
+| 3-way string quicksort | no      | yes      | between N and NW    |
 
 ## Tries
 
