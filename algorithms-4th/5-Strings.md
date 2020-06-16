@@ -131,6 +131,62 @@ public class MSD {
 
 ## Tries
 
+**Search in a trie**
+
+> -   The value at the node corresponding to the last character in the key is not null (as in the searches for shells and she depicted at left above). This result is a search hit—the value associated with the key is the value in the node corre- sponding to its last character.
+> 
+> -   The value in the node corresponding to the last character in the key is null (as in the search for shell depicted at top right above). This result is a search miss: the key is not in the table.
+> 
+> -   The search terminated with a null link (as in the search for shore depicted at bottom right above). This result is also a search miss.
+
+```java
+public class TrieST<Value> {
+    private static int R = 256;
+    private Node root;
+
+    private static class Node {
+        private Object val;
+        private Node[] next = new Node[R];
+    }
+
+    public Value get(String key) {
+        Node x = get(root, key, 0);
+        if (x == null) return null;
+        return (Value) x.val;
+    }
+
+    private Node get(Node x, String key, int d) {
+        if (x == null) return null;
+        if (d == key.length()) return x;
+        char c = key.charAt(d);
+        return get(x.next[c], key, d+1);
+    }
+
+    public void put(String key, Value val) {
+        root = put(root, key, val, 0);
+    }
+
+    private Node put(Node x, String key, Value val, int d) {
+        if (x == null) x = new Node();
+        if (d == key.lenght()) { x.val = val; return x; }
+        char c = key.charAt(d);
+        x.next[c] = put(x.next[c], key, val, d+1);
+        return x;
+    }
+}
+
+```
+
+### Ternary search tries (TSTs)
+
+TST avoids the excessive space cost associated with R-way tries
+
+> In a TST, each node has a character, three links, and a value. The three links correspond to keys whose current characters are less than, equal to, or greater than the node’s character.
+
+```java
+
+```
+
 ## Substring Search
 
 ## Data Compression
