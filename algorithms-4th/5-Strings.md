@@ -189,4 +189,108 @@ TST avoids the excessive space cost associated with R-way tries
 
 ## Substring Search
 
+Brute-force backing up text.
+
+If i and j point to mismatching characters, then we back up both pointers: j to point to the beginning of the pattern and i to correspond to moving the pattern to the right one position
+
+```java
+public static int search(String pat, String txt) {
+    for (i = 0, j = 0; i < N && j < M; i++) {
+        if (txt.charAt(i) == pat.charAt(j)) j++;
+        else { i -= j; j = 0; }
+    }
+
+    if (j == M) return i - M;
+    else return N;
+}
+```
+
+### KMP
+
+Knuth-Morris-Pratt substring search.
+
+The basic idea:
+
+> Whenever we detect a mismatch, we already know some of the characters in the text. We can take advantage of this information to void backing up the text pointer over all those known characters.
+
+**Backing up the pattern pointer**. We use an array dfs[][] to record how far to back up the pattern pointer j when a mismatch is detected.
+
+**KMP search method**. Once we have computed the dfa[][] array: when i and j point to mismatching characters, set j to dfs[txt.charAt(i)][j] and increment i.
+
+```java
+public int search(String txt) {
+    int i, j, N = txt.length();
+    for (i = 0, j = 0; i < N && j < M)
+        j = dfs[txt.charAt(i)][j];
+    if (j == M) return i - M;
+    else return N;
+}
+```
+
+**DFA simulation**. A useful way to describe this process is in terms of a deterministic finite-state automaton (DFA).
+
+**Constructing the DFA** Remarkably, to construct the dfa[][] array is to use DFA itself. When we have a mismatch at pat.charAt(j), our interest is in knowing in what state the DFA would be if we were to back up the text index and rescan the text characters that we just saw after shifting to the right one position. (It's like, we have treat the pattern as the text, when we have a mismatch, we want to move to the next position of the text, and use the DFA to find the pattern from there. As we have already construct the DFA before position j, we can use it to match the pattern until j-1)
+
+The crucial detail to the computation is to observe that maintaining the restart position X.
+
+For each j:
+
+-   Copies dfs[][X] to dfa[][j] (for mismatch cases)
+-   Sets dfa[pat.charAt(j)][j] to j+1 (for match case)
+-   Updates X
+
+```java
+public void construct() {
+    dfa[pat.charAt(0)][0] = 1;
+    for (int X = 0, j = 1; j < M; j++) {
+        for (int c = 0; c < R; c++)
+            dfa[c][j] = dfa[c][X];
+        dfa[pat.charAt(j)][j] = j+1;
+        X = dfa[pat.charAt(j)][X];
+}
+```
+
+```java
+public class KMP {
+    private String pat;
+    private int[][] dfa;
+
+    public KMP(String pat) {
+        this.pat = pat;
+        int M = pat.length();
+        int R = 256;
+
+        dfa = new int[R][M];
+        dfa[pat.charAt(0)][0] = 1;
+        for (int X = 0, j = 1; j < M; j++) {
+            for (int c = 0; c < R; c++)
+                dfa[c][j] = dfa[c][X];
+            dfa[pat.charAt(j)][j] = j+1;
+            X = dfa[pat.charAt(j)][X];
+        }
+    }
+
+    public int search(String txt) {
+        int i, j, N = txt.length(), M = pat.length();
+        for (i = 0, j = 0; i < N && j < M; i++)
+            j = dfa[txt.charAt(i)][j];
+
+        if (j == M) return i - M;
+        else return N;
+    }
+
+    public static void main(Stirng[] arg) {
+        String pat = args[0];
+        String txt = args[1];
+        KMP kmp = new KMP(pat);
+        StdOut.println("text:     " + txt);
+        int offset = kmp.search(txt);
+        StdOut.print("pattern: ");
+        for (int i = 0; i < offset; i++)
+            StdOut.print(" ");
+        StdOut.println(pat);
+    }
+}
+```
+
 ## Data Compression
