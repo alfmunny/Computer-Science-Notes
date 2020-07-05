@@ -293,4 +293,102 @@ public class KMP {
 }
 ```
 
+### Boyer-Moore
+
+### Rabin-Karp
+
+## Regular Expression
+
+**Nonedeterministic finite-state automata**
+
+The characteristic of DFA that makes it easy to simulate is that it is deterministic: each state transition is completely determined by the next character in the text.
+
+To handle regular expressions:
+
+1.  because of or operation, the automaton cannot determine wether or not the pattern could occur at a given point examining just one character
+2.  because of closure, it cannot even determine how many characters might need to be examined before a mismatch is discovered.
+
+To be able to guess the next state, we make sure that we check all possible sequences of state transitions, so if there is one that gets to the accept state, we will find it.
+
+So it is nondeterministic.
+
+**Simulation an NFA** Computing multiple-source reachability in a diagraph.
+
+> Determining whether an N-character text string is recognized by the NFA corresponding to an M-character RE takes time proportional to NM in the worst case.
+
+**Building an DFA corresponding to an RE**
+
+-   Concatenation
+-   Parenthese
+    -   push index of each left parenthesis on the stack.
+    -   each time we encounter a right parenthesis, we eventually pop the corresponding left parenthesis from the stack.
+-   Closure
+    -   after a single character
+    -   after a right parenthesis
+-   Or expression
+    -   one from ( to first character of B
+    -   one from | to )
+
+```java
+public class NFA {
+    private char[] re;
+    private Digraph G;
+    private int M;
+
+    public NFA(String regexp) {
+        Stack<Integer> ops = new Stack<Integer>();
+        re = regexp.toCharArray();
+        M = re.length;
+        G = new Digraph(M+1);
+
+        for (int i = 0; i < M; i++) {
+            int lp = i;
+            if (re[i] == '(' || re[i] == '|')
+                ops.push(i);
+            else if (re[i] == ')') {
+                int or = ops.pop();
+                if (re[or] == '|') {
+                    lp = ops.pop();
+                    G.addEdge(lp, or+1);
+                    G.addEdge(or, i);
+                }
+                else lp = or;
+            }
+            if (i < M-1 && re[i+1] == '*') {
+                G.addEdge(lp, i+1);
+                G.addEdge(i+1, lp);
+            }
+            if (re[i] == '(' || re[i] == '*' || re[i] == ')')
+                G.addEdge(i, i+1);
+        }
+    }
+
+    public boolean recognizes(String txt) {
+        Bag<Integer> pc = new Bag<Integer>();
+        DirectedDFS dfs = new DirectedDFS(G, 0);
+        for (int v = 0; v < G.V(); v++)
+            if (dfs.marked(v)) pc.add(v);
+
+        for (int i = 0; i < txt.length(); i++) {
+            Bag<Integer> match = new Bag<Integer>();
+            for (int v : pc) {
+                if (v < M) {
+                    if (re[v] == txt.charAt(i) || re[v] == '.') {
+                            match.add(v+1);
+                       }
+                }
+            }
+            pc = new Bag<Integer>();
+            dfs = new DirectedDFS(G, match);
+            for (int v = 0; v < G.V(); v++) {
+                if (dfs.marked(v)) pc.add(v);
+            }
+        }
+        for (int v : pc) if (v == M) return true;
+        return false;
+    }
+}
+
+```
+
 ## Data Compression
