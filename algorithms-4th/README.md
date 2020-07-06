@@ -33,7 +33,7 @@ We assume you have already known most of it. A quick recap should help.
 5. [Strings](5-Strings.md), [code](algs4/strings)
 6. [Context](6-Context.md)
 
-## Learning Progress (17/21)
+## Learning Progress (18/21)
 
 Start date: 12.May.2020
 
@@ -79,7 +79,7 @@ End date: ...
 Strings
 
 - [X] Regular Expressions
-- [ ] Data Compression
+- [X] Data Compression
 
 Context 
 
