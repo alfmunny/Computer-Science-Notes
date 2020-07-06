@@ -33,7 +33,7 @@ We assume you have already known most of it. A quick recap should help.
 5. [Strings](5-Strings.md), [code](algs4/strings)
 6. [Context](6-Context.md)
 
-## Learning Progress (12/21)
+## Learning Progress (17/21)
 
 Start date: 12.May.2020
 
@@ -70,15 +70,15 @@ End date: ...
 
 [Week 5: Strings](#Week-5)
 
-- [ ] String sorts
-- [ ] Tries
-- [ ] Substring Search
+- [X] String sorts
+- [X] Tries
+- [X] Substring Search
  
 [Week 6: Strings and Context](#Week-6)
 
 Strings
 
-- [ ] Regular Expressions
+- [X] Regular Expressions
 - [ ] Data Compression
 
 Context 
