@@ -39,6 +39,8 @@ Start date: 12.May.2020
 
 End date: 5.July.2020
 
+7 Weeks
+
 [Week 0: Foundamentals](#Week-0)
 
 - [X] Stacks and Queues
