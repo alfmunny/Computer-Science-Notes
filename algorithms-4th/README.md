@@ -33,11 +33,11 @@ We assume you have already known most of it. A quick recap should help.
 5. [Strings](5-Strings.md), [code](algs4/strings)
 6. [Context](6-Context.md)
 
-## Learning Progress (18/21)
+## Learning Progress (20/21)
 
 Start date: 12.May.2020
 
-End date: ...
+End date: 5.July.2020
 
 [Week 0: Foundamentals](#Week-0)
 
@@ -72,20 +72,21 @@ End date: ...
 
 - [X] String sorts
 - [X] Tries
-- [X] Substring Search
  
-[Week 6: Strings and Context](#Week-6)
+[Week 6: Strings](#Week-6)
+
+- [X] Substring Search
+- [X] Regular Expressions
+
+[Week 7: Context](#Week-7)
 
 Strings
-
-- [X] Regular Expressions
-- [X] Data Compression
+- [X] Data Compression (Huffman Compression and LZW Compression)
 
 Context 
-
-- [ ] Reductions
-- [ ] Linear Programming
-- [ ] Intractability (P vs. NP, NP-Completeness)
+- [X] Reductions
+- [X] Linear Programming
+- [X] Intractability (P vs. NP, NP-Completeness)
 
 ## Week 0
 
@@ -270,7 +271,7 @@ Strings Sorts
 3. Suffix Array [Video](https://www.coursera.org/lecture/algorithms-part2/suffix-arrays-TH18W)
 4. Implement Radix Sort 
 
-### Thursday
+### Thursday - Saturday
 
 Tries
 
@@ -278,7 +279,9 @@ Tries
 2. Ternary Search Tries [Video](https://www.coursera.org/lecture/algorithms-part2/ternary-search-tries-yQM8K)
 3. Implement Tries
 
-### Friday - Saturday
+## Week 6
+
+### Monday - Wednesday
 
 Substring Search
 
@@ -286,58 +289,49 @@ Substring Search
 2. Knuth-Morris-Pratt [Video](https://www.coursera.org/learn/algorithms-part2/lecture/TAtDr/knuth-morris-pratt)
 3. Boyer-Moore [Video](https://www.coursera.org/lecture/algorithms-part2/boyer-moore-CYxOT)
 4. Rabin-Karp [Video](https://www.coursera.org/lecture/algorithms-part2/rabin-karp-3KiqT)
+5. Implement KMP
 
-## Week 6
-
-### Monday
+### Thursday
 
 Regular Expressions
 
 1. Regular Expressions [Video](https://www.coursera.org/learn/algorithms-part2/lecture/go3D7/regular-expressions)
 2. NFAs [Video](https://www.coursera.org/learn/algorithms-part2/lecture/go3D7/regular-expressions)
+3. NFA Simulation [Video](https://www.coursera.org/lecture/algorithms-part2/nfa-simulation-oBemg)
+4. NFA Construction [Video](https://www.coursera.org/lecture/algorithms-part2/nfa-construction-CPhIB)
+5. Regular Expressions Applications [Video](https://www.coursera.org/lecture/algorithms-part2/regular-expression-applications-7RfPB)
+6. Implement NFA
 
+## Week 7
 
-### Tuesday
-
-Regular Expressions
-
-1. NFA Simulation [Video](https://www.coursera.org/lecture/algorithms-part2/nfa-simulation-oBemg)
-2. NFA Construction [Video](https://www.coursera.org/lecture/algorithms-part2/nfa-construction-CPhIB)
-
-### Wednesday
-
-Regular Expressions
-
-1. Regular Expressions Applications [Video](https://www.coursera.org/lecture/algorithms-part2/regular-expression-applications-7RfPB)
-2. Implement NFA
-
-### Thursday
+### Monday
 
 Data Compression
 
 1. Introduction to Data Compression [Video](https://www.coursera.org/learn/algorithms-part2/lecture/OtmHU/introduction-to-data-compression)
 2. Run-Length-Coding [Video](https://www.coursera.org/lecture/algorithms-part2/introduction-to-data-compression-OtmHU)
 
-### Friday
+### Tuesday
 
 Data Compression
 
 1. Huffman Compression [Video](https://www.coursera.org/lecture/algorithms-part2/huffman-compression-6Hzrx)
-2. LZW Compression [Video](https://www.coursera.org/lecture/algorithms-part2/lzw-compression-lQ4b0)
-3. Implement Huffman Compression and LZW Compression
+2. Implement Huffman Compression
 
-### Saturday
+### Wednesday
+1. LZW Compression [Video](https://www.coursera.org/lecture/algorithms-part2/lzw-compression-lQ4b0)
+2. Implement LZW Compression
+
+### Thursday
 
 Context
 
 1. Reductions [Videp](https://www.coursera.org/lecture/algorithms-part2/introduction-to-reductions-oLAm2)
 2. Linear Programming [Video](https://www.coursera.org/lecture/algorithms-part2/brewers-problem-qcFRy)
 
-### Sunday
+### Friday
 
 Context
 
 1. P vs. NP [Video](https://www.coursera.org/lecture/algorithms-part2/p-vs-np-rN2J6)
 2. NP Completeness [Video](https://www.coursera.org/learn/algorithms-part2/lecture/c28Sw/np-completeness)
-
-
