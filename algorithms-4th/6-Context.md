@@ -32,3 +32,8 @@ Virtually no one believes that P = NP, and a considerable amount of effort has g
 > A search problem is said to be NP-complete if all problems in NP poly-time reduce to A.
 
 To prove that a search problem is in P, we need to exhibit a polynomial-time algorithm for solving it, perhaps by reducing it to a problem known to be in P. To prove that a problem in NP is NP-complete, we need to show that some known NP-complete problem is poly-time reducible to it: that is, that a polynomial- time algorithm for the new problem could be used to solve the NP-complete problem, and then could, in turn, be used to solve all problems in NP.
+
+Useful resources:
+
+1.  <https://www.youtube.com/watch?v=e2cF8a5aAhE>
+2.  <https://www.youtube.com/watch?v=moPtwq_cVH8>
