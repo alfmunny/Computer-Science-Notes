@@ -392,3 +392,214 @@ public class NFA {
 ```
 
 ## Data Compression
+
+### Huffman Compression
+
+We use fewer characters that appear often than for those appear rarely.
+
+ABRACADABRA! Encoding it in 7-bit ASCII gives:
+
+> 1000001 1000010 1010010 1000001 1000011 1000001 1000100 1000001 1000010 1010010 1000001 0100001
+
+To decodethis bistring, we simply read off 7 bits at a time and convert according to the ASCII coding table.
+
+In this standard code the D, which appears only once, requires the same number of bits as the A, which appears five times.
+
+Huffmann compression is based on the idea that we can save bits by encoding frequently used characters with fewer bits than rarely used characters, thereby lowering the total number of bits used.
+
+**variable-length prefix-free codes**:
+
+Prefix-free is to avoid ambiguity, so that we don't have to use seperator between the encode.
+
+Encode
+
+A with 0, B with 11111, C with 110, D with 100, R with 1110, and ! with 101.
+
+> 011111110011001000111111100101
+
+All prefix-free codes are uniquely decodable.
+
+**Trie representation for prefix-free codes**:
+
+Any trie with M null links defines a prefix-free code for M characters. The general method for finding the optimal prefix-free code is Huffman encoding.
+
+**Trie nodes**
+
+-   Trie Node
+-   Expansion
+-   Writing and reading the trie
+-   Trie construction
+-   Compression
+
+```java
+public class Huffman {
+    private static final int R = 256;
+    private static class Node implements Comparable<Node> {
+        private char ch;
+        private int freq;
+        private final Node left, right;
+
+        Node(char ch, int freq, Node left, Node right) {
+            this.ch = ch;
+            this.freq = freq;
+            this.left = left;
+            this.right = right;
+        }
+
+        public boolean isLeaf() {
+            return left == null && right == null;
+        }
+
+        public int compareTo(Node that) {
+            return this.freq - that.freq;
+        }
+    }
+
+    public static void expand() {
+        Node root = readTrie();
+        int N = BinaryStdIn.readInt();
+
+        for (int i = 0; i < N; i++) {
+            Node x = root;
+            while (!x.lsLeaf()) {
+                if (BinaryStdIn.readBoolean())
+                    x = x.right;
+                else
+                    x = x.left;
+            }
+            BinaryStdOut.write(x.ch, 8);
+        }
+        BinaryStdOut.close();
+    }
+
+    private static Node buildTrie(int[] freq) {
+        MinPQ<Node> pq = new MinPQ<Node>();
+        for (char c = 0; c < R; c++)
+            if (freq[c] > 0)
+                pq.insert(new Node(c, freq[c], null, null));
+
+        while (pq.size() > 1) {
+            Node x = pq.delMin();
+            Node y = pq.delMin();
+            Node parent = new Node('\0', x.freq + y.freq, x, y);
+            pq.insert(parent);
+        }
+    }
+
+    private static String[] buildCode(Node root) {
+        String[] st = new String[R];
+        buildCode(st, root, "");
+        return st;
+    }
+
+    private static void buildCode(String[] st, Node x, String s) {
+        if (x.isLeaf()) {
+            st[x.ch] = s;
+            return;
+        }
+        buildCode(st, x.left, s + '0');
+        buildCode(st, x.right, s + '1');
+    }
+
+    private static void writeTrie(Node x) {
+        if (x.isLeaf()) {
+            BinaryStdOut.write(true);
+            BinaryStdOut.write(x.ch);
+            return;
+        }
+        BinaryStdOut.write(false);
+        writeTrie(x.left);
+        writeTrie(x.right);
+    }
+
+    private static Node readTrie() {
+        if (BinaryStdIn.readBoolean())
+            return new Node(BinaryStdIn.readChar(), 0, null, null);
+        return new Node('\0', )
+            }
+
+    public static void compress() {
+        String s = BinaryStdIn.readString();
+        char[] input = s.toCharArray();
+
+        int[] freq = new int[R];
+
+        for (int i = 0; i < input.length; i++) {
+            freq[input[i]]++;
+        }
+
+        Node root = buildTrie(freq);
+
+        String[] st= new String[R];
+        buildCode(st, root, "");
+        writeTrie(root);
+
+        BinaryStdOut.write(input.length);
+
+        for (int i = 0; i < input.length; i++) {
+            String code = st[input[i]];
+            for (int j = 0; j < code.length(); j++) {
+                if (code.charAt(j) == '1')
+                    BinaryStdOut.write(true);
+                else BinaryStdOut.write(false);
+            }
+        }
+        BinaryStdOut.close();
+    }
+}
+```
+
+### LZW Compression
+
+Progressively learn und update model as you read text.
+
+```java
+public class LZW {
+    private static final int R = 256;
+    private static final int L = 4096;
+    private static final int W = 12;
+
+    public static void compress() {
+        String input = BinaryStdIn.readString();
+        TST<Integer> st = new TST<Integer>();
+
+        for (int i = 0; i < R; i++)
+            st.put("" +(char) i, i);
+        int code = R+1;
+        while (input.length() > 0) {
+            String s = st.longestPrefixOf(input);
+            BinaryStdOut.write(st.get(s), w);
+            int t = s.length();
+            if  (t < input.length() && code < L)
+                st.put(input.substring(0, t + 1), code++);
+            input = input.substring(t);
+        }
+        BinaryStdOut.write(R, W);
+        BinaryStdOut.close();
+    }
+
+    public static void expand() {
+        String[] st = new String[L];
+        int i;
+        for (i = 0; i < R; i++)
+            st[i] = "" + (char) i;
+
+        st[i++] = " ";
+
+        int codeword = BinaryStdIn.readInt(W);
+        String val = st[codeword];
+        while (true) {
+            BinaryStdOut.write(val);
+            codeword = BinaryStdIn.readInt(W);
+            if (codeword == R) break;
+            String s = st[codeword];
+            if (i == codeword)
+                s = val + val.charAt(0);
+            if (i < L)
+                st[i++] = val + s.charAt(0);
+            val = s;
+        }
+        BinaryStdOut.close();
+    }
+}
+```
