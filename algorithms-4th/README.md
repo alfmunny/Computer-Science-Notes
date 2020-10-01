@@ -1,5 +1,7 @@
 # Notes on Algorithms 4th
 
+[The book](https://www.amazon.de/-/en/Robert-Sedgewick/dp/032157351X/ref=sr_1_6?dchild=1&keywords=algorithms+4th&qid=1601583080&sr=8-6)
+
 Online Content:
 - [Algorithm, 4th Edition](https://algs4.cs.princeton.edu/home/)
 - Algorithms Part 1: [Video on Coursera](https://www.coursera.org/learn/algorithms-part1)
