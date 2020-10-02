@@ -4,3 +4,9 @@
 [submodule "metaprogramming-ruby"]
 	path = metaprogramming-ruby
 	url = https://github.com/alfmunny/notes-metaprogramming-ruby.git
+[submodule "Hands-On-Machine-Learning"]
+	path = Hands-On-Machine-Learning
+	url = https://github.com/alfmunny/Hands-On-Machine-Learning
+[submodule "Dive-into-DL-Pytorch"]
+	path = Dive-into-DL-Pytorch
+	url = https://github.com/alfmunny/DiveIntoDLPyTorch
