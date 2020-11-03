@@ -1,4 +1,4 @@
-# Fluent Python
+# Notes on Fluent Python
 
 Resources:
 
