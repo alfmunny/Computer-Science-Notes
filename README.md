@@ -26,5 +26,5 @@ Computer Systems [0/1]:
 
 Machine Learning [0/2]:
 
-1. [Hands on Machine Learning](https://github.com/alfmunny/Hands-On-Machine-Learning/) :construction: work in progress 20%
+1. [Hands on Machine Learning](https://github.com/alfmunny/Hands-On-Machine-Learning/) :construction: work in progress 50%
 2. [Dive into Deep Learning Pytorch](https://github.com/alfmunny/DiveIntoDLPyTorch/)
