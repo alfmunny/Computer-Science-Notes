@@ -1,24 +1,12 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+---
+title: Fluent Python - Chapter 2. An Array of Sequences
+date: 2020-05-02 20:00:00
+categories:
+- [Book Notes, Fluent Python]
+tags:
+- Python
 
-- [Chapter 2: An Array of Sequences](#chapter-2-an-array-of-sequences)
-  - [List Comprehensions and Generator Expressions](#list-comprehensions-and-generator-expressions)
-  - [Tuples Ate Not Just Immutable Lists](#tuples-ate-not-just-immutable-lists)
-    - [Tuple as Records](#tuple-as-records)
-    - [Tuple Unpacking](#tuple-unpacking)
-    - [Nested Tuple Unpacking](#nested-tuple-unpacking)
-    - [Named Tuples](#named-tuples)
-    - [Tuple as Immutable Lists](#tuple-as-immutable-lists)
-  - [Slicing](#slicing)
-  - [Using + and \* with Sequences](#using--and-%5C-with-sequences)
-  - [Augmented Assignment with Sequences](#augmented-assignment-with-sequences)
-  - [Managing Ordered Sequences with bisect](#managing-ordered-sequences-with-bisect)
-  - [When a List is Not the Answer](#when-a-list-is-not-the-answer)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# Chapter 2: An Array of Sequences
+---
 
 Container sequences: can hold different types. They contain references to the objects.
 
@@ -38,8 +26,6 @@ Immutable sequences:
 
 > tuple, str, bytes
 
-## List Comprehensions and Generator Expressions
-
 **Readability**
 
 List comprehension is meant to do one thing only: to build a new list. It is possible to abuse it to write very incomprehensible code, you should avoid it.
@@ -50,9 +36,7 @@ codes = [ord(symbol) for symbol in symbols]
 codes
 ```
 
-```python
-[36, 162, 163, 165, 8364, 164]
-```
+    [36, 162, 163, 165, 8364, 164]
 
 No leak in Python 3
 
@@ -62,17 +46,13 @@ dummy = [ord(x) for x in x]
 x
 ```
 
-```python
-ABC
-```
+    'ABC'
 
 ```python
 dummy
 ```
 
-```python
-[65, 66, 67]
-```
+    [65, 66, 67]
 
 **Versus map and filter**
 
@@ -81,18 +61,14 @@ beyond_ascii = [ord(s) for s in symbols if ord(s) > 127]
 beyond_ascii
 ```
 
-```python
-[162, 163, 165, 8364, 164]
-```
+    [162, 163, 165, 8364, 164]
 
 ```python
 beyond_ascii = list(filter(lambda c: c > 127, map(ord, symbols)))
 beyond_ascii
 ```
 
-```python
-[162, 163, 165, 8364, 164]
-```
+    [162, 163, 165, 8364, 164]
 
 **Cartesian Products**
 
@@ -105,9 +81,12 @@ tshirts = [(color, size) for color in colors for size in sizes]
 tshirts
 ```
 
-```python
-[('black', 'S'), ('black', 'M'), ('black', 'L'), ('white', 'S'), ('white', 'M'), ('white', 'L')]
-```
+    [('black', 'S'),
+     ('black', 'M'),
+     ('black', 'L'),
+     ('white', 'S'),
+     ('white', 'M'),
+     ('white', 'L')]
 
 We can also arrange them by size
 
@@ -118,9 +97,12 @@ tshirts = [(color, size) for size in sizes for color in colors]
 tshirts
 ```
 
-```python
-[('black', 'S'), ('white', 'S'), ('black', 'M'), ('white', 'M'), ('black', 'L'), ('white', 'L')]
-```
+    [('black', 'S'),
+     ('white', 'S'),
+     ('black', 'M'),
+     ('white', 'M'),
+     ('black', 'L'),
+     ('white', 'L')]
 
 **Generator Expressions** To initialize tuples, arrays, and other tyoes of sequences, you can use Generator Expressions (genexps).
 
@@ -133,9 +115,7 @@ symobls = '$¢£¥€¤'
 tuple(ord(symbol) for symbol in symbols)
 ```
 
-```python
-(36, 162, 163, 165, 8364, 164)
-```
+    (36, 162, 163, 165, 8364, 164)
 
 If you have millions of items, only to feed the loop, genexp can save the expense of building a list for that.
 
@@ -146,23 +126,17 @@ for tshirt in ('%s %s' % (c, s) for c in colors for s in sizes):
     print(tshirt)
 ```
 
-```python
-black S
-black M
-black L
-white S
-white M
-white L
-```
-
-## Tuples Ate Not Just Immutable Lists
+    black S
+    black M
+    black L
+    white S
+    white M
+    white L
 
 Tuples do double duty:
 
 1.  immutable lists
 2.  as records with no field names
-
-### Tuple as Records
 
 ```python
 lax_coordinates = (33.9425, -118.408056)
@@ -172,24 +146,18 @@ for passport in sorted(traveler_ids):
     print("%s/%s" % passport)
 ```
 
-```python
-BRA/CE342567
-ESP/XDA205856
-USA/31195855
-```
+    BRA/CE342567
+    ESP/XDA205856
+    USA/31195855
 
 ```python
 for country, _ in traveler_ids:
     print(country)
 ```
 
-```python
-USA
-BRA
-ESP
-```
-
-### Tuple Unpacking
+    USA
+    BRA
+    ESP
 
 **parallel assignment**
 
@@ -199,17 +167,13 @@ latitude, longitude = lax_coordinates
 latitude
 ```
 
-```python
-33.9425
-```
+    33.9425
 
 ```python
 longitude
 ```
 
-```python
--118.408056
-```
+    -118.408056
 
 **swap**
 
@@ -220,43 +184,31 @@ b, a = a, b
 print(a, b)
 ```
 
-```python
-2 1
-```
+    2 1
 
 **Prefixing an argument with a start**
 
 ```python
-divmod(20, 8)
+divmod(20, 8) 
 ```
 
-```python
-(2, 4)
-```
+    (2, 4)
 
 ```python
 t = (20, 8)
 divmod(*t)
 ```
 
-```python
-(2, 4)
-```
+    (2, 4)
 
 ```python
 quotient, remainder = divmod(*t)
 quotient, remainder
 ```
 
-```python
-(2, 4)
-```
+    (2, 4)
 
 **Focus on certain part**
-
-```python
-
-```
 
 ```python
 import os
@@ -264,9 +216,7 @@ _, filename = os.path.split('/home/luciano/.ssh/idrsa.pub')
 filename
 ```
 
-```python
-idrsa.pub
-```
+    'idrsa.pub'
 
 **Using \* to grab excess items**
 
@@ -278,26 +228,18 @@ a, b, rest
 ```
 
 ```python
-(0, 1, [2])
-```
-
-```python
 a, b, *rest = range(5)
 a, b, rest
 ```
 
-```python
-(0, 1, [2, 3, 4])
-```
+    (0, 1, [2, 3, 4])
 
 ```python
 a,  b, *rest = range(3)
 a, b, rest
 ```
 
-```python
-(0, 1, [2])
-```
+    (0, 1, [2])
 
 Any place
 
@@ -306,20 +248,14 @@ a, *body, c, d = range(5)
 a, body, c, d
 ```
 
-```python
-(0, [1, 2], 3, 4)
-```
+    (0, [1, 2], 3, 4)
 
 ```python
 *head, b, c, d = range(5)
 head, b, c, d
 ```
 
-```python
-([0, 1], 2, 3, 4)
-```
-
-### Nested Tuple Unpacking
+    ([0, 1], 2, 3, 4)
 
 Unpacking nested tuple, like (a, b, (c, d))
 
@@ -345,8 +281,6 @@ for name, cc, pop, (latitude, longitude) in metro_areas:
     New York-Newark |   40.8086 |  -74.0204
     Sao Paulo       |  -23.5478 |  -46.6358
 
-### Named Tuples
-
 ```python
 from collections import namedtuple
 City = namedtuple('City', 'name country population coordinates')
@@ -354,25 +288,19 @@ tokyo = City('Tokyo', 'JP', 36.933, (35.689722, 139.691667))
 tokyo
 ```
 
-```python
-City(name='Tokyo', country='JP', population=36.933, coordinates=(35.689722, 139.691667))
-```
+    City(name='Tokyo', country='JP', population=36.933, coordinates=(35.689722, 139.691667))
 
 ```python
 tokyo.population
 ```
 
-```python
-36.933
-```
+    36.933
 
 ```python
 tokyo.coordinates
 ```
 
-```python
-(35.689722, 139.691667)
-```
+    (35.689722, 139.691667)
 
 Named tuple attributes
 
@@ -380,9 +308,7 @@ Named tuple attributes
 City._fields
 ```
 
-```python
-('name', 'country', 'population', 'coordinates')
-```
+    ('name', 'country', 'population', 'coordinates')
 
 ```python
 LatLong = namedtuple('LatLong', 'lat long')
@@ -391,9 +317,10 @@ delhi = City._make(delhi_data)
 delhi._asdict()
 ```
 
-```python
-OrderedDict([('name', 'Delhi NCR'), ('country', 'IN'), ('population', 21.935), ('coordinates', LatLong(lat=28.613889, long=77.208889))])
-```
+    {'coordinates': LatLong(lat=28.613889, long=77.208889),
+     'country': 'IN',
+     'name': 'Delhi NCR',
+     'population': 21.935}
 
 You can also use \*.
 
@@ -402,24 +329,10 @@ delhi = City(*delhi_data)
 delhi
 ```
 
-```python
-City(name='Delhi NCR', country='IN', population=21.935, coordinates=LatLong(lat=28.613889, long=77.208889))
-```
-
-### Tuple as Immutable Lists
+    City(name='Delhi NCR', country='IN', population=21.935, coordinates=LatLong(lat=28.613889, long=77.208889))
 
 Tuple supports all list methods that do not involve adding or removing items, like
 
 > s.\_\_iadd\_\_, s.\_\_append\_\_. s.clear(), s.copy(), s.\_\_delitem\_\_, s.\_\_insert\_\_, s.\_\_imul\_\_, s.\_\_reversed\_\_()
 
 reversed(tuple) works without s.\_\_reversed\_\_. (list has it only for optimization)
-
-## Slicing
-
-## Using + and \* with Sequences
-
-## Augmented Assignment with Sequences
-
-## Managing Ordered Sequences with bisect
-
-## When a List is Not the Answer
