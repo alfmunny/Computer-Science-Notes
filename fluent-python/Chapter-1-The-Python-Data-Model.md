@@ -9,6 +9,8 @@ tags:
 
 You can think of the data model as a description of Python as a framework. It formalizes the interfaces of the building blocks of the language itself, such as sequences, iterators, functions, classes, context managers, and so on.
 
+## A Pythonic Card Deck
+
 Special methods: `__getitem__` and `__len__`.
 
 ```python
@@ -145,11 +147,15 @@ for card in sorted(deck, key=spades_high):
     Card(rank='2', suit='hearts')
     ...
 
+## How Special Methods Are Used
+
 Special methods are meant to be called by Python intepreter, and not by you. You don't write `my_object.__len__()`. You write len(my\_object) and, then Python calls the `__len__` instance method you implemented.
 
 `i in x:` invocates `iter(x)`, which in turn may call `x.__iter()` if that is available.
 
 It is usually bette to call the relted built-in function, len, iter, str, etc. These built-ins call the corresponding special method.
+
+### Emulatin Numeric Types
 
 ```python
 from math import hypot
@@ -209,6 +215,8 @@ bool(v)
 
     True
 
+### String Representation
+
 Use %r to obtain the standard representation
 
 `str()` will call `__repr__` as a fallback, if `__str__` is not available.
@@ -217,11 +225,17 @@ Use %r to obtain the standard representation
 
 `__str__` is to be readable.
 
+### Arithmetic Operators
+
 `__add__` and `__mul__` return new instance, not touching either operand.
+
+### Boolean Value of a Custom Type
 
 Here we return the magnitude of the vector.
 
 `bool(x)` calls `x.__bool__()`. If `x.__bool__()` is not implemented, call `x.__len__()`, zero returns False. Otherwise bool returns True.
+
+## Overview of Special Methods
 
 Table 1-1. Special method names (operators excluded)
 
@@ -247,9 +261,11 @@ Table 1-2. Special method names for operators
 | Arithmeric operators                      | \_\_add\_\_+, <span class="underline"><span class="underline">sub</span></span>-, \_\_mul\_\_\*, \_\_truediv\_\_/, \_\_floordiv\_\_//, \_\_mod\_\_%, \_\_divmod\_\_divmod() \_\_pow\_\_\*\* or pow(), \_\_round\_\_round()                                                                                                                                                                                                                                                                                            |
 | Reversed arithmeric operators             | \_\_radd\_\_, <span class="underline"><span class="underline">rsub</span></span>, <span class="underline"><span class="underline">rmul</span></span>, <span class="underline"><span class="underline">rtruediv</span></span>, <span class="underline"><span class="underline">rfloordiv</span></span>, <span class="underline"><span class="underline">rmode</span></span>, <span class="underline"><span class="underline">rdivmod</span></span>, <span class="underline"><span class="underline">rpow</span></span> |
 | Augmented assignment arithmeric operators | \_\_iadd\_\_, <span class="underline"><span class="underline">isub</span></span>, <span class="underline"><span class="underline">imul</span></span>, <span class="underline"><span class="underline">itrediv</span></span>, <span class="underline"><span class="underline">ifloordiv</span></span>, <span class="underline"><span class="underline">imod</span></span>, <span class="underline"><span class="underline">ipow</span></span>                                                                          |
-| Bitwise operators                         | \_\_invert\_\_~, <span class="underline"><span class="underline">lshift\_\_<a id="org71a38d8"></a>, \_\_and\_\_&, \_\_or</span></span>, \_\_xor\_\_^                                                                                                                                                                                                                                                                                                                                                                  |
+| Bitwise operators                         | \_\_invert\_\_~, <span class="underline"><span class="underline">lshift\_\_<a id="orgb3e5d32"></a>, \_\_and\_\_&, \_\_or</span></span>, \_\_xor\_\_^                                                                                                                                                                                                                                                                                                                                                                  |
 | Reversed Bitwise operators                | \_\_rlshift\_\_, <span class="underline"><span class="underline">rrshift</span></span>, <span class="underline"><span class="underline">rand</span></span>, <span class="underline"><span class="underline">ror</span></span>, <span class="underline"><span class="underline">rxor</span></span>                                                                                                                                                                                                                     |
 | Augmented Bitwise operators               | \_\_ilshift\_\_, <span class="underline"><span class="underline">irshift</span></span>, <span class="underline"><span class="underline">iand</span></span>, <span class="underline"><span class="underline">ior</span></span>, <span class="underline"><span class="underline">ixor</span></span>                                                                                                                                                                                                                     |
+
+## Why len Is Not a Method
 
 > "The Zen of Python": "Practicality beats purity"
 
