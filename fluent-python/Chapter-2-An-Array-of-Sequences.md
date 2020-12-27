@@ -336,3 +336,66 @@ Tuple supports all list methods that do not involve adding or removing items, li
 > s.\_\_iadd\_\_, s.\_\_append\_\_. s.clear(), s.copy(), s.\_\_delitem\_\_, s.\_\_insert\_\_, s.\_\_imul\_\_, s.\_\_reversed\_\_()
 
 reversed(tuple) works without s.\_\_reversed\_\_. (list has it only for optimization)
+
+s[a:b:c]: a to b with a c stride.
+
+```python
+s = 'bicycle'
+s[::3]
+```
+
+    'bye'
+
+```python
+s[::-1]
+```
+
+    'elcycib'
+
+```python
+s[::-2]
+```
+
+    'eccb'
+
+```python
+l = list(range(10))
+l
+```
+
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+```python
+l[2:5] = [20, 30]
+l
+```
+
+    [0, 1, 20, 30, 5, 6, 7, 8, 9]
+
+```python
+del l[5:7]
+l
+```
+
+    [0, 1, 20, 30, 5, 8, 9]
+
+```python
+l[3::2] = [11, 22]
+l
+```
+
+    [0, 1, 20, 11, 5, 22, 9]
+
+The value must be a iterable
+
+```python
+l[2:5] = 100
+l
+```
+
+```python
+l[2:5] = [100]
+l
+```
+
+    [0, 1, 100, 22, 9]
