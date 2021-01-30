@@ -15,11 +15,11 @@ Currently working on: [Hands on Machine Learning](https://github.com/alfmunny/Ha
 
 ## Programming Languages [0/5]:
 
-1. [SCIP](./sicp) :construction: work in progress 10%
+1. [Structure and Interpretation of Computer Programs (SICP)](./structure-and-interpretation-of-computer-programs) :construction: work in progress 10%
 2. [Fluent Python](./fluent-python)
 3. [Metaprogramming Ruby](https://github.com/alfmunny/notes-metaprogramming-ruby) :ballot_box_with_check: 50%
 4. [Understanding Computation](./Understanding-Computation)
-5. [Modern Effective C++](./modern-effective-c++)
+5. [More Effective C++](./more-effective-c++)
 
 ## Computer Systems [0/1]:
 
