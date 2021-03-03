@@ -13,17 +13,30 @@ Currently working on: [Hands on Machine Learning](https://github.com/alfmunny/Ha
 3. [Cracking the Coding Interview](cracking-the-coding-interview)
 4. [Data Structures and Algorithms in Java](data-structures-and-algorithms-in-java)
 
-## Programming Languages [0/5]:
+## Programming Languages [0/7]:
 
-1. [Structure and Interpretation of Computer Programs (SICP)](./structure-and-interpretation-of-computer-programs) :construction: work in progress 10%
-2. [Fluent Python](./fluent-python)
+1. [Structure and Interpretation of Computer Programs (SICP)](./structure-and-interpretation-of-computer-programs) :construction: work in progress 20%
+2. [Fluent Python](./fluent-python) work in progress 20%
 3. [Metaprogramming Ruby](https://github.com/alfmunny/notes-metaprogramming-ruby) :ballot_box_with_check: 50%
 4. [Understanding Computation](./Understanding-Computation)
-5. [More Effective C++](./more-effective-c++)
+5. [Effective C++](./effective-c++) work in progress 10%
+6. [More Effective C++](./more-effective-c++)
+7. [Effective Modern C++](./effective-modern-c++)
 
-## Computer Systems [0/1]:
+## Computer Systems [0/3]:
 
-1. [Computer Systems, A Programmer's Perspective](./computer-systems) :soon: coming next
+1. [Assembly](./assembly) work in progress 10%
+2. [Computer Systems, A Programmer's Perspective](./computer-systems) :soon: coming next
+3. [Opearting Systems: Three Easy Pieces]()
+
+## Computer Networks [0/1]:
+
+1. [Computer Networking: A Top-Down Approach](./Computer-Networking-A-Top-Down-Approach)
+
+## Compilers [0/2]
+
+1. [Crafting Interpreters](./Crafting-Interpreters)
+2. [Wrting An Interpreter In Go](./Wrting-An-Interpreter-In-Go)
 
 ## Machine Learning [0/2]:
 
