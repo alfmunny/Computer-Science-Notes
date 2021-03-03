@@ -12,6 +12,7 @@ Currently working on: [Hands on Machine Learning](https://github.com/alfmunny/Ha
 2. [ACM Challenge](acm-challenge)
 3. [Cracking the Coding Interview](cracking-the-coding-interview)
 4. [Data Structures and Algorithms in Java](data-structures-and-algorithms-in-java)
+5. [Introduction to Algorithms](Introduction-to-Algorithms)
 
 ## Programming Languages [0/7]:
 
@@ -36,7 +37,11 @@ Currently working on: [Hands on Machine Learning](https://github.com/alfmunny/Ha
 ## Compilers [0/2]
 
 1. [Crafting Interpreters](./Crafting-Interpreters)
-2. [Wrting An Interpreter In Go](./Wrting-An-Interpreter-In-Go)
+2. [Writing An Interpreter In Go](./Writing-An-Interpreter-In-Go)
+
+## Distributed Systems
+
+## Databases
 
 ## Machine Learning [0/2]:
 
