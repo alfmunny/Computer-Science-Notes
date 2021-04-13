@@ -28,7 +28,7 @@ Currently working on: [Hands on Machine Learning](https://github.com/alfmunny/Ha
 
 1. [Assembly](./assembly) work in progress 10%
 2. [Computer Systems, A Programmer's Perspective](./computer-systems) :soon: coming next
-3. [Opearting Systems: Three Easy Pieces]()
+3. [Opearting Systems: Three Easy Pieces](./Operating-Systems-Three-Easy-Steps)
 
 ## Computer Networks [0/1]:
 
