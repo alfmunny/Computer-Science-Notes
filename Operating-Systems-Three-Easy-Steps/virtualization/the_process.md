@@ -64,22 +64,21 @@
     ./process-run.py -l 5:100,5:100 -c -p
     ```
     
-    | Time   | PID:    | 0       | PID: | 1         | CPU | IOs |
-    | 1      | RUN:cpu | READY   | 1    |           |     |     |
-    | 2      | RUN:cpu | READY   | 1    |           |     |     |
-    | 3      | RUN:cpu | READY   | 1    |           |     |     |
-    | 4      | RUN:cpu | READY   | 1    |           |     |     |
-    | 5      | RUN:cpu | READY   | 1    |           |     |     |
-    | 6      | DONE    | RUN:cpu | 1    |           |     |     |
-    | 7      | DONE    | RUN:cpu | 1    |           |     |     |
-    | 8      | DONE    | RUN:cpu | 1    |           |     |     |
-    | 9      | DONE    | RUN:cpu | 1    |           |     |     |
-    | 10     | DONE    | RUN:cpu | 1    |           |     |     |
-    |        |         |         |      |           |     |     |
-    | Stats: | Total   | Time    | 10   |           |     |     |
-    | Stats: | CPU     | Busy    | 10   | (100.00%) |     |     |
-    | Stats: | IO      | Busy    | 0    | (0.00%)   |     |     |
-    |        |         |         |      |           |     |     |
+        Time        PID: 0        PID: 1           CPU           IOs
+          1        RUN:cpu         READY             1          
+          2        RUN:cpu         READY             1          
+          3        RUN:cpu         READY             1          
+          4        RUN:cpu         READY             1          
+          5        RUN:cpu         READY             1          
+          6           DONE       RUN:cpu             1          
+          7           DONE       RUN:cpu             1          
+          8           DONE       RUN:cpu             1          
+          9           DONE       RUN:cpu             1          
+         10           DONE       RUN:cpu             1          
+        
+        Stats: Total Time 10
+        Stats: CPU Busy 10 (100.00%)
+        Stats: IO Busy  0 (0.00%)
 
 2.  Run process-run.py with the following flags: -l 5:100,5:100. What should the CPU utilization be (e.g., the percent of time the CPU is in use?) Why do you know this? Use the -c and -p flags to see if you were right.
     
@@ -87,23 +86,22 @@
     ./process-run.py -l 4:100,1:0 -c -p
     ```
     
-    | Time   | PID:    | 0                     | PID: | 1        | CPU | IOs |
-    | 1      | RUN:cpu | READY                 | 1    |          |     |     |
-    | 2      | RUN:cpu | READY                 | 1    |          |     |     |
-    | 3      | RUN:cpu | READY                 | 1    |          |     |     |
-    | 4      | RUN:cpu | READY                 | 1    |          |     |     |
-    | 5      | DONE    | RUN:io                | 1    |          |     |     |
-    | 6      | DONE    | WAITING               | 1    |          |     |     |
-    | 7      | DONE    | WAITING               | 1    |          |     |     |
-    | 8      | DONE    | WAITING               | 1    |          |     |     |
-    | 9      | DONE    | WAITING               | 1    |          |     |     |
-    | 10     | DONE    | WAITING               | 1    |          |     |     |
-    | 11\*   | DONE    | RUN:io<sub>done</sub> | 1    |          |     |     |
-    |        |         |                       |      |          |     |     |
-    | Stats: | Total   | Time                  | 11   |          |     |     |
-    | Stats: | CPU     | Busy                  | 6    | (54.55%) |     |     |
-    | Stats: | IO      | Busy                  | 5    | (45.45%) |     |     |
-    |        |         |                       |      |          |     |     |
+        Time        PID: 0        PID: 1           CPU           IOs
+          1        RUN:cpu         READY             1          
+          2        RUN:cpu         READY             1          
+          3        RUN:cpu         READY             1          
+          4        RUN:cpu         READY             1          
+          5           DONE        RUN:io             1          
+          6           DONE       WAITING                           1
+          7           DONE       WAITING                           1
+          8           DONE       WAITING                           1
+          9           DONE       WAITING                           1
+         10           DONE       WAITING                           1
+         11*          DONE   RUN:io_done             1          
+        
+        Stats: Total Time 11
+        Stats: CPU Busy 6 (54.55%)
+        Stats: IO Busy  5 (45.45%)
 
 3.  Switch the order of the processes: -l 1:0,4:100. What happens now? Does switching the order matter? Why? (As always, use -c and -p to see if you were right)
     
@@ -111,19 +109,18 @@
     ./process-run.py -l 1:0,4:100 -c -p
     ```
     
-    | Time   | PID:                  | 0       | PID: | 1        | CPU | IOs |
-    | 1      | RUN:io                | READY   | 1    |          |     |     |
-    | 2      | WAITING               | RUN:cpu | 1    | 1        |     |     |
-    | 3      | WAITING               | RUN:cpu | 1    | 1        |     |     |
-    | 4      | WAITING               | RUN:cpu | 1    | 1        |     |     |
-    | 5      | WAITING               | RUN:cpu | 1    | 1        |     |     |
-    | 6      | WAITING               | DONE    | 1    |          |     |     |
-    | 7\*    | RUN:io<sub>done</sub> | DONE    | 1    |          |     |     |
-    |        |                       |         |      |          |     |     |
-    | Stats: | Total                 | Time    | 7    |          |     |     |
-    | Stats: | CPU                   | Busy    | 6    | (85.71%) |     |     |
-    | Stats: | IO                    | Busy    | 5    | (71.43%) |     |     |
-    |        |                       |         |      |          |     |     |
+        Time        PID: 0        PID: 1           CPU           IOs
+          1         RUN:io         READY             1          
+          2        WAITING       RUN:cpu             1             1
+          3        WAITING       RUN:cpu             1             1
+          4        WAITING       RUN:cpu             1             1
+          5        WAITING       RUN:cpu             1             1
+          6        WAITING          DONE                           1
+          7*   RUN:io_done          DONE             1          
+        
+        Stats: Total Time 7
+        Stats: CPU Busy 6 (85.71%)
+        Stats: IO Busy  5 (71.43%)
 
 4.  We’ll now explore some of the other flags. One important flag is -S, which determines how the system reacts when a process issues an I/O. With the flag set to SWITCH ON END, the system will NOT switch to another process while one is doing I/O, in- stead waiting until the process is completely finished. What happens when you run the following two processes (-l 1:0,4:100 -c -S SWITCH ON END), one doing I/O and the other doing CPU work?
 
