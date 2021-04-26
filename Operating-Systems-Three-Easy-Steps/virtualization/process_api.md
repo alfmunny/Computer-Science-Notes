@@ -228,166 +228,144 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
                                        a
         
         Action: a forks b
-        Action: a forks c
+        Action: b forks c
         Action: c forks d
-        Action: c forks e
-        Action: e forks f
-        Action: c forks g
-        Action: d forks h
-        Action: b EXITS
-        Action: h forks i
-        Action: c forks j
-        Action: j forks k
-        Action: j forks l
-        Action: h forks m
-        Action: h forks n
-        Action: c forks o
-        Action: h forks p
-        Action: i EXITS
-        Action: k forks q
-        Action: q forks r
-        Action: n EXITS
-        Action: o forks s
-        Action: g forks t
-        Action: k EXITS
-        Action: s forks u
-        Action: q forks v
-        Action: o forks w
-        Action: r forks x
-        Action: v forks y
-        Action: w EXITS
-        Action: m EXITS
-        Action: e forks z
-        Action: q EXITS
-        Action: y forks A
-        Action: g forks B
-        Action: A EXITS
+        Action: d EXITS
+        Action: b forks e
+        Action: c forks f
+        Action: e forks g
+        Action: f forks h
+        Action: e forks i
+        Action: e forks j
         Action: e EXITS
-        Action: a forks C
-        Action: h forks D
-        Action: s forks E
-        Action: t forks F
-        Action: D forks G
-        Action: G EXITS
-        Action: s forks H
-        Action: f forks I
-        Action: j forks J
-        Action: H forks K
-        Action: I forks L
-        Action: B forks M
-        Action: M forks N
-        Action: M forks O
-        Action: O forks P
-        Action: z forks Q
-        Action: E forks R
-        Action: h EXITS
-        Action: j forks S
-        Action: c EXITS
-        Action: O forks T
-        Action: l forks U
-        Action: U forks V
-        Action: x forks W
-        Action: J forks X
-        Action: M forks Y
-        Action: t forks Z
-        Action: I forks aa
-        Action: V forks ab
-        Action: U forks ac
-        Action: j EXITS
-        Action: L forks ad
-        Action: D EXITS
-        Action: X EXITS
+        Action: i forks k
+        Action: j forks l
+        Action: j forks m
+        Action: k forks n
+        Action: i EXITS
+        Action: n forks o
+        Action: g forks p
+        Action: g forks q
+        Action: b forks r
+        Action: n forks s
+        Action: o EXITS
+        Action: a forks t
+        Action: k forks u
+        Action: r forks v
+        Action: p forks w
+        Action: g EXITS
+        Action: m forks x
+        Action: x forks y
+        Action: y EXITS
+        Action: x EXITS
+        Action: w forks z
+        Action: v forks A
+        Action: s forks B
+        Action: A forks C
+        Action: q EXITS
+        Action: s forks D
+        Action: l forks E
+        Action: h forks F
+        Action: f forks G
+        Action: c forks H
+        Action: w forks I
         Action: E EXITS
-        Action: Y forks ae
-        Action: F EXITS
-        Action: C forks af
-        Action: N forks ag
-        Action: U forks ah
-        Action: R forks ai
-        Action: Y forks aj
-        Action: Q EXITS
-        Action: d forks ak
-        Action: r EXITS
-        Action: ad forks al
-        Action: ad forks am
-        Action: y forks an
         Action: C EXITS
-        Action: ab forks ao
-        Action: ad forks ap
-        Action: ag forks aq
-        Action: an EXITS
-        Action: O forks ar
-        Action: K forks as
-        Action: M forks at
-        Action: V forks au
-        Action: S forks av
-        Action: d forks aw
-        Action: u forks ax
-        Action: I forks ay
-        Action: au forks az
-        Action: M forks aA
-        Action: u forks aB
+        Action: t forks J
+        Action: B forks K
+        Action: K EXITS
+        Action: j forks L
+        Action: u EXITS
+        Action: m EXITS
+        Action: h forks M
+        Action: w EXITS
+        Action: I forks N
+        Action: F EXITS
+        Action: r EXITS
+        Action: j forks O
+        Action: z forks P
+        Action: B EXITS
+        Action: t forks Q
+        Action: Q forks R
+        Action: h forks S
+        Action: f EXITS
+        Action: M EXITS
+        Action: b EXITS
+        Action: A EXITS
+        Action: G EXITS
+        Action: l forks T
+        Action: D EXITS
+        Action: R EXITS
+        Action: p forks U
+        Action: s forks V
+        Action: p EXITS
+        Action: T EXITS
+        Action: S forks W
+        Action: s forks X
+        Action: S forks Y
+        Action: c EXITS
+        Action: H EXITS
+        Action: O forks Z
+        Action: Q EXITS
+        Action: k forks aa
+        Action: j forks ab
+        Action: j forks ac
+        Action: W forks ad
+        Action: I forks ae
+        Action: V forks af
+        Action: aa forks ag
+        Action: S EXITS
+        Action: I forks ah
+        Action: J EXITS
+        Action: Y forks ai
+        Action: ad forks aj
+        Action: P forks ak
+        Action: n forks al
+        Action: a forks am
+        Action: k forks an
+        Action: Y forks ao
+        Action: ac EXITS
+        Action: Z forks ap
+        Action: aj forks aq
         
                                 Final Process Tree:
                                        a
-                                       ├── v
-                                       ├── y
-                                       ├── f
-                                       │   └── I
-                                       │       ├── L
-                                       │       │   └── ad
-                                       │       │       ├── al
-                                       │       │       ├── am
-                                       │       │       └── ap
-                                       │       ├── aa
-                                       │       └── ay
-                                       ├── z
-                                       ├── p
-                                       ├── d
-                                       │   ├── ak
-                                       │   └── aw
-                                       ├── g
+                                       ├── j
+                                       │   ├── l
+                                       │   ├── L
+                                       │   ├── O
+                                       │   │   └── Z
+                                       │   │       └── ap
+                                       │   └── ab
+                                       ├── k
+                                       │   ├── aa
+                                       │   │   └── ag
+                                       │   └── an
+                                       ├── n
+                                       │   ├── s
+                                       │   │   ├── V
+                                       │   │   │   └── af
+                                       │   │   └── X
+                                       │   └── al
                                        ├── t
-                                       │   └── Z
-                                       ├── B
-                                       ├── M
-                                       │   ├── Y
-                                       │   │   ├── ae
-                                       │   │   └── aj
-                                       │   ├── at
-                                       │   └── aA
-                                       ├── N
-                                       │   └── ag
-                                       │       └── aq
-                                       ├── O
-                                       │   ├── T
-                                       │   └── ar
-                                       ├── P
-                                       ├── l
-                                       │   └── U
-                                       │       ├── V
-                                       │       │   ├── ab
-                                       │       │   │   └── ao
-                                       │       │   └── au
-                                       │       │       └── az
-                                       │       ├── ac
-                                       │       └── ah
-                                       ├── J
-                                       ├── S
-                                       │   └── av
-                                       ├── o
-                                       ├── s
-                                       ├── u
-                                       │   ├── ax
-                                       │   └── aB
-                                       ├── R
-                                       │   └── ai
-                                       ├── H
-                                       ├── K
-                                       │   └── as
-                                       ├── x
+                                       ├── z
+                                       │   └── P
+                                       │       └── ak
+                                       ├── I
+                                       │   ├── N
+                                       │   ├── ae
+                                       │   └── ah
+                                       ├── v
+                                       ├── h
+                                       ├── U
                                        ├── W
-                                       └── af
+                                       ├── ad
+                                       │   └── aj
+                                       │       └── aq
+                                       ├── Y
+                                       │   ├── ai
+                                       │   └── ao
+                                       └── am
 
 6.  Finally, use both -t and -F together. This shows the final process tree, but then asks you to fill in the actions that took place. By look- ing at the tree, can you determine the exact actions that took place? In which cases can you tell? In which can’t you tell? Try some dif- ferent random seeds to delve into this question.
     
@@ -490,23 +468,258 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
 
 ## Homework(code)
 
-```C
-int main(int argc, char *argv[]) {
-  printf("hello world (pid:%d)\n", (int) getpid());
-  int f = fork();
-  if (f < 0) {
-    printf("fork failed\n");
-    exit(1);
-  } else if (f == 0){
-    printf("This is child (pid:%d)\n", (int) getpid());
-  } else {
-    printf("This is parent of %d (pid:%d)\n", f, (int) getpid());
-  }
-  return 0;
-}
-```
+1.  Write a program that calls fork(). Before calling fork(), have the main process access a variable (e.g., x) and set its value to some- thing (e.g., 100). What value is the variable in the child process? What happens to the variable when both the child and parent change the value of x?
+    
+    ```C
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <unistd.h>
+    int main(int argc, char *argv[]) {
+      int x = 100;
+      int rc = fork();
+      if (rc < 0) {
+        printf("fork failed\n");
+        exit(1);
+      } else if (rc == 0) {
+        x = 101;
+        printf("This is child %d , x = %d \n", (int) getpid(), x);
+      } else {
+        x = 102;
+        printf("This is parent of %d (pid:%d), x = %d \n", rc, (int) getpid(), x);
+      }
+      return 0;
+    }
+    ```
+    
+        This is parent of 549173 (pid:549172), x = 102 
+        This is child 549173 , x = 101 
+    
+    Both process can change the variable.
 
-    hello world (pid:484758)
-    This is parent of 484759 (pid:484758)
-    hello world (pid:484758)
-    This is child (pid:484759)
+2.  Write a program that opens a file (with the open() system call) and then calls fork() to create a new process. Can both the child and parent access the file descriptor returned by open()? What happens when they are writing to the file concurrently, i.e., at the same time?
+    
+    ```C
+    #include <stdio.h> //fread, fopen, fclose
+    #include <stdlib.h> //exit
+    #include <unistd.h> //fork
+    #include <fcntl.h>
+    #include <assert.h>
+    
+    int main(int argc, char *argv[]) {
+      int fd = open("/tmp/2.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRWXU);
+      assert(fd > -1);
+      pid_t rc = fork();
+      if (rc < 0) {
+        fprintf(stderr, "fork failed\n");
+        exit(EXIT_FAILURE);
+      } else if (rc == 0){
+        printf("This is child (pid:%d)\n", (int) getpid());
+        int rc = write(fd, "child: hello world\n", 20);
+        assert(rc == 20);
+      } else {
+        printf("This is parent of %d (pid:%d)\n", rc, (int) getpid());
+        int rc = write(fd, "parent: hello world\n", 21);
+        assert(rc == 21);
+      }
+      return 0;
+    }
+    ```
+    
+        This is parent of 549180 (pid:549179)
+        This is child (pid:549180)
+    
+    ```shell
+    cat /tmp/2.txt
+    ```
+    
+        parent: hello world
+         child: hello world
+         
+    
+    Both file can access the file descriptor
+
+3.  Write another program using fork(). The child process should print “hello”; the parent process should print “goodbye”. You should try to ensure that the child process always prints first; can you do this without calling wait() in the parent?
+
+4.  Write a program that calls fork() and then calls some form of exec() to run the program /bin/ls. See if you can try all of the variants of exec(), including (on Linux) execl(), execle(), execlp(), execv(), execvp(), and execvpe(). Why do you think there are so many variants of the same basic call?
+    
+    ```C
+    #include <stdio.h> //fread, fopen, fclose
+    #include <stdlib.h> //exit
+    #include <unistd.h> //fork
+    #include <fcntl.h>
+    #include <assert.h>
+    
+    int main(int argc, char *argv[]) {
+      int fd = open("/tmp/2.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRWXU);
+      assert(fd > -1);
+      pid_t rc = fork();
+      if (rc < 0) {
+        fprintf(stderr, "fork failed\n");
+        exit(EXIT_FAILURE);
+      } else if (rc == 0){
+        printf("This is child (pid:%d)\n", (int) getpid());
+        execl("/bin/ls", "ls", "-l", (char*) NULL);
+      } else {
+        printf("This is parent of %d (pid:%d)\n", rc, (int) getpid());
+      }
+      return 0;
+    }
+    ```
+    
+        This is parent of 549189 (pid:549188)
+        total 52
+        -rwxrwxr-x 1 alfmunny alfmunny 12111 Apr 22 23:43 fork.py
+        -rwxrwxr-x 1 alfmunny alfmunny 19859 Apr 22 23:43 generator.py
+        -rw-rw-r-- 1 alfmunny alfmunny  4954 Apr 22 23:43 README-fork.md
+        -rw-rw-r-- 1 alfmunny alfmunny  4996 Apr 22 23:43 README-generator.md
+        -rw-rw-r-- 1 alfmunny alfmunny   448 Apr 22 23:43 README.md
+    
+    See all examples for different variants: [exec manual](https://pubs.opengroup.org/onlinepubs/9699919799/functions/exec.html).
+
+5.  Now write a program that uses wait() to wait for the child process to finish in the parent. What does wait() return? What happens if you use wait() in the child?
+    
+    ```C
+    #include <stdio.h> //fread, fopen, fclose
+    #include <stdlib.h> //exit
+    #include <unistd.h> //fork
+    #include <fcntl.h>
+    #include <assert.h>
+    #include <sys/wait.h>
+    
+    int main(int argc, char *argv[]) {
+      pid_t rc = fork();
+      if (rc < 0) {
+        fprintf(stderr, "fork failed\n");
+        exit(EXIT_FAILURE);
+      } else if (rc == 0){
+        printf("This is child (pid:%d)\n", (int) getpid());
+        int w = wait(NULL);
+        printf("child wait returns %d\n", w);
+    
+        // search PATH environment for ls
+        printf("execlp:\n");
+        execlp("ls", "ls", "-l", (char*) NULL);
+      } else {
+        printf("This is parent of %d (pid:%d)\n", rc, (int) getpid());
+        int w = wait(NULL);
+        printf("parent wait returns %d", w);
+      }
+      return 0;
+    }
+    ```
+    
+        total 52
+        -rwxrwxr-x 1 alfmunny alfmunny 12111 Apr 22 23:43 fork.py
+        -rwxrwxr-x 1 alfmunny alfmunny 19859 Apr 22 23:43 generator.py
+        -rw-rw-r-- 1 alfmunny alfmunny  4954 Apr 22 23:43 README-fork.md
+        -rw-rw-r-- 1 alfmunny alfmunny  4996 Apr 22 23:43 README-generator.md
+        -rw-rw-r-- 1 alfmunny alfmunny   448 Apr 22 23:43 README.md
+        This is parent of 549196 (pid:549195)
+        parent wait returns 549196
+    
+    wait() in parent returns the pid of child. wait() in child returns -1.
+
+6.  Write a slight modification of the previous program, this time using waitpid() instead of wait(). When would waitpid() be useful?
+    
+    ```C
+    #include <stdio.h> //fread, fopen, fclose
+    #include <stdlib.h> //exit
+    #include <unistd.h> //fork
+    #include <fcntl.h>
+    #include <assert.h>
+    #include <sys/wait.h>
+    
+    int main(int argc, char *argv[]) {
+      pid_t rc = fork();
+      if (rc < 0) {
+        fprintf(stderr, "fork failed\n");
+        exit(EXIT_FAILURE);
+      } else if (rc == 0){
+        printf("This is child (pid:%d)\n", (int) getpid());
+        int w = wait(NULL);
+        printf("child wait returns %d\n", w);
+    
+        // search PATH environment for ls
+        printf("execlp:\n");
+        execlp("ls", "ls", "-l", (char*) NULL);
+      } else {
+        printf("This is parent of %d (pid:%d)\n", rc, (int) getpid());
+        int w = waitpid(-1, NULL, WNOHANG);
+        printf("parent wait returns %d", w);
+      }
+      return 0;
+    }
+    ```
+    
+        This is parent of 549203 (pid:549202)
+        parent wait returns 0total 52
+        -rwxrwxr-x 1 alfmunny alfmunny 12111 Apr 22 23:43 fork.py
+        -rwxrwxr-x 1 alfmunny alfmunny 19859 Apr 22 23:43 generator.py
+        -rw-rw-r-- 1 alfmunny alfmunny  4954 Apr 22 23:43 README-fork.md
+        -rw-rw-r-- 1 alfmunny alfmunny  4996 Apr 22 23:43 README-generator.md
+        -rw-rw-r-- 1 alfmunny alfmunny   448 Apr 22 23:43 README.md
+    
+    waitpid is able to not to block the parent.
+
+7.  Write a program that creates a child process, and then in the child closes standard output (STDOUT FILENO). What happens if the child calls printf() to print some output after closing the descriptor?
+    
+    print nothing
+
+8.  Write a program that creates two children, and connects the standard output of one to the standard input of the other, using the pipe() system call.
+    
+    ```C
+    #include <stdio.h> //fread, fopen, fclose
+    #include <stdlib.h> //exit
+    #include <unistd.h> //fork
+    #include <fcntl.h>
+    #include <assert.h>
+    #include <sys/wait.h>
+    #include <string.h>
+    
+    int main(int argc, char *argv[]) {
+      int fd[2];
+      char buf[100];
+    
+      if (pipe(fd) < 0) {
+        exit(0);
+      }
+    
+      pid_t rc1 = fork();
+    
+      if (rc1 < 0) {
+        fprintf(stderr, "fork failed\n");
+        exit(EXIT_FAILURE);
+      } else if (rc1 == 0){
+        printf("This is child (pid:%d)\n", (int) getpid());
+        strcpy(buf, "message from child 1.");
+        close(fd[0]);
+        write(fd[1], buf, sizeof(buf));
+        exit(0);
+      } else {
+        printf("This is parent of %d (pid:%d)\n", rc1, (int) getpid());
+        wait(NULL);
+      }
+    
+      pid_t rc2 = fork();
+    
+      if (rc2 < 0) {
+        fprintf(stderr, "fork failed\n");
+        exit(EXIT_FAILURE);
+      } else if (rc2 == 0){
+        printf("This is child (pid:%d)\n", (int) getpid());
+        close(fd[1]);
+        read(fd[0], buf, 100);
+        printf("child 2 read %s", buf);
+      } else {
+        printf("This is parent of %d (pid:%d)\n", rc2, (int) getpid());
+        wait(NULL);
+      }
+      return 0;
+    }
+    ```
+    
+        This is child (pid:549210)
+        This is parent of 549210 (pid:549209)
+        This is child (pid:549211)
+        child 2 read message from child 1.This is parent of 549210 (pid:549209)
+        This is parent of 549211 (pid:549209)
