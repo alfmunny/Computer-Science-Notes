@@ -1,4 +1,4 @@
-# Interlude: Process API
+# Process API
 
 Unix way to create a new process with a pair of system calls: `fork()` and `exec()`. `wait()` can be used to wait for a created process to complete.
 
@@ -224,154 +224,144 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
                                        a
         
         Action: a forks b
-        Action: b EXITS
         Action: a forks c
         Action: c forks d
-        Action: d forks e
-        Action: d forks f
-        Action: d forks g
-        Action: f forks h
-        Action: h forks i
-        Action: h forks j
-        Action: e forks k
-        Action: g forks l
-        Action: a forks m
-        Action: k forks n
-        Action: n forks o
-        Action: g forks p
-        Action: f forks q
+        Action: b EXITS
+        Action: d EXITS
+        Action: c forks e
+        Action: e forks f
+        Action: c forks g
+        Action: a forks h
+        Action: f forks i
+        Action: g forks j
+        Action: j forks k
         Action: j EXITS
+        Action: g forks l
+        Action: e forks m
+        Action: l EXITS
+        Action: f forks n
+        Action: f forks o
+        Action: h EXITS
+        Action: i forks p
+        Action: i forks q
+        Action: g forks r
+        Action: p forks s
+        Action: g EXITS
         Action: i EXITS
-        Action: h forks r
-        Action: k forks s
-        Action: s forks t
+        Action: o forks t
         Action: q EXITS
-        Action: l forks u
-        Action: n forks v
-        Action: p forks w
-        Action: p forks x
-        Action: h forks y
-        Action: o EXITS
-        Action: x forks z
-        Action: c forks A
-        Action: p forks B
-        Action: d forks C
-        Action: u forks D
-        Action: t forks E
-        Action: r forks F
-        Action: m forks G
-        Action: s forks H
-        Action: C forks I
-        Action: E EXITS
-        Action: u forks J
-        Action: D EXITS
-        Action: y EXITS
-        Action: J forks K
-        Action: k forks L
+        Action: k forks u
         Action: e EXITS
-        Action: G forks M
-        Action: k forks N
-        Action: z forks O
-        Action: I EXITS
-        Action: h forks P
-        Action: K EXITS
-        Action: x forks Q
-        Action: u forks R
-        Action: A forks S
-        Action: f EXITS
-        Action: F EXITS
-        Action: J forks T
-        Action: G EXITS
-        Action: R EXITS
-        Action: C forks U
-        Action: P EXITS
-        Action: A EXITS
-        Action: Q forks V
-        Action: B EXITS
-        Action: h forks W
-        Action: H forks X
-        Action: u forks Y
-        Action: Q forks Z
-        Action: p forks aa
-        Action: H forks ab
-        Action: v EXITS
-        Action: r forks ac
-        Action: c EXITS
+        Action: p forks v
+        Action: r forks w
+        Action: t EXITS
+        Action: p forks x
+        Action: c forks y
+        Action: u forks z
+        Action: m EXITS
         Action: u EXITS
-        Action: r forks ad
-        Action: T EXITS
-        Action: l forks ae
-        Action: V forks af
+        Action: s forks A
+        Action: z EXITS
+        Action: c forks B
+        Action: y forks C
+        Action: o EXITS
+        Action: c forks D
+        Action: n forks E
+        Action: a forks F
+        Action: s forks G
+        Action: w EXITS
+        Action: E EXITS
+        Action: B EXITS
+        Action: v forks H
+        Action: y EXITS
+        Action: r EXITS
+        Action: A forks I
+        Action: x forks J
+        Action: v forks K
+        Action: p forks L
+        Action: K forks M
+        Action: D forks N
+        Action: C forks O
+        Action: f forks P
+        Action: c forks Q
+        Action: P EXITS
+        Action: v forks R
+        Action: I forks S
+        Action: f forks T
+        Action: f forks U
+        Action: F forks V
+        Action: T forks W
+        Action: A EXITS
+        Action: x forks X
+        Action: N forks Y
+        Action: D forks Z
+        Action: T forks aa
+        Action: s EXITS
+        Action: M forks ab
+        Action: Q EXITS
+        Action: L forks ac
+        Action: x EXITS
+        Action: S forks ad
+        Action: L forks ae
+        Action: K EXITS
+        Action: c EXITS
+        Action: a forks af
         Action: V EXITS
-        Action: ab forks ag
-        Action: ad forks ah
-        Action: L EXITS
-        Action: r forks ai
-        Action: W forks aj
-        Action: d forks ak
-        Action: X forks al
-        Action: ac forks am
+        Action: Z forks ag
+        Action: H EXITS
+        Action: ae forks ah
+        Action: ad forks ai
+        Action: aa EXITS
+        Action: I EXITS
+        Action: ah EXITS
+        Action: ai forks aj
+        Action: ag forks ak
+        Action: C forks al
+        Action: C EXITS
+        Action: J forks am
         Action: ag forks an
-        Action: g forks ao
-        Action: ac forks ap
-        Action: ai EXITS
-        Action: p forks aq
-        Action: S EXITS
-        Action: W forks ar
-        Action: N forks as
-        Action: ao EXITS
-        Action: z forks at
-        Action: X forks au
-        Action: ac forks av
+        Action: Z forks ao
+        Action: W forks ap
+        Action: R forks aq
         
                                 Final Process Tree:
                                        a
-                                       ├── m
                                        ├── k
-                                       │   └── N
-                                       │       └── as
-                                       ├── n
-                                       ├── s
-                                       ├── t
-                                       ├── H
-                                       │   ├── X
-                                       │   │   ├── al
-                                       │   │   └── au
-                                       │   └── ab
-                                       │       └── ag
-                                       │           └── an
-                                       ├── h
-                                       │   └── W
-                                       │       ├── aj
-                                       │       └── ar
-                                       ├── r
-                                       │   ├── ac
-                                       │   │   ├── am
-                                       │   │   ├── ap
-                                       │   │   └── av
-                                       │   └── ad
-                                       │       └── ah
-                                       ├── M
-                                       ├── d
-                                       │   └── ak
-                                       ├── g
-                                       ├── l
-                                       │   └── ae
-                                       ├── J
-                                       ├── Y
                                        ├── p
-                                       │   └── aq
-                                       ├── w
-                                       ├── x
-                                       ├── z
-                                       │   └── at
-                                       ├── O
-                                       ├── Q
+                                       │   ├── v
+                                       │   │   └── R
+                                       │   │       └── aq
+                                       │   └── L
+                                       │       ├── ac
+                                       │       └── ae
+                                       ├── f
+                                       │   ├── T
+                                       │   │   └── W
+                                       │   │       └── ap
+                                       │   └── U
+                                       ├── n
+                                       ├── F
+                                       ├── S
+                                       │   └── ad
+                                       │       └── ai
+                                       │           └── aj
+                                       ├── G
+                                       ├── J
+                                       │   └── am
+                                       ├── X
+                                       ├── M
+                                       ├── ab
+                                       ├── D
+                                       ├── N
+                                       ├── Y
                                        ├── Z
-                                       ├── aa
-                                       ├── C
-                                       ├── U
-                                       └── af
+                                       │   ├── ag
+                                       │   │   ├── ak
+                                       │   │   └── an
+                                       │   └── ao
+                                       ├── af
+                                       ├── O
+                                       └── al
 
 6.  Finally, use both -t and -F together. This shows the final process tree, but then asks you to fill in the actions that took place. By look- ing at the tree, can you determine the exact actions that took place? In which cases can you tell? In which can’t you tell? Try some dif- ferent random seeds to delve into this question.
     
@@ -497,8 +487,8 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
     }
     ```
     
-        This is parent of 556960 (pid:556959), x = 102 
-        This is child 556960 , x = 101 
+        This is parent of 557964 (pid:557963), x = 102 
+        This is child 557964 , x = 101 
     
     Both process can change the variable.
 
@@ -531,8 +521,8 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
     }
     ```
     
-        This is parent of 556967 (pid:556966)
-        This is child (pid:556967)
+        This is parent of 557971 (pid:557970)
+        This is child (pid:557971)
     
     ```shell
     cat /tmp/2.txt
@@ -572,7 +562,7 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
     }
     ```
     
-        This is parent of 556976 (pid:556975)
+        This is parent of 557980 (pid:557979)
         total 52
         -rwxrwxr-x 1 alfmunny alfmunny 12111 Apr 22 23:43 fork.py
         -rwxrwxr-x 1 alfmunny alfmunny 19859 Apr 22 23:43 generator.py
@@ -620,8 +610,8 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
         -rw-rw-r-- 1 alfmunny alfmunny  4954 Apr 22 23:43 README-fork.md
         -rw-rw-r-- 1 alfmunny alfmunny  4996 Apr 22 23:43 README-generator.md
         -rw-rw-r-- 1 alfmunny alfmunny   448 Apr 22 23:43 README.md
-        This is parent of 556983 (pid:556982)
-        parent wait returns 556983
+        This is parent of 557987 (pid:557986)
+        parent wait returns 557987
     
     wait() in parent returns the pid of child. wait() in child returns -1.
 
@@ -657,7 +647,7 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
     }
     ```
     
-        This is parent of 556990 (pid:556989)
+        This is parent of 557994 (pid:557993)
         parent wait returns 0total 52
         -rwxrwxr-x 1 alfmunny alfmunny 12111 Apr 22 23:43 fork.py
         -rwxrwxr-x 1 alfmunny alfmunny 19859 Apr 22 23:43 generator.py
@@ -724,8 +714,8 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
     }
     ```
     
-        This is child (pid:556997)
-        This is parent of 556997 (pid:556996)
-        This is child (pid:556998)
-        child 2 read message from child 1.This is parent of 556997 (pid:556996)
-        This is parent of 556998 (pid:556996)
+        This is child (pid:558001)
+        This is parent of 558001 (pid:558000)
+        This is child (pid:558002)
+        child 2 read message from child 1.This is parent of 558001 (pid:558000)
+        This is parent of 558002 (pid:558000)
