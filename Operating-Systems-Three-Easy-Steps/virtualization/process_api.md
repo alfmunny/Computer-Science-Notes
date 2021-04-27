@@ -226,142 +226,156 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
         Action: a forks b
         Action: a forks c
         Action: c forks d
-        Action: b EXITS
-        Action: d EXITS
-        Action: c forks e
-        Action: e forks f
-        Action: c forks g
-        Action: a forks h
-        Action: f forks i
-        Action: g forks j
-        Action: j forks k
-        Action: j EXITS
-        Action: g forks l
-        Action: e forks m
-        Action: l EXITS
-        Action: f forks n
-        Action: f forks o
-        Action: h EXITS
-        Action: i forks p
-        Action: i forks q
-        Action: g forks r
-        Action: p forks s
-        Action: g EXITS
-        Action: i EXITS
-        Action: o forks t
-        Action: q EXITS
-        Action: k forks u
-        Action: e EXITS
-        Action: p forks v
-        Action: r forks w
-        Action: t EXITS
-        Action: p forks x
-        Action: c forks y
-        Action: u forks z
-        Action: m EXITS
-        Action: u EXITS
-        Action: s forks A
-        Action: z EXITS
-        Action: c forks B
-        Action: y forks C
-        Action: o EXITS
-        Action: c forks D
-        Action: n forks E
-        Action: a forks F
-        Action: s forks G
-        Action: w EXITS
-        Action: E EXITS
-        Action: B EXITS
-        Action: v forks H
-        Action: y EXITS
-        Action: r EXITS
-        Action: A forks I
-        Action: x forks J
-        Action: v forks K
-        Action: p forks L
-        Action: K forks M
-        Action: D forks N
-        Action: C forks O
-        Action: f forks P
-        Action: c forks Q
-        Action: P EXITS
-        Action: v forks R
-        Action: I forks S
-        Action: f forks T
-        Action: f forks U
-        Action: F forks V
-        Action: T forks W
-        Action: A EXITS
-        Action: x forks X
-        Action: N forks Y
-        Action: D forks Z
-        Action: T forks aa
-        Action: s EXITS
-        Action: M forks ab
-        Action: Q EXITS
-        Action: L forks ac
-        Action: x EXITS
-        Action: S forks ad
-        Action: L forks ae
-        Action: K EXITS
+        Action: a forks e
+        Action: b forks f
         Action: c EXITS
-        Action: a forks af
-        Action: V EXITS
-        Action: Z forks ag
+        Action: d forks g
+        Action: d EXITS
+        Action: f forks h
+        Action: g forks i
+        Action: e forks j
+        Action: g forks k
+        Action: b EXITS
+        Action: a forks l
+        Action: e forks m
+        Action: f forks n
+        Action: l forks o
+        Action: j forks p
+        Action: o forks q
+        Action: j EXITS
+        Action: l EXITS
+        Action: g forks r
+        Action: m forks s
+        Action: e forks t
+        Action: r forks u
+        Action: m forks v
+        Action: r forks w
+        Action: q forks x
+        Action: a forks y
+        Action: n forks z
+        Action: h forks A
+        Action: s EXITS
+        Action: w forks B
+        Action: o forks C
+        Action: o forks D
+        Action: q forks E
+        Action: q forks F
+        Action: v forks G
+        Action: v forks H
+        Action: G forks I
+        Action: m EXITS
+        Action: z forks J
+        Action: a forks K
+        Action: x forks L
+        Action: n forks M
+        Action: g EXITS
+        Action: J forks N
+        Action: z forks O
+        Action: B forks P
+        Action: x EXITS
+        Action: o forks Q
+        Action: N forks R
+        Action: v forks S
         Action: H EXITS
-        Action: ae forks ah
-        Action: ad forks ai
-        Action: aa EXITS
-        Action: I EXITS
-        Action: ah EXITS
-        Action: ai forks aj
-        Action: ag forks ak
-        Action: C forks al
-        Action: C EXITS
-        Action: J forks am
-        Action: ag forks an
-        Action: Z forks ao
-        Action: W forks ap
-        Action: R forks aq
+        Action: L forks T
+        Action: e forks U
+        Action: P forks V
+        Action: O EXITS
+        Action: i EXITS
+        Action: T forks W
+        Action: V forks X
+        Action: A forks Y
+        Action: K forks Z
+        Action: v forks aa
+        Action: M forks ab
+        Action: t EXITS
+        Action: p EXITS
+        Action: K forks ac
+        Action: n forks ad
+        Action: A forks ae
+        Action: B forks af
+        Action: G EXITS
+        Action: K forks ag
+        Action: U EXITS
+        Action: V forks ah
+        Action: W forks ai
+        Action: Z EXITS
+        Action: Y EXITS
+        Action: ae forks aj
+        Action: aj EXITS
+        Action: a forks ak
+        Action: z forks al
+        Action: V forks am
+        Action: R EXITS
+        Action: V forks an
+        Action: L EXITS
+        Action: F forks ao
+        Action: F EXITS
+        Action: V forks ap
+        Action: ap EXITS
+        Action: q EXITS
+        Action: V EXITS
+        Action: K forks aq
+        Action: e forks ar
+        Action: W forks as
+        Action: n forks at
+        Action: ae forks au
+        Action: ak forks av
+        Action: J forks aw
+        Action: u forks ax
         
                                 Final Process Tree:
                                        a
-                                       ├── k
-                                       ├── p
-                                       │   ├── v
-                                       │   │   └── R
-                                       │   │       └── aq
-                                       │   └── L
-                                       │       ├── ac
-                                       │       └── ae
+                                       ├── e
+                                       │   └── ar
                                        ├── f
-                                       │   ├── T
-                                       │   │   └── W
-                                       │   │       └── ap
-                                       │   └── U
-                                       ├── n
-                                       ├── F
-                                       ├── S
-                                       │   └── ad
-                                       │       └── ai
-                                       │           └── aj
-                                       ├── G
-                                       ├── J
-                                       │   └── am
-                                       ├── X
-                                       ├── M
-                                       ├── ab
-                                       ├── D
-                                       ├── N
-                                       ├── Y
-                                       ├── Z
+                                       │   └── n
+                                       │       ├── z
+                                       │       │   ├── J
+                                       │       │   │   ├── N
+                                       │       │   │   └── aw
+                                       │       │   └── al
+                                       │       ├── M
+                                       │       │   └── ab
+                                       │       ├── ad
+                                       │       └── at
+                                       ├── h
+                                       │   └── A
+                                       │       └── ae
+                                       │           └── au
+                                       ├── o
+                                       │   ├── C
+                                       │   ├── D
+                                       │   └── Q
+                                       ├── y
+                                       ├── v
+                                       │   ├── S
+                                       │   └── aa
+                                       ├── I
+                                       ├── K
+                                       │   ├── ac
                                        │   ├── ag
-                                       │   │   ├── ak
-                                       │   │   └── an
-                                       │   └── ao
-                                       ├── af
-                                       ├── O
-                                       └── al
+                                       │   └── aq
+                                       ├── k
+                                       ├── r
+                                       ├── u
+                                       │   └── ax
+                                       ├── w
+                                       ├── B
+                                       │   ├── P
+                                       │   └── af
+                                       ├── ak
+                                       │   └── av
+                                       ├── T
+                                       ├── W
+                                       │   └── as
+                                       ├── ai
+                                       ├── ao
+                                       ├── E
+                                       ├── X
+                                       ├── ah
+                                       ├── am
+                                       └── an
 
 6.  Finally, use both -t and -F together. This shows the final process tree, but then asks you to fill in the actions that took place. By look- ing at the tree, can you determine the exact actions that took place? In which cases can you tell? In which can’t you tell? Try some dif- ferent random seeds to delve into this question.
     
@@ -466,7 +480,7 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
 
 1.  Write a program that calls fork(). Before calling fork(), have the main process access a variable (e.g., x) and set its value to some- thing (e.g., 100). What value is the variable in the child process? What happens to the variable when both the child and parent change the value of x?
     
-    ```C
+    ```c
     #include <stdio.h>
     #include <stdlib.h>
     #include <unistd.h>
@@ -487,14 +501,14 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
     }
     ```
     
-        This is parent of 557964 (pid:557963), x = 102 
-        This is child 557964 , x = 101 
+        This is parent of 534497 (pid:534496), x = 102 
+        This is child 534497 , x = 101 
     
     Both process can change the variable.
 
 2.  Write a program that opens a file (with the open() system call) and then calls fork() to create a new process. Can both the child and parent access the file descriptor returned by open()? What happens when they are writing to the file concurrently, i.e., at the same time?
     
-    ```C
+    ```c
     #include <stdio.h> //fread, fopen, fclose
     #include <stdlib.h> //exit
     #include <unistd.h> //fork
@@ -521,16 +535,12 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
     }
     ```
     
-        This is parent of 557971 (pid:557970)
-        This is child (pid:557971)
+        This is parent of 539125 (pid:539124)
+        This is child (pid:539125)
     
     ```shell
     cat /tmp/2.txt
     ```
-    
-        parent: hello world
-         child: hello world
-         
     
     Both file can access the file descriptor
 
@@ -538,7 +548,7 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
 
 4.  Write a program that calls fork() and then calls some form of exec() to run the program /bin/ls. See if you can try all of the variants of exec(), including (on Linux) execl(), execle(), execlp(), execv(), execvp(), and execvpe(). Why do you think there are so many variants of the same basic call?
     
-    ```C
+    ```c
     #include <stdio.h> //fread, fopen, fclose
     #include <stdlib.h> //exit
     #include <unistd.h> //fork
@@ -562,7 +572,7 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
     }
     ```
     
-        This is parent of 557980 (pid:557979)
+        This is parent of 542888 (pid:542887)
         total 52
         -rwxrwxr-x 1 alfmunny alfmunny 12111 Apr 22 23:43 fork.py
         -rwxrwxr-x 1 alfmunny alfmunny 19859 Apr 22 23:43 generator.py
@@ -574,7 +584,7 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
 
 5.  Now write a program that uses wait() to wait for the child process to finish in the parent. What does wait() return? What happens if you use wait() in the child?
     
-    ```C
+    ```c
     #include <stdio.h> //fread, fopen, fclose
     #include <stdlib.h> //exit
     #include <unistd.h> //fork
@@ -610,14 +620,14 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
         -rw-rw-r-- 1 alfmunny alfmunny  4954 Apr 22 23:43 README-fork.md
         -rw-rw-r-- 1 alfmunny alfmunny  4996 Apr 22 23:43 README-generator.md
         -rw-rw-r-- 1 alfmunny alfmunny   448 Apr 22 23:43 README.md
-        This is parent of 557987 (pid:557986)
-        parent wait returns 557987
+        This is parent of 545955 (pid:545954)
+        parent wait returns 545955
     
     wait() in parent returns the pid of child. wait() in child returns -1.
 
 6.  Write a slight modification of the previous program, this time using waitpid() instead of wait(). When would waitpid() be useful?
     
-    ```C
+    ```c
     #include <stdio.h> //fread, fopen, fclose
     #include <stdlib.h> //exit
     #include <unistd.h> //fork
@@ -647,14 +657,6 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
     }
     ```
     
-        This is parent of 557994 (pid:557993)
-        parent wait returns 0total 52
-        -rwxrwxr-x 1 alfmunny alfmunny 12111 Apr 22 23:43 fork.py
-        -rwxrwxr-x 1 alfmunny alfmunny 19859 Apr 22 23:43 generator.py
-        -rw-rw-r-- 1 alfmunny alfmunny  4954 Apr 22 23:43 README-fork.md
-        -rw-rw-r-- 1 alfmunny alfmunny  4996 Apr 22 23:43 README-generator.md
-        -rw-rw-r-- 1 alfmunny alfmunny   448 Apr 22 23:43 README.md
-    
     waitpid is able to not to block the parent.
 
 7.  Write a program that creates a child process, and then in the child closes standard output (STDOUT FILENO). What happens if the child calls printf() to print some output after closing the descriptor?
@@ -663,7 +665,7 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
 
 8.  Write a program that creates two children, and connects the standard output of one to the standard input of the other, using the pipe() system call.
     
-    ```C
+    ```c
     #include <stdio.h> //fread, fopen, fclose
     #include <stdlib.h> //exit
     #include <unistd.h> //fork
@@ -714,8 +716,8 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
     }
     ```
     
-        This is child (pid:558001)
-        This is parent of 558001 (pid:558000)
-        This is child (pid:558002)
-        child 2 read message from child 1.This is parent of 558001 (pid:558000)
-        This is parent of 558002 (pid:558000)
+        This is child (pid:548896)
+        This is parent of 548896 (pid:548895)
+        This is child (pid:548897)
+        child 2 read message from child 1.This is parent of 548896 (pid:548895)
+        This is parent of 548897 (pid:548895)
