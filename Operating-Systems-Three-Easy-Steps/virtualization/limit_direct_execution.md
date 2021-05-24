@@ -1,6 +1,6 @@
 # Mechanism: Limit Direct Execution
 
--   Basic Idea: ****time sharing****
+-   Basic Idea: **time sharing**
     
     Run one process for a little while, then run another one.
 
@@ -14,7 +14,7 @@
 -   kernel mode
     -   perfom a system call
     -   execute a special trap instruction
-    -   ****return-from-trap**** instruction back to user mode
+    -   **return-from-trap** instruction back to user mode
     -   kernel stack
 
 -   trap-table
@@ -80,3 +80,13 @@ int main() {
   return 0;
 }
 ```
+
+Context switching measurement using lmbench
+
+<p class="verse">
+Context switching - times in microseconds - smaller is better<br />
+--------------------------------------------------------------------&#x2013;&#x2014;<br />
+Host                 OS  2p/0K 2p/16K 2p/64K 8p/16K 8p/64K 16p/16K 16p/64K<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;ctxsw  ctxsw  ctxsw ctxsw  ctxsw   ctxsw   ctxsw<br />
+----&#x2013;&#x2014; --------&#x2013;&#x2014; -&#x2013;&#x2014; -&#x2013;&#x2014; -&#x2013;&#x2014; -&#x2013;&#x2014; -&#x2013;&#x2014; --&#x2013;&#x2014; --&#x2013;&#x2014;<br />
+</p>
