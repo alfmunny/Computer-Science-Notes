@@ -1,10 +1,10 @@
-    - [Vitualization](#sec-1)
-      - [The Abstraction: The Process](#sec-1-1)
-      - [Interlude: Process API](#sec-1-2)
-      - [Mechanism: Limit Direct Execution](#sec-1-3)
-      - [Scheduling: Introduction](#sec-1-4)
-      - [Scheduling: Multi-Level Feedback Queue](#sec-1-5)
-      - [The Abstraction: Address Spaces](#sec-1-6)
+- [Vitualization](#sec-1)
+  - [The Abstraction: The Process](#sec-1-1)
+  - [Interlude: Process API](#sec-1-2)
+  - [Mechanism: Limit Direct Execution](#sec-1-3)
+  - [Scheduling: Introduction](#sec-1-4)
+  - [Scheduling: Multi-Level Feedback Queue](#sec-1-5)
+  - [The Abstraction: Address Spaces](#sec-1-6)
 
 # Vitualization<a id="sec-1"></a>
 
