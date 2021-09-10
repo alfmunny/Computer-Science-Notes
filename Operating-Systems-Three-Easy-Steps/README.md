@@ -7,7 +7,7 @@ Resouces:
 
 Table of Contents
 
-[X] [Introduction](./introduction)
-[X] [Virtualization](./virtualization)
-[ ] [Concurrency]()
-[ ] [Persistence]()
+- [X] [Introduction](./introduction)
+- [X] [Virtualization](./virtualization)
+- [ ] [Concurrency]()
+- [ ] [Persistence]()
