@@ -1,57 +1,55 @@
-# Vitualization
+- [Vitualization](#sec-1)
+  - [The Abstraction: The Process](#sec-1-1)
+    - [A Process](#sec-1-1-1)
+    - [Process API](#sec-1-1-2)
+    - [Process Creation](#sec-1-1-3)
+    - [Process States](#sec-1-1-4)
+    - [Data Sctructures](#sec-1-1-5)
+    - [Homework](#sec-1-1-6)
+  - [Interlude: Process API](#sec-1-2)
+    - [fork()](#sec-1-2-1)
+    - [wait()](#sec-1-2-2)
+    - [exec()](#sec-1-2-3)
+    - [Why?](#sec-1-2-4)
+    - [Process Control And Users](#sec-1-2-5)
+    - [Tools](#sec-1-2-6)
+    - [Homework(Simulation)](#sec-1-2-7)
+    - [Homework(code)](#sec-1-2-8)
+  - [Mechanism: Limit Direct Execution](#sec-1-3)
+    - [Problem 1: Restricted Operations](#sec-1-3-1)
+    - [Problem 2: Switching Between Processes](#sec-1-3-2)
+    - [Saving and Restoring Context](#sec-1-3-3)
+    - [Homework (Measurement)](#sec-1-3-4)
+  - [Scheduling: Introduction](#sec-1-4)
+    - [Workload Assumption](#sec-1-4-1)
+    - [First In, First Out(FIFO)](#sec-1-4-2)
+    - [Shortest Job First (SJF)](#sec-1-4-3)
+    - [Shortest Time-to-Completion First (STCF)](#sec-1-4-4)
+    - [A new Metric: Response Time](#sec-1-4-5)
+    - [Round Robin](#sec-1-4-6)
+    - [Incorporating I/O](#sec-1-4-7)
+    - [No More Oracle](#sec-1-4-8)
+    - [Homework(Simulation)](#sec-1-4-9)
+  - [Scheduling: Multi-Level Feedback Queue](#sec-1-5)
+    - [Basic Rules](#sec-1-5-1)
+    - [Attempt #1: How to Change Priority](#sec-1-5-2)
+    - [Attempt #2: The Priority Boost](#sec-1-5-3)
+    - [Attempt #3: Better Accounting](#sec-1-5-4)
+    - [Tuning MLFQ And Other Issues](#sec-1-5-5)
+    - [Homework (Simulation)](#sec-1-5-6)
+  - [The Abstraction: Address Spaces](#sec-1-6)
+    - [Multiprogramming and Time Sharing](#sec-1-6-1)
+    - [The Address Space](#sec-1-6-2)
+    - [Goals](#sec-1-6-3)
+    - [Homework(Code)](#sec-1-6-4)
+
+# Vitualization<a id="sec-1"></a>
 
 
-# Table of Contents
-
--   [Vitualization](#org972bc8b)
-    -   [The Abstraction: The Process](#org299c2f6)
-        -   [A Process](#org1400b60)
-        -   [Process API](#org0f77ccf)
-        -   [Process Creation](#orga38f0f1)
-        -   [Process States](#org84c7674)
-        -   [Data Sctructures](#org56061a9)
-        -   [Homework](#org5531342)
-    -   [Interlude: Process API](#orge3fece7)
-        -   [fork()](#orgecb0174)
-        -   [wait()](#orgf1b27a7)
-        -   [exec()](#org1e92772)
-        -   [Why?](#org1fb6cb0)
-        -   [Process Control And Users](#orgbabd768)
-        -   [Tools](#org7dd1705)
-        -   [Homework(Simulation)](#org6bc9e4c)
-        -   [Homework(code)](#org74386cb)
-    -   [Mechanism: Limit Direct Execution](#orgf3d1b98)
-        -   [Problem 1: Restricted Operations](#org3d7d896)
-        -   [Problem 2: Switching Between Processes](#org30973b1)
-        -   [Saving and Restoring Context](#orgdf74f82)
-        -   [Homework (Measurement)](#org21636af)
-    -   [Scheduling: Introduction](#orgda5a67f)
-        -   [Workload Assumption](#org2c17b26)
-        -   [First In, First Out(FIFO)](#org0396032)
-        -   [Shortest Job First (SJF)](#org5271d83)
-        -   [Shortest Time-to-Completion First (STCF)](#orgceb3055)
-        -   [A new Metric: Response Time](#org0d6a2ca)
-        -   [Round Robin](#org8b89fe2)
-        -   [Incorporating I/O](#org7d6e2a4)
-        -   [No More Oracle](#org9bae6d1)
-        -   [Homework(Simulation)](#org3046d63)
-    -   [Scheduling: Multi-Level Feedback Queue](#org74a84b1)
-        -   [Basic Rules](#org89bfe02)
-        -   [Attempt #1: How to Change Priority](#orga6d31c4)
-        -   [Attempt #2: The Priority Boost](#orgaec8c0f)
-        -   [Attempt #3: Better Accounting](#org7756f17)
-        -   [Tuning MLFQ And Other Issues](#org5f9cf39)
-        -   [Homework (Simulation)](#orgd867e08)
-    -   [The Abstraction: Address Spaces](#orga288f02)
-        -   [Multiprogramming and Time Sharing](#org2d2263a)
-        -   [The Address Space](#org8606fbf)
-        -   [Goals](#org1b3bb7d)
-        -   [Homework(Code)](#orgeff2a20)
-
-## The Abstraction: The Process
+## The Abstraction: The Process<a id="sec-1-1"></a>
 
 
-### A Process
+### A Process<a id="sec-1-1-1"></a>
 
 -   absctration of a running program
 -   can be described by state:
@@ -59,7 +57,7 @@
     -   contents of CPU registers
     -   information about I/O
 
-### Process API
+### Process API<a id="sec-1-1-2"></a>
 
 -   Create
 -   Destory
@@ -67,7 +65,7 @@
 -   Miscellaneous Control (kill, wait, suspend, resume)
 -   Status
 
-### Process Creation
+### Process Creation<a id="sec-1-1-3"></a>
 
 1.  Loading process:
     -   eagerly
@@ -78,7 +76,7 @@
         -   small at first,, via malloc() more memory can be allocated to satisfy such calls
 3.  Start the program at the entry point, main()
 
-### Process States
+### Process States<a id="sec-1-1-4"></a>
 
 -   Running
 -   Ready
@@ -92,13 +90,13 @@
     
     The transition decision is made by the **scheduler**
 
-### Data Sctructures
+### Data Sctructures<a id="sec-1-1-5"></a>
 
 -   **process list:** track which process is currenly running, ready or blocked. (and also zombie state and -> examine the return, wait for child or kill)
 -   **register context:** hold for stopped process, the contents of its registers.
 -   **context switch:** by restorig these resigters, the OS can resume running the process.
 
-### Homework
+### Homework<a id="sec-1-1-6"></a>
 
 1.  Run process-run.py with the following flags: -l 5:100,5:100. What should the CPU utilization be (e.g., the percent of time the CPU is in use?) Why do you know this? Use the -c and -p flags to see if you were right.
     
@@ -499,11 +497,11 @@ Seed 3:
     Stats: CPU Busy 9 (50.00%)
     Stats: IO Busy  11 (61.11%)
 
-## Interlude: Process API
+## Interlude: Process API<a id="sec-1-2"></a>
 
 Unix way to create a new process with a pair of system calls: `fork()` and `exec()`. `wait()` can be used to wait for a created process to complete.
 
-### fork()
+### fork()<a id="sec-1-2-1"></a>
 
 -   Create a new process
 -   Create an exact copy of the calling process
@@ -514,13 +512,13 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
     -   The child has its own address space, own registers, own PC, and so forth.
 -   Output is not deterministic
 
-### wait()
+### wait()<a id="sec-1-2-2"></a>
 
 -   The parent process calls wait() to delay its execution.
 -   When the child is done, wait() returns to the parent.
 -   The output is deterministic.
 
-### exec()
+### exec()<a id="sec-1-2-3"></a>
 
 -   Run a program that is different from the calling program.
 -   What it does:
@@ -528,14 +526,14 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
     -   The heap and stack and other parts of the memory space are reinitialized.
     -   OS runs that program.
 
-### Why?
+### Why?<a id="sec-1-2-4"></a>
 
 -   Separation of `fork()` and `exec()`
     -   Lets the shell run code after `fork()` and before `exec()`
     -   Like redirection in shell
     -   pipe
 
-### Process Control And Users
+### Process Control And Users<a id="sec-1-2-5"></a>
 
 -   `kill()`
 -   `SIGINT`
@@ -543,11 +541,11 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
 -   `signal()` to catch various signals
 -   User generally can only control their own processes.
 
-### Tools
+### Tools<a id="sec-1-2-6"></a>
 
 `top` and `ps`
 
-### Homework(Simulation)
+### Homework(Simulation)<a id="sec-1-2-7"></a>
 
 1.  Run ./fork.py -s 10 and see which actions are taken. Can you predict what the process tree looks like at each step? Use the -c flag to check your answers. Try some different random seeds (-s) or add more actions (-a) to get the hang of it
     
@@ -726,151 +724,151 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
         
         Action: a forks b
         Action: a forks c
-        Action: b EXITS
         Action: c forks d
-        Action: d forks e
-        Action: c forks f
-        Action: c forks g
-        Action: d forks h
-        Action: g forks i
-        Action: d forks j
-        Action: h forks k
-        Action: d forks l
-        Action: g forks m
-        Action: j EXITS
-        Action: h EXITS
-        Action: k EXITS
-        Action: l forks n
-        Action: l EXITS
-        Action: e forks o
-        Action: n forks p
-        Action: n forks q
-        Action: q forks r
-        Action: f EXITS
-        Action: d forks s
-        Action: a forks t
-        Action: m EXITS
-        Action: g EXITS
-        Action: o forks u
-        Action: s forks v
-        Action: a forks w
-        Action: u forks x
-        Action: w forks y
-        Action: o EXITS
-        Action: x forks z
-        Action: x forks A
-        Action: e forks B
-        Action: a forks C
-        Action: c forks D
-        Action: v forks E
-        Action: x EXITS
-        Action: B forks F
-        Action: z EXITS
-        Action: w forks G
-        Action: B EXITS
-        Action: p forks H
-        Action: D forks I
-        Action: s forks J
-        Action: u forks K
-        Action: w forks L
-        Action: a forks M
-        Action: s EXITS
-        Action: E EXITS
-        Action: D forks N
-        Action: H EXITS
-        Action: L forks O
-        Action: e forks P
-        Action: A EXITS
-        Action: u EXITS
-        Action: r forks Q
-        Action: w forks R
-        Action: p forks S
-        Action: I forks T
-        Action: v EXITS
-        Action: L forks U
-        Action: T EXITS
-        Action: J forks V
-        Action: R forks W
-        Action: U forks X
-        Action: S forks Y
-        Action: Q forks Z
-        Action: M EXITS
-        Action: n forks aa
-        Action: e EXITS
-        Action: p forks ab
         Action: c EXITS
-        Action: q forks ac
-        Action: I forks ad
-        Action: Q forks ae
-        Action: J EXITS
-        Action: R forks af
+        Action: d forks e
+        Action: a forks f
+        Action: a forks g
+        Action: e forks h
+        Action: g forks i
+        Action: e forks j
+        Action: d forks k
+        Action: h forks l
+        Action: h EXITS
+        Action: l forks m
+        Action: b EXITS
+        Action: a forks n
+        Action: i forks o
+        Action: k forks p
+        Action: j forks q
+        Action: i EXITS
+        Action: j EXITS
+        Action: p EXITS
+        Action: n forks r
+        Action: e forks s
+        Action: k forks t
+        Action: g EXITS
+        Action: k forks u
+        Action: l forks v
         Action: d EXITS
-        Action: a forks ag
-        Action: U forks ah
+        Action: a forks w
+        Action: k EXITS
+        Action: a forks x
+        Action: r EXITS
+        Action: l forks y
+        Action: m forks z
+        Action: t forks A
+        Action: t forks B
+        Action: u forks C
+        Action: B forks D
+        Action: C forks E
+        Action: m EXITS
+        Action: l forks F
+        Action: y forks G
+        Action: u forks H
+        Action: y forks I
+        Action: A EXITS
+        Action: w EXITS
+        Action: I forks J
+        Action: n forks K
+        Action: z forks L
+        Action: n forks M
+        Action: B forks N
+        Action: y EXITS
+        Action: J EXITS
+        Action: F forks O
+        Action: G EXITS
+        Action: s forks P
+        Action: O forks Q
+        Action: F EXITS
+        Action: O forks R
+        Action: O forks S
+        Action: l forks T
+        Action: u forks U
+        Action: T forks V
+        Action: L EXITS
+        Action: P EXITS
+        Action: O forks W
+        Action: I forks X
+        Action: f forks Y
+        Action: V forks Z
+        Action: I forks aa
+        Action: Z EXITS
+        Action: aa forks ab
+        Action: U forks ac
+        Action: q forks ad
+        Action: l EXITS
+        Action: R EXITS
+        Action: N EXITS
+        Action: n forks ae
+        Action: v forks af
+        Action: q forks ag
         Action: I EXITS
-        Action: D forks ai
-        Action: F forks aj
+        Action: K forks ah
+        Action: u forks ai
+        Action: W forks aj
         Action: t forks ak
-        Action: y forks al
-        Action: ai forks am
-        Action: U forks an
-        Action: aa forks ao
-        Action: am forks ap
-        Action: Q forks aq
-        Action: aq forks ar
-        Action: ag EXITS
-        Action: ac forks as
-        Action: aq forks at
-        Action: ac forks au
-        Action: O EXITS
-        Action: ao EXITS
+        Action: K forks al
+        Action: a forks am
+        Action: u EXITS
+        Action: B forks an
+        Action: W forks ao
+        Action: z forks ap
+        Action: t forks aq
+        Action: an forks ar
+        Action: V forks as
+        Action: a forks at
+        Action: K EXITS
+        Action: aj EXITS
+        Action: q forks au
+        Action: W EXITS
         
                                 Final Process Tree:
                                        a
+                                       ├── f
+                                       │   └── Y
                                        ├── n
-                                       │   ├── p
-                                       │   │   ├── S
-                                       │   │   │   └── Y
-                                       │   │   └── ab
-                                       │   ├── q
-                                       │   │   ├── r
-                                       │   │   │   └── Q
-                                       │   │   │       ├── Z
-                                       │   │   │       ├── ae
-                                       │   │   │       └── aq
-                                       │   │   │           ├── ar
-                                       │   │   │           └── at
-                                       │   │   └── ac
-                                       │   │       ├── as
-                                       │   │       └── au
-                                       │   └── aa
+                                       │   ├── M
+                                       │   └── ae
+                                       ├── o
+                                       ├── q
+                                       │   ├── ad
+                                       │   ├── ag
+                                       │   └── au
+                                       ├── e
+                                       ├── s
                                        ├── t
-                                       │   └── ak
-                                       ├── i
-                                       ├── w
-                                       │   ├── y
-                                       │   │   └── al
-                                       │   ├── G
-                                       │   ├── L
-                                       │   │   └── U
-                                       │   │       ├── X
-                                       │   │       ├── ah
-                                       │   │       └── an
-                                       │   └── R
-                                       │       ├── W
-                                       │       └── af
-                                       ├── C
-                                       ├── F
-                                       │   └── aj
-                                       ├── K
-                                       ├── P
-                                       ├── D
-                                       │   └── ai
-                                       │       └── am
-                                       │           └── ap
-                                       ├── N
+                                       │   ├── B
+                                       │   │   ├── D
+                                       │   │   └── an
+                                       │   │       └── ar
+                                       │   ├── ak
+                                       │   └── aq
+                                       ├── x
+                                       ├── z
+                                       │   └── ap
+                                       ├── O
+                                       │   └── S
+                                       ├── Q
+                                       ├── v
+                                       │   └── af
+                                       ├── T
                                        ├── V
-                                       └── ad
+                                       │   └── as
+                                       ├── X
+                                       ├── aa
+                                       ├── ab
+                                       ├── am
+                                       ├── C
+                                       ├── E
+                                       ├── H
+                                       ├── U
+                                       ├── ac
+                                       ├── ai
+                                       ├── at
+                                       ├── ah
+                                       ├── al
+                                       └── ao
 
 6.  Finally, use both -t and -F together. This shows the final process tree, but then asks you to fill in the actions that took place. By look- ing at the tree, can you determine the exact actions that took place? In which cases can you tell? In which can’t you tell? Try some dif- ferent random seeds to delve into this question.
     
@@ -971,7 +969,7 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
                                        │   └── d
                                        └── e
 
-### Homework(code)
+### Homework(code)<a id="sec-1-2-8"></a>
 
 1.  Write a program that calls fork(). Before calling fork(), have the main process access a variable (e.g., x) and set its value to some- thing (e.g., 100). What value is the variable in the child process? What happens to the variable when both the child and parent change the value of x?
     
@@ -1217,7 +1215,7 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
         child 2 read message from child 1.This is parent of 548896 (pid:548895)
         This is parent of 548897 (pid:548895)
 
-## Mechanism: Limit Direct Execution
+## Mechanism: Limit Direct Execution<a id="sec-1-3"></a>
 
 -   Basic Idea: **time sharing**
     
@@ -1227,7 +1225,7 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
     -   Performance: without adding excessive overhead
     -   Control: how can we run processes efficiently while retaining control over the CPU
 
-### Problem 1: Restricted Operations
+### Problem 1: Restricted Operations<a id="sec-1-3-1"></a>
 
 -   user mode
 -   kernel mode
@@ -1240,7 +1238,7 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
     -   remember address of syscall handler
     -   when boots up, tell the hardware waht code to run when certain exceptinal events occur.
 
-### Problem 2: Switching Between Processes
+### Problem 2: Switching Between Processes<a id="sec-1-3-2"></a>
 
 -   A cooperative Apporach: wait for system calls
     -   not ideal: inifinite loop and never makes a system call
@@ -1251,7 +1249,7 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
     -   start the timer during the boot sequence
     -   save enough of the sate of the program
 
-### Saving and Restoring Context
+### Saving and Restoring Context<a id="sec-1-3-3"></a>
 
 -   schedular
 -   context switch
@@ -1259,7 +1257,7 @@ Unix way to create a new process with a pair of system calls: `fork()` and `exec
     -   disable interrupt
     -   locking
 
-### Homework (Measurement)
+### Homework (Measurement)<a id="sec-1-3-4"></a>
 
 How to measure time cost of system call?
 
@@ -1310,12 +1308,12 @@ Host                 OS  2p/0K 2p/16K 2p/64K 8p/16K 8p/64K 16p/16K 16p/64K<br />
 ----&#x2013;&#x2014; --------&#x2013;&#x2014; -&#x2013;&#x2014; -&#x2013;&#x2014; -&#x2013;&#x2014; -&#x2013;&#x2014; -&#x2013;&#x2014; --&#x2013;&#x2014; --&#x2013;&#x2014;<br />
 </p>
 
-## Scheduling: Introduction
+## Scheduling: Introduction<a id="sec-1-4"></a>
 
 -   **scheduling metrics:** turnaround time.
     -   the turnaround time of a job is defined as the time at which the job completes minus the time at which the job arrived in the system.
 
-### Workload Assumption
+### Workload Assumption<a id="sec-1-4-1"></a>
 
 1.  Each job runs for the same amount of time.
 2.  All jobs arrive at the same time.
@@ -1323,11 +1321,11 @@ Host                 OS  2p/0K 2p/16K 2p/64K 8p/16K 8p/64K 16p/16K 16p/64K<br />
 4.  All jobs only use the CPU (i.e., they perform no I/O)
 5.  The run-time of each job is known.
 
-### First In, First Out(FIFO)
+### First In, First Out(FIFO)<a id="sec-1-4-2"></a>
 
 Simple and easy to implement.
 
-### Shortest Job First (SJF)
+### Shortest Job First (SJF)<a id="sec-1-4-3"></a>
 
 Relax assumption 1:
 
@@ -1335,7 +1333,7 @@ What if no longer assume that each job runs for the same amount of time.
 
 Solution: SJF
 
-### Shortest Time-to-Completion First (STCF)
+### Shortest Time-to-Completion First (STCF)<a id="sec-1-4-4"></a>
 
 Relax assumption 2:
 
@@ -1349,13 +1347,13 @@ Solution: STCF
 
 Any time a new job enters the system, the STCF scheduler determines which of the remaining jobs has the least time left, and schedules that one.
 
-### A new Metric: Response Time
+### A new Metric: Response Time<a id="sec-1-4-5"></a>
 
 -   **Response Time:** the time from when the job arrives in a system to the first time it is scheduled
 
 How can we build a scheduler that is sensitive to response time?
 
-### Round Robin
+### Round Robin<a id="sec-1-4-6"></a>
 
 -   **Round-Robin:** instead of running jobs to completion, RR runs a job for a time slice (sometimes called a scheduling quantum) and then switches to the next job in the run queue. It repeatedly does so until the jobs are finished. For this reason, RR is sometimes called time-slicing.
 
@@ -1365,19 +1363,19 @@ The shorter the time-slice is, the better the performance of RR under the respon
     -   cost of context switching
     -   turnaround time is awful
 
-### Incorporating I/O
+### Incorporating I/O<a id="sec-1-4-7"></a>
 
 Relax assumption 4
 
 While interactive jobs are performing I/O, other CPU-intensive jobs run, thua better utilizing the processor.
 
-### No More Oracle
+### No More Oracle<a id="sec-1-4-8"></a>
 
 Relax assumption 5
 
 Building a scheduler that uses the recent past to predict the future.
 
-### Homework(Simulation)
+### Homework(Simulation)<a id="sec-1-4-9"></a>
 
 1.  Compute the response time and turnaround time when running three jobs of length 200 with the SJF and FIFO schedulers.
     
@@ -2138,7 +2136,7 @@ Building a scheduler that uses the recent past to predict the future.
     
     Worst case of response time = N \* quantum lengths
 
-## Scheduling: Multi-Level Feedback Queue
+## Scheduling: Multi-Level Feedback Queue<a id="sec-1-5"></a>
 
 -   Multi-Level Feedback Queue (MLFQ)
     -   Optimize turnaround time
@@ -2148,7 +2146,7 @@ How can the scheduler learn, as the system runs, the characteristics of the jobs
 
 How can we design a scheduler that both minimizes response time for interactive jobs while also minimizing turnaround time without a priori knowledge of job length?
 
-### Basic Rules
+### Basic Rules<a id="sec-1-5-1"></a>
 
 -   has a number of distinct queues
 -   each queue assigned a different priority level
@@ -2158,7 +2156,7 @@ How can we design a scheduler that both minimizes response time for interactive 
 -   **Rule 1:** If Priority(A) > Priority(B), A runs (B doesn't)
 -   **Rule 2:** If Priority(A) = Priority(B), A && B run in RR
 
-### Attempt #1: How to Change Priority
+### Attempt #1: How to Change Priority<a id="sec-1-5-2"></a>
 
 -   **Rule 3:** When a job enters the system, it is placed at the highest priority
 -   **Rule 4a:** If a job uses up an entire time slice while running ,its priority is reduced (it moves down one queue).
@@ -2170,7 +2168,7 @@ How can we design a scheduler that both minimizes response time for interactive 
     -   **Starvation:** if there are "too many" interactive jobs in the system, they will combine to consume all CPU time, and thus long running jobs will never receive any CPU time (they starve).
     -   **Game the scheduler:** trick the scheduler, issue an I/O operation allows you to remain in the same queue
 
-### Attempt #2: The Priority Boost
+### Attempt #2: The Priority Boost<a id="sec-1-5-3"></a>
 
 How to solve the starvation?
 
@@ -2180,13 +2178,13 @@ How to solve the starvation?
     -   too high: long-running jobs could starve
     -   too low: interactive jobs may not get a proper share of the CPU
 
-### Attempt #3: Better Accounting
+### Attempt #3: Better Accounting<a id="sec-1-5-4"></a>
 
 How to solve the "gaming"?
 
 -   **Rule 4:** Once a job uses up its time allotment at a given level(regardless of how many times it has given up the CPU), its priority is reduced
 
-### Tuning MLFQ And Other Issues
+### Tuning MLFQ And Other Issues<a id="sec-1-5-5"></a>
 
 -   Parameterize a scheduler
     -   how many queues
@@ -2202,7 +2200,7 @@ Some solutions:
 -   Reserve the highest priority levels for OS work
 -   Allow some user advice to help set priorities, utility `nice`, see man page
 
-### Homework (Simulation)
+### Homework (Simulation)<a id="sec-1-5-6"></a>
 
 1.  Run a few randomly-generated problems with just two jobs and two queues; compute the MLFQ execution trace for each. Make your life easier by limiting the length of each job and turning off I/Os.
     
@@ -2584,10 +2582,10 @@ Some solutions:
 5.  Given a system with a quantum length of 10 ms in its highest queue, how often would you have to boost jobs back to the highest priority level (with the -B flag) in order to guarantee that a single long- running (and potentially-starving) job gets at least 5% of the CPU?
 6.  One question that arises in scheduling is which end of a queue to add a job that just finished I/O; the -I flag changes this behavior for this scheduling simulator. Play around with some workloads and see if you can see the effect of this flag.
 
-## The Abstraction: Address Spaces
+## The Abstraction: Address Spaces<a id="sec-1-6"></a>
 
 
-### Multiprogramming and Time Sharing
+### Multiprogramming and Time Sharing<a id="sec-1-6-1"></a>
 
 -   effective utilization of CPU
 -   interactivity, many users might be concurrently using a machine
@@ -2604,7 +2602,7 @@ Some solutions:
     -   Leave processes ****in memory**** while switching between them
     -   ****protection**** is important, don't write some other process's memory.
 
-### The Address Space
+### The Address Space<a id="sec-1-6-2"></a>
 
 Address space is a abstraction:
 
@@ -2614,13 +2612,13 @@ Address space is a abstraction:
 
 Stack and heap just have to grow in opposite directions.
 
-### Goals
+### Goals<a id="sec-1-6-3"></a>
 
 -   **transparency:** program shouldn't be aware of the fact that memory is virtualized.
 -   **efficiency:** efficient in time and space; rely on hardware support, including hardware features such as TLBs.
 -   **protection:** protection access or affect the memory contents of any other processes and the OS itself. The principle of isolation.
 
-### Homework(Code)
+### Homework(Code)<a id="sec-1-6-4"></a>
 
 `free` and `pmap`
 
