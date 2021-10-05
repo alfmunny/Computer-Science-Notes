@@ -1,49 +1,68 @@
-# Book Notes
+# Computer Science Notes
 
-A collection of my reading notes of technical books.
+A collection of technical books and open courses of computer science.
 
-Every book listed here is a part of self-learning plan.
+It can be used as a road map to learn programming. Notes are taken in the separate projects.
 
 Currently working on: [Hands on Machine Learning](https://github.com/alfmunny/Hands-On-Machine-Learning/)
 
-## Algorithms [1/5]:
+## Algorithms
 
-1. [Algorithms 4th](algorithms-4th) :white_check_mark: DONE
-2. [ACM Challenge](acm-challenge)
-3. [Cracking the Coding Interview](cracking-the-coding-interview)
-4. [Data Structures and Algorithms in Java](data-structures-and-algorithms-in-java)
-5. [Introduction to Algorithms](Introduction-to-Algorithms)
+- [X] [Algorithms 4th](algorithms-4th) :white_check_mark: DONE
+- [ ] [ACM Challenge](acm-challenge)
+- [ ] [Cracking the Coding Interview](cracking-the-coding-interview)
+- [ ] [Data Structures and Algorithms in Java](data-structures-and-algorithms-in-java)
+- [ ] [Introduction to Algorithms](Introduction-to-Algorithms)
+- [ ] [MIT 6.006 Introduction to Algorithms](https://courses.csail.mit.edu/6.006/fall11/notes.shtml)
+- [ ] [MIT 6.046J Design and Analysis of Algorithms](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-design-and-analysis-of-algorithms-spring-2015/)
+- [ ] [MIT 6.851 Advanced Data Structures](https://courses.csail.mit.edu/6.851/)
 
-## Programming Languages [0/7]:
+## Computer Systems
 
-1. [Structure and Interpretation of Computer Programs (SICP)](./structure-and-interpretation-of-computer-programs) :construction: work in progress 20%
-2. [Fluent Python](./fluent-python) work in progress 20%
-3. [Metaprogramming Ruby](https://github.com/alfmunny/notes-metaprogramming-ruby) :ballot_box_with_check: 50%
-4. [Understanding Computation](./Understanding-Computation)
-5. [Effective C++](./effective-c++) work in progress 10%
-6. [More Effective C++](./more-effective-c++)
-7. [Effective Modern C++](./effective-modern-c++)
+- [ ] [Assembly](./assembly) work in progress 10%
+- [ ] [Computer Systems, A Programmer's Perspective](./computer-systems) :soon: coming next
+- [ ] [Opearting Systems: Three Easy Pieces](./Operating-Systems-Three-Easy-Steps)
+- [ ] [MIT 6.828 Operation System Engineering](https://pdos.csail.mit.edu/6.828/) [[Learning Notes](https://github.com/alfmunny/MIT6.828-Operation-System-Engineering)]
 
-## Computer Systems [0/3]:
+## Computer Networks
 
-1. [Assembly](./assembly) work in progress 10%
-2. [Computer Systems, A Programmer's Perspective](./computer-systems) :soon: coming next
-3. [Opearting Systems: Three Easy Pieces](./Operating-Systems-Three-Easy-Steps)
+- [ ] [Computer Networking: A Top-Down Approach](./Computer-Networking-A-Top-Down-Approach)
+- [ ] [Sylar: Build a network framework in C++ from scratch](https://github.com/alfmunny/wille)
 
-## Computer Networks [0/1]:
+## Programming Languages
 
-1. [Computer Networking: A Top-Down Approach](./Computer-Networking-A-Top-Down-Approach)
+- [ ] [Structure and Interpretation of Computer Programs (SICP)](./structure-and-interpretation-of-computer-programs) :construction: work in progress 20%
+- [ ] [Fluent Python](./fluent-python) work in progress 20%
+- [ ] [Metaprogramming Ruby](https://github.com/alfmunny/notes-metaprogramming-ruby) :ballot_box_with_check: 50%
+- [ ] [Understanding Computation](./Understanding-Computation)
+- [ ] [Effective C++](./effective-c++) work in progress 10%
+- [ ] [More Effective C++](./more-effective-c++)
+- [ ] [Effective Modern C++](./effective-modern-c++)
 
-## Compilers [0/2]
+## Compilers
 
-1. [Crafting Interpreters](./Crafting-Interpreters)
-2. [Writing An Interpreter In Go](./Writing-An-Interpreter-In-Go)
+- [ ] [Crafting Interpreters](./Crafting-Interpreters)
+- [ ] [Writing An Interpreter In Go](./Writing-An-Interpreter-In-Go)
+- [ ] [Stanford CS123 Compilers](http://web.stanford.edu/class/cs143/)
+- [ ] [Stanford CS243 Program Analysis and Optimization](http://web.stanford.edu/class/cs243/) 
+- [ ] [Stanford CS343 Advanced Topics in Compilers](http://web.stanford.edu/class/cs343/)
+
 
 ## Distributed Systems
+- [ ] [MIT 6.824 Distributed Systems](https://github.com/alfmunny/MIT6.824-Distributed-Systems) :construction:
 
 ## Databases
 
-## Machine Learning [0/2]:
+## Machine Learning
 
-1. [Hands on Machine Learning](https://github.com/alfmunny/Hands-On-Machine-Learning/) :construction: work in progress 50%
-2. [Dive into Deep Learning Pytorch](https://github.com/alfmunny/DiveIntoDLPyTorch/)
+- [ ] [Hands on Machine Learning](https://github.com/alfmunny/Hands-On-Machine-Learning/) :construction: work in progress 50%
+- [ ] [Dive into Deep Learning Pytorch](https://github.com/alfmunny/DiveIntoDLPyTorch/)
+- [ ] [Stanford CS231 Convolutional Neural Networks for Visual Recgnition](http://cs231n.stanford.edu/) [[Learning Notes](https://github.com/alfmunny/CS231n-CNN)]
+- [ ] [Stanford CS224n Natural Language Processing](http://web.stanford.edu/class/cs224n)
+
+## Math
+- [ ] [MIT 18.01 Single Variable Caculus](https://ocw.mit.edu/courses/mathematics/18-01-single-variable-calculus-fall-2006/)
+- [ ] [MIT 18.02 Multicariable Variable Caculus](https://ocw.mit.edu/courses/mathematics/18-02-multivariable-calculus-fall-2007/)
+- [ ] [MIT 18.03 Differential Equations](https://ocw.mit.edu/courses/mathematics/18-03-differential-equations-spring-2010/)
+- [ ] [MIT 18.06 Linear Algebra](https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/)
+
