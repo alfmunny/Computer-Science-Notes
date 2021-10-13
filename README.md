@@ -1,10 +1,20 @@
 # Computer Science Notes
 
-A collection of technical books and open courses of computer science.
+A collection of notes of technical books and open courses in computer science. 
 
-It can be used as a road map to learn programming. Notes are taken in the separate projects.
+It can be used as a road map to learn programming.
 
 Currently working on: [Hands on Machine Learning](https://github.com/alfmunny/Hands-On-Machine-Learning/)
+
+## My Notes
+
+- [Quick Notes](./Notes/quick-notes.md)
+- [vim](./Notes/vim-cheatsheet.md)
+- [emacs](./Notes/emacs.md)
+- [C++](./Notes/C++.md)
+- [Ruby](./Notes/ruby-cheatsheet.md)
+- [Go](./Notes/go-cheatsheet.md)
+- [Dotfiles](./Notes/dotfiles-cheatsheet.md)
 
 ## Algorithms
 
