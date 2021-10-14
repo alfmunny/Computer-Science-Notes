@@ -32,7 +32,8 @@ Currently working on: [Hands on Machine Learning](https://github.com/alfmunny/Ha
 - [ ] [Assembly](./assembly) work in progress 10%
 - [ ] [Computer Systems, A Programmer's Perspective](./computer-systems) :soon: coming next
 - [ ] [Opearting Systems: Three Easy Pieces](./Operating-Systems-Three-Easy-Steps)
-- [ ] [MIT 6.828 Operation System Engineering](https://pdos.csail.mit.edu/6.828/) [[Learning Notes](https://github.com/alfmunny/MIT6.828-Operation-System-Engineering)]
+- [ ] [Advanced Programming in the Unix Environment](./APUE)
+- [ ] [MIT 6.828 Operation System Engineering](https://pdos.csail.mit.edu/6.828/) [Learning Notes](https://github.com/alfmunny/MIT6.828-Operation-System-Engineering)
 
 ## Computer Networks
 

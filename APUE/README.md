@@ -1,0 +1,6 @@
+# Advanced Programming in the Unix Environment
+
+## Resources
+
+- [Book](https://www.amazon.de/Programming-Environment-Addison-Wesley-Professional-Computing/dp/0321637739)
+- [Video Course](https://www.youtube.com/playlist?list=PL0qfF8MrJ-jxMfirAdxDs9zIiBg2Wug0z)
