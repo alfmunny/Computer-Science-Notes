@@ -8,4 +8,4 @@
 
 
 ## Content of Table
-- [[1. File Descriptors]]
+- [File Descriptors](1. File Descriptors)
