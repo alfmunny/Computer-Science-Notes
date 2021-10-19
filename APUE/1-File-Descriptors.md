@@ -8,7 +8,7 @@ See `man stdio(3)`
 
 - stdin (0, STDIN_FILENO)
 - stdout (1, STDOUT_FILENO)
-- -stderr (2, STDERR_FILENO)
+- stderr (2, STDERR_FILENO)
 
 ## Limits
 
@@ -78,15 +78,15 @@ lseek(2)
 `open(2)`
 
 ```
-   O_RDONLY        open for reading only
-   O_WRONLY        open for writing only
-   O_RDWR          open for reading and writing
+O_RDONLY        open for reading only
+O_WRONLY        open for writing only
+O_RDWR          open for reading and writing
 
-   O_NONBLOCK      do not block on open or for data to become available
-   O_APPEND        append on each write
-   O_CREAT         create file if it does not exist
-   O_TRUNC         truncate size to 0
-   O_EXCL          error if O_CREAT and the file exists
+O_NONBLOCK      do not block on open or for data to become available
+O_APPEND        append on each write
+O_CREAT         create file if it does not exist
+O_TRUNC         truncate size to 0
+O_EXCL          error if O_CREAT and the file exists
  ```
 		   
 		   
@@ -102,11 +102,11 @@ SEEK_END end of the file
 	
  `lseek` can create sparse file by skipping positions in the file. 
  ```c
- 	#define BIGNUM 10240000
- 	if (lseek(fd, BIGNUM, SEEK_CUR) == -1) {
-		perror("lseek error");
-		return EXIT_FAILURE;
-	}
+#define BIGNUM 10240000
+if (lseek(fd, BIGNUM, SEEK_CUR) == -1) {
+	perror("lseek error");
+	return EXIT_FAILURE;
+}
  ```
  But the file system must support sparse file. And `copy` a sparse file may also differ on different systems. You can check it with `man copy`.
  
@@ -116,6 +116,51 @@ SEEK_END end of the file
 stat -f "%k" ./lseek.c
 ```
 
+
+## File Sharing
+
 `dup` Duplicate a file descriptor which points to the same file table.
 
+```c
+dup2(STDOUT_FILENO, STDERR_FILENO)
+```
+
 `fcntl` Control file descriptors.
+
+
+```
+if((flags = fcntl(STDOUT_FILENO, F_GETFL, 0)) < 0) {
+	perror("Can't get file descriptor flags");
+	exit(EXIT_FAILURE);
+}
+
+flags |= O_SYNC;
+
+if(fcntl(STDOUT_FILENO, F_SETFL, flags) < 0) {
+	perror("Cant' set file descriptor flags");
+}
+fcntl(STDOUT_FILENO, F_GETFL, 0)
+```
+
+`O_SYNC`: flush I/O on every call. It slows down the performance but make the writing synchronously.
+
+`dev/fd`
+
+```
+❯  ls -l /dev/std*
+lr-xr-xr-x  1 root  wheel  0 Sep 25 13:13 /dev/stderr -> fd/2
+lr-xr-xr-x  1 root  wheel  0 Sep 25 13:13 /dev/stdin -> fd/0
+lr-xr-xr-x  1 root  wheel  0 Sep 25 13:13 /dev/stdout -> fd/1
+```
+
+We can use `/dev/std*` to catch the stdin, stdout or stderr.
+
+```
+❯ echo one > first
+❯ echo third > third
+❯ echo two | cat first /dev/stdin third
+one
+two
+third
+```
+
