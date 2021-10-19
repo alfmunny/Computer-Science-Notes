@@ -4,7 +4,9 @@ A collection of notes of technical books and open courses in computer science.
 
 It can be used as a road map to learn programming.
 
-Currently working on: [Hands on Machine Learning](https://github.com/alfmunny/Hands-On-Machine-Learning/)
+Currently working on: 
+- [APUE](./APUE)
+- [Build a network fromework in C++ from scratch](https://github.com/alfmunny/wille)
 
 ## My Notes
 
@@ -33,7 +35,7 @@ Currently working on: [Hands on Machine Learning](https://github.com/alfmunny/Ha
 - [ ] [Computer Systems, A Programmer's Perspective](./computer-systems) :soon: coming next
 - [ ] [Opearting Systems: Three Easy Pieces](./Operating-Systems-Three-Easy-Steps)
 - [ ] [Advanced Programming in the Unix Environment](./APUE)
-- [ ] [MIT 6.828 Operation System Engineering](https://pdos.csail.mit.edu/6.828/) [Learning Notes](https://github.com/alfmunny/MIT6.828-Operation-System-Engineering)
+- [ ] [MIT 6.828 Operation System Engineering](https://github.com/alfmunny/MIT6.828-Operation-System-Engineering)
 
 ## Computer Networks
 
