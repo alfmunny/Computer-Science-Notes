@@ -35,7 +35,8 @@ Currently working on:
 - [ ] [Computer Systems, A Programmer's Perspective](./computer-systems) :soon: coming next
 - [ ] [Opearting Systems: Three Easy Pieces](./Operating-Systems-Three-Easy-Steps)
 - [ ] [Advanced Programming in the Unix Environment](./APUE)
-- [ ] [MIT 6.828 Operation System Engineering](https://github.com/alfmunny/MIT6.828-Operation-System-Engineering)
+- [ ] [MIT 6.S081 Operation System Engineering](https://github.com/alfmunny/MIT6.828-Operation-System-Engineering)
+- [ ] [MIT 6.828 Operation System Research Seminar](https://abelay.github.io/6828seminar/index.html)
 
 ## Computer Networks
 
