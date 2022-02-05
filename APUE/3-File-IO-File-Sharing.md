@@ -117,19 +117,153 @@ if (lseek(fd, BIGNUM, SEEK_CUR) == -1) {
 stat -f "%k" ./lseek.c
 ```
 
-
 ## File Sharing
+
+### Atomic Operations
+
+> What if another process did write to the same file using lseek(fd, 0, SEEK_END)?
+
+`lseek` and then `write` is not an atomic operation. It can be interrupted after `lseek`, and therefore `write` may happen after the file has been changed. It will write from the same offset using the original file size, and overwrite the data which the other file has already written.
+
+`O_APPEND` will solve the case for writing to the end. It's atomic.
+
+`pread` and `pwrite` can write to any offset atomically, it will seek first and then write.
+
+```
+ssize_t pread(int fd, void *buf, size_t num, off_t offset);
+ssize_t pwrite(int fd, void *buf, size_t num, off_t offset);
+```
+
+### Shell examples about O_APPEND
+
+Let's try list some non existing files. Suppose we have already created a `file`.
+
+```bash
+ls -l file /nowhere /does-not-exist 
+
+ls: /does-not-exist: No such file or directory
+ls: /nowhere: No such file or directory
+-rw-r--r--  1 alfmunny  staff  138  5 Feb 23:25 file
+
+ls -l /nowhere /does-not-exist file 
+ls: /does-not-exist: No such file or directory
+ls: /nowhere: No such file or directory
+-rw-r--r--  1 alfmunny  staff  138  5 Feb 23:25 file
+```
+
+> Why `stderr` is always prior then `stdout`? 
+
+Because `stderr` is unbuffered, and `stdout` is buffered. 
+Please see [manual](https://linux.die.net/man/3/stderr).
+
+
+Test `>` and `>>` in shell
+
+`>` means write to file with `O_TRUNC`.
+`>>` means write to file with `O_APPEND`
+
+```bash
+ls -l file /nowhere /does-not-exist >file 2>file
+cat file
+# stdout overwrites stderr, because they both write with O_TRUNC
+-rw-r--r--  1 alfmunny  staff  0  5 Feb 23:23 file
+/nowhere: No such file or directory
+
+ls -l file /nowhere /does-not-exist >file 2>>file
+cat file
+# stdout overwrites stderr, because stderr write first with O_APPEND, and then stdout write with O_TRUNC.
+-rw-r--r--  1 alfmunny  staff  0  5 Feb 23:24 file
+/nowhere: No such file or directory
+
+ls -l file /nowhere /does-not-exist >>file 2>file
+cat file
+# All good now.
+ls: /does-not-exist: No such file or directory
+ls: /nowhere: No such file or directory
+-rw-r--r--  1 alfmunny  staff  0  5 Feb 23:25 file
+
+# There is a better ways to let stderr always go to where the stdout is
+ls -l file /nowhere /does-not-exist >file 2>&1
+cat file
+ls: /does-not-exist: No such file or directory
+ls: /nowhere: No such file or directory
+-rw-r--r--  1 alfmunny  staff  0  5 Feb 23:40 file
+```
+
+### Duplicate
+
+> How do we open whatever stdout is?
 
 `dup` Duplicate a file descriptor which points to the same file table.
 
+`redir.c`
 ```c
-dup2(STDOUT_FILENO, STDERR_FILENO)
+void
+writeBoth(const char *mark) {
+	int len, marklen;
+
+	marklen = strlen(mark);
+	if (write(STDOUT_FILENO, mark, marklen) != marklen) {
+		perror("unable to write marker to stdout");
+		exit(EXIT_FAILURE);
+	}
+
+	len = strlen(STDOUT_MSG);
+	if (write(STDOUT_FILENO, STDOUT_MSG, len) != len) {
+		perror("unable to write to stdout");
+		exit(EXIT_FAILURE);
+	}
+
+	if (write(STDERR_FILENO, STDERR_MSG, len) != len) {
+		perror("unable to write to stdout");
+		exit(EXIT_FAILURE);
+	}
+}
+
+int
+main() {
+	writeBoth("before dup2\n");
+
+	if (dup2(STDOUT_FILENO, STDERR_FILENO) < 0) {
+		perror("Unable to redirect stderr to stdout");
+		exit(EXIT_FAILURE);
+	}
+
+	writeBoth("after dup2\n");
+}
 ```
 
-`fcntl` Control file descriptors.
+### Shell examples for dup2
 
+```bash
+./apue-code/02/redir.out 
+before dup2
+A message to stdout.
+A message to stderr.
+after dup2
+A message to stdout.
+A message to stderr.
 
+# stderr goes to wherever stdout is after dup2
+./apue-code/02/redir.out 2>/dev/null
+before dup2
+A message to stdout.
+after dup2
+A message to stdout.
+A message to stderr.
+
+./apue-code/02/redir.out >file
+A message to stderr.
+cat file
+before dup2
+A message to stdout.
+after dup2
+A message to stdout.
+A message to stderr.
 ```
+### `fcntl` Control file descriptors.
+
+```c
 if((flags = fcntl(STDOUT_FILENO, F_GETFL, 0)) < 0) {
 	perror("Can't get file descriptor flags");
 	exit(EXIT_FAILURE);
@@ -143,12 +277,12 @@ if(fcntl(STDOUT_FILENO, F_SETFL, flags) < 0) {
 fcntl(STDOUT_FILENO, F_GETFL, 0)
 ```
 
-`O_SYNC`: flush I/O on every call. It slows down the performance but make the writing synchronously.
+`O_SYNC`: flush I/O to disk on every call. It slows down the performance but make the writing synchronously.
 
 `dev/fd`
 
 ```
-❯  ls -l /dev/std*
+ls -l /dev/std*
 lr-xr-xr-x  1 root  wheel  0 Sep 25 13:13 /dev/stderr -> fd/2
 lr-xr-xr-x  1 root  wheel  0 Sep 25 13:13 /dev/stdin -> fd/0
 lr-xr-xr-x  1 root  wheel  0 Sep 25 13:13 /dev/stdout -> fd/1
@@ -157,9 +291,9 @@ lr-xr-xr-x  1 root  wheel  0 Sep 25 13:13 /dev/stdout -> fd/1
 We can use `/dev/std*` to catch the stdin, stdout or stderr.
 
 ```
-❯ echo one > first
-❯ echo third > third
-❯ echo two | cat first /dev/stdin third
+echo one > first
+echo third > third
+echo two | cat first /dev/stdin third
 one
 two
 third

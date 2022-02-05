@@ -42,7 +42,7 @@ main(int argc, char **argv) {
 		exit(EXIT_FAILURE);
 	}
 
-	//flags |= O_SYNC;
+	flags |= O_SYNC;
 
 	if (fcntl(STDOUT_FILENO, F_SETFL, flags) < 0) {
 		perror("Can't set file descriptor flags");
