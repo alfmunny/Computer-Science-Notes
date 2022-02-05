@@ -25,7 +25,7 @@ There are several ways to get the current limit of max open files in current pro
 - getrlimit
 	- `getrlimit(RLIMIT_NOFILE, &rlp)`
 
-Run `openmax.c`
+Run [openmax.c](./apue-code/02/openmax.c)
 
 ```
 OPEN_MAX is defined as 10240.
