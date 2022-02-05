@@ -11,14 +11,7 @@ They will point the files in the file table of the kernel.
 - stdout (1, STDOUT_FILENO)
 - stderr (2, STDERR_FILENO)
 
-process table entry                             File table
-
-| fd  | fd flags | file pointer |    |-->   | file status        |
-| --- | -------- | ------------ |    |      | current file offset|
-| 0   |          |              |----       | v-node pointer     |
-| 1   |          |              |
-| 2   |          |              |
-| 3   |          |              |
+![File table](Pasted%20image%2020220205202006.png)
 
 ## Limits
 
