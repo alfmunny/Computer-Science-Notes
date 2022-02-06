@@ -134,13 +134,11 @@ ssize_t pread(int fd, void *buf, size_t num, off_t offset);
 ssize_t pwrite(int fd, void *buf, size_t num, off_t offset);
 ```
 
-### Shell examples about O_APPEND
-
-Let's try list some non existing files. Suppose we have already created a `file`.
+Shell examples `O_APPEND`
 
 ```bash
+# Suppose we have already created a `file`.
 ls -l file /nowhere /does-not-exist 
-
 ls: /does-not-exist: No such file or directory
 ls: /nowhere: No such file or directory
 -rw-r--r--  1 alfmunny  staff  138  5 Feb 23:25 file
@@ -151,7 +149,7 @@ ls: /nowhere: No such file or directory
 -rw-r--r--  1 alfmunny  staff  138  5 Feb 23:25 file
 ```
 
-> Why `stderr` is always prior then `stdout`? 
+> Why `stderr` is always prior to `stdout`? 
 
 Because `stderr` is unbuffered, and `stdout` is buffered. 
 Please see [manual](https://linux.die.net/man/3/stderr).
@@ -279,9 +277,37 @@ fcntl(STDOUT_FILENO, F_GETFL, 0)
 
 `O_SYNC`: flush I/O to disk on every call. It slows down the performance but make the writing synchronously.
 
+Shell examples for `O_SYNC`.
+
+```bash
+# create a 10MB file
+dd if=/dev/zero of=file bs=$((1024 * 1024)) count=10
+10+0 records in
+10+0 records out
+10485760 bytes transferred in 0.001990 secs (5269014629 bytes/sec)
+
+du -h file
+10.0M	file
+
+# with O_SYNC
+time ./apue-code/02/sync-cat.out <file >out
+real	0m0.461s
+user	0m0.004s
+sys	0m0.205s
+
+# comment out O_SYNC
+time ./apue-code/02/sync-cat.out <file >out
+real	0m0.041s
+user	0m0.003s
+sys	0m0.033s
+```
+
+With `O_SYNC` we have huge performance penalty, but it guarantee its writing flushed to disk synchronously.
+
+
 `dev/fd`
 
-```
+```bash
 ls -l /dev/std*
 lr-xr-xr-x  1 root  wheel  0 Sep 25 13:13 /dev/stderr -> fd/2
 lr-xr-xr-x  1 root  wheel  0 Sep 25 13:13 /dev/stdin -> fd/0
@@ -290,13 +316,11 @@ lr-xr-xr-x  1 root  wheel  0 Sep 25 13:13 /dev/stdout -> fd/1
 
 We can use `/dev/std*` to catch the stdin, stdout or stderr.
 
-```
+```bash
 echo one > first
 echo third > third
-echo two | cat first /dev/stdin third
+echo two | cat first /dev/stdin third # here stdin reads from pipe
 one
 two
 third
 ```
-
-
