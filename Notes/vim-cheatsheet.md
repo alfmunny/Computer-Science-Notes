@@ -148,3 +148,17 @@ zb or z-    put current line at bottom of window
 
 http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers
 
+## Run current line
+
+```
+:.w !sh
+:.w !python
+:.w !ruby
+```
+
+Shortcut
+```
+map <leader><leader>rs :.w !sh<CR>
+map <leader><leader>rp :.w !python<CR>
+map <leader><leader>rr :.w !ruby<CR>
+```
