@@ -157,8 +157,9 @@ Please see [manual](https://linux.die.net/man/3/stderr).
 
 Test `>` and `>>` in shell
 
-`>` means write to file with `O_TRUNC`.
-`>>` means write to file with `O_APPEND`
+`>` : write to file with `O_TRUNC`.
+
+`>>` : write to file with `O_APPEND`.
 
 ```bash
 ls -l file /nowhere /does-not-exist >file 2>file
@@ -324,3 +325,7 @@ one
 two
 third
 ```
+
+## Homework
+- Read [Code Guideline](./homework/hw)
+- Write [bbcp](./homework/bbcp.1.pdf), see this [guide](https://stevens.netmeister.org/631/f21-hw1.html)
