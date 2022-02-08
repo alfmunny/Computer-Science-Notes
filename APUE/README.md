@@ -9,3 +9,5 @@
 ## Content of Table
 - [0. Basics](0-Basics.md)
 - [3. File Descriptors](3-File-IO-File-Sharing.md)
+- [7. Process Environment](7-Process-Environment.md)
+- [8. Process Control](8-Process-Control.md)
