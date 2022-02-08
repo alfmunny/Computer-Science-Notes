@@ -181,4 +181,18 @@ Bacon: great on anything.
 
 ## Debugging
 
-## 
+```bash
+gdb a.out
+```
+
+```
+run argument
+break main      # set break point
+info br         # list info of breakpoints
+delete br 1     # delete breakpoint 
+step
+n               # next
+C-x o           # open visual debugger
+kill            # kill program
+print var       # print variable
+```
