@@ -4,6 +4,14 @@
 ```
 export MANPATH="/Applications/X/C/D/P/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/share/man:$MANPATH"
 ```
+### diff
+
+```
+diff -bu
+
+-b: ignore space change
+-u: output NUM (default 3) lines of unified context
+```
 
 ## Git
 
