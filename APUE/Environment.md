@@ -181,7 +181,9 @@ Bacon: great on anything.
 
 ## Debugging
 
+
 ```bash
+cc -g fib.c # -g debugging information for gdb
 gdb a.out
 ```
 
