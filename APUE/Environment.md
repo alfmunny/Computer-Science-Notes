@@ -197,4 +197,12 @@ n               # next
 C-x o           # open visual debugger
 kill            # kill program
 print var       # print variable
+x/FMT ADDRESS   # print the value in the given ADDRESS in FMT
 ```
+
+A buffer overflow does not necessarily lead to a segfault.
+
+Difference between `gets()` and `fgets()`:
+
+> Never use `gets` in a real program. It does not check the boundary of the data.  It causes overflow.
+> `fgets()` can check the boundary
