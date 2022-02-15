@@ -42,7 +42,7 @@ Slides: [fds.pdf](./slides/02-fds.pdf),  [open-close.pdf](./slides/02-open-close
 Homework:
 
 - [ ] [File Descriptors Warmup Exercise](https://stevens.netmeister.org/631/fd-exercise.html)
-- [ ] [Write bbcp](./homework/bbcp.1.pdf), [Hints](https://stevens.netmeister.org/631/f21-hw1.html)
+- [ ] [Implement `bbcp`](./homework/bbcp.1.pdf), [Hints](https://stevens.netmeister.org/631/f21-hw1.html)
 
 
 ### Week 3
@@ -66,6 +66,25 @@ Notes:
 
 Notes:
 - [ ] [Interprocess Communication I](14-Interprocess-Communication-I.md)
+
+Homework:
+- [ ] [Implement 'command(3)'](https://stevens.netmeister.org/631/f21-hw2.html)
+
+Resources:
+
+- [ ] [Beej's Guid to Unix IPC](https://beej.us/guide/bgipc/html/single/bgipc.html)
+- [ ] [Shared Memory Introduction](https://web.archive.org/web/20160507131726/http://www.kohala.com/start/unpv22e/unpv22e.chap12.pdf)
+- [ ] [Semaphores in Linux](https://web.archive.org/web/20180316204322/http://www.linuxdevcenter.com/pub/a/linux/2007/05/24/semaphores-in-linux.html)
+- [ ] [Interprocess communication using POSIX message queues in Linux](https://www.softprayog.in/programming/interprocess-communication-using-posix-message-queues-in-linux)
+
+Checkpoint:
+
+- Provide three examples of IPC that allows for asynchronous communication between unrelated processes.
+- What is an advantage of using Shared Memory over a pipe? What's a disadvantage?
+- What is an advantage of using Message Queues over Shared Memory? What's a disadvantage?
+- What's the difference between a FIFO and a pipe?
+- popen(3) makes it easy to set up IPC with a new process. What is a risk in using this library function?
+
 
 ### Week 9 Interprocess Communication II
 ### Week 10 Daemon Processes
