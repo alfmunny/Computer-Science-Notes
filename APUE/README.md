@@ -87,6 +87,10 @@ Checkpoint:
 
 
 ### Week 9 Interprocess Communication II
+
+Notes:
+- [ ] [Interprocess Communication I](14-Interprocess-Communication-II.md)
+
 ### Week 10 Daemon Processes
 ### Week 11 Shared Libraries
 ### Week 12 Advanced I/O

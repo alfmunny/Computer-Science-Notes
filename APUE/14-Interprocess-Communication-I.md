@@ -80,9 +80,107 @@ key        shmid      owner      perms      bytes      nattch     status
 
 ### Message Queue
 
+- linked list of messages stored in kernel space
+- create or open existing queue using msgget(2)
+- add message at end of queue using msgsnd(2)
+- receive messages from queue using msgrcv(2)
+- control queue properties using msgctl(2)
+
+The message itself is contained in a user-defined structure such asynchronous
+
+```c
+struct mymsg {
+    long mtype      /* message type */
+    char mtext[512] /* body of message */
+}
+```
+
+Read [msgsend.c](./apue-code/08/msgsend.c) and [msgrecv.c](./apue-code/08/msgrecv.c)
+
+`msgsend.c`
+
+Create message queue
+```c
+// 0644 grants owner read and write, group read and others read permission
+if ((msqid = msgget(key, IPC_CREAT | 0644)) < 0) {
+    perror("msgget");
+    exit(EXIT_FAILURE);
+}
+```
+
+Send message 
+
+```c
+sbuf.mtype = 1;
+
+(void)strncpy(sbuf.mtext, argv[2], MSGSZ);
+
+len = strlen(sbuf.mtext) + 1;
+
+// IPC_NOWAIT will return with ERROR immediately if insufficient space
+if (msgsnd(msqid, &sbuf, len, IPC_NOWAIT) < 0) {
+    (void)fprintf (stderr, "%d, %ld, %s, %d\n",
+            msqid, sbuf.mtype, sbuf.mtext, (int)len);
+    perror("msgsnd");
+    exit(EXIT_FAILURE);
+}
+```
+
+Receive message
+
+```c
+if ((msqid = msgget(key, 0)) < 0) {
+    perror("msgget");
+    exit(EXIT_FAILURE);
+}
+
+if (msgrcv(msqid, &rbuf, MSGSZ, 1, 0) < 0) {
+    perror("msgrcv");
+    exit(EXIT_FAILURE);
+}
+```
+
+Run `msgsend`
+
+```bash
+./msgsend 1 "hello alfmunny!"
+
+ipcs -q
+
+------ Message Queues --------
+key        msqid      owner      perms      used-bytes   messages    
+0x00000001 0          alfmunny   644        16           1           
+
+
+./msgsend 1 "byebye!"
+
+ipcs -q
+
+------ Message Queues --------
+key        msqid      owner      perms      used-bytes   messages    
+0x00000001 0          alfmunny   644        24           2           
+
+./msgrecv 1
+hello alfmunny!
+
+./msgrecv 2
+msgget: No such file or directory
+
+./msgrecv 1
+byebye!
+
+./msgrecv 1 # will block to wait on the message
+```
+
+### Recap
+
+- asynchronous IPC between processes on the same system
+- old, but not obsolete
+- semaphores are useful to guard access to shared resources
+- shared memory allows fast IPC
+- message queues as a service are a popular way to implement "pub sub" models
 
 ## Pipes and FIFOs
-
 
 ### Pipes
 
@@ -124,6 +222,8 @@ Read [popen.c](./apue-code/08/popen.c)
 
 The command will be passed to /usr/sh with -c. It can run any commands. Because this vunalibity, it is a good practice to use `popenve` instead of`popen`.
 
+
+### FIFOs
 
 `mkfifo` create named pipe
 
@@ -192,7 +292,7 @@ wc -lc *ok
  15 121 total
 ```
 
-### Summary
+### Recap
 
 pipe(2) and FIFOs
 
