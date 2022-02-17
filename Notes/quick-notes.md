@@ -1,16 +1,36 @@
 ## Shell
 
-### Add man pages
-```
-export MANPATH="/Applications/X/C/D/P/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/share/man:$MANPATH"
-```
 ### diff
 
-```
+```bash
 diff -bu
 
 -b: ignore space change
 -u: output NUM (default 3) lines of unified context
+```
+
+### redirect
+
+Interpretation from left to right.
+Pipe read from file descirptor 1. 
+
+```bash
+command 2>&1 >/dev/null | wc -l
+```
+This will redirect stderr to stdout, but stderr will not redirect to `/dev/null`.
+
+
+```bash
+command >/dev/null 2>&1 | wc -l
+```
+This will redirect stderr to stdout, and stderr will also redirect to `/dev/null`. 
+But pipe will still get the stderr. `> /dev/null` will not change the fact that stderr is redirected to pipe.
+
+[Resource](https://stackoverflow.com/questions/2342826/how-can-i-pipe-stderr-and-not-stdout)
+
+### Add man pages
+```bash
+export MANPATH="/Applications/X/C/D/P/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/share/man:$MANPATH"
 ```
 
 ## Git
