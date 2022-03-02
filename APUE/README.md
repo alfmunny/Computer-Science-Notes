@@ -65,7 +65,7 @@ Notes:
 ### Week 8 
 
 Notes:
-- [ ] [Interprocess Communication I](14-Interprocess-Communication-I.md)
+- [X] [Interprocess Communication I](14-Interprocess-Communication-I.md)
 
 Homework:
 - [ ] [Implement 'command(3)'](https://stevens.netmeister.org/631/f21-hw2.html)
@@ -89,7 +89,7 @@ Checkpoint:
 ### Week 9 Interprocess Communication II
 
 Notes:
-- [ ] [Interprocess Communication I](14-Interprocess-Communication-II.md)
+- [X] [Interprocess Communication II](14-Interprocess-Communication-II.md)
 
 ### Week 10 Daemon Processes
 ### Week 11 Shared Libraries
