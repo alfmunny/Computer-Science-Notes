@@ -21,7 +21,7 @@ Currently working on:
 ## Algorithms
 
 - [X] [Algorithms 4th](algorithms-4th) :white_check_mark: DONE
-- [ ] [ACM Challenge](acm-challenge)
+- [ ] [ACM Challenge](ACM-Challenge)
 - [ ] [Cracking the Coding Interview](cracking-the-coding-interview)
 - [ ] [Data Structures and Algorithms in Java](data-structures-and-algorithms-in-java)
 - [ ] [Introduction to Algorithms](Introduction-to-Algorithms)
@@ -32,13 +32,13 @@ Currently working on:
 ## Computer Systems
 
 - [ ] [Assembly](./assembly) work in progress 10%
-- [ ] [Computer Systems, A Programmer's Perspective](./computer-systems) :soon: coming next
-- [ ] [Opearting Systems: Three Easy Pieces](./Operating-Systems-Three-Easy-Steps)
 - [ ] [Advanced Programming in the Unix Environment](./APUE)
+- [ ] [Computer Systems, A Programmer's Perspective](./Computer-Systems) :soon: coming next
+- [ ] [Opearting Systems: Three Easy Pieces](./Operating-Systems-Three-Easy-Steps)
 - [ ] [MIT 6.S081 Operation System Engineering](https://github.com/alfmunny/MIT6.828-Operation-System-Engineering)
 - [ ] [MIT 6.828 Operation System Research Seminar](https://abelay.github.io/6828seminar/index.html)
 
-## Computer Networks
+## Networking
 
 - [ ] [Computer Networking: A Top-Down Approach](./Computer-Networking-A-Top-Down-Approach)
 - [ ] [Sylar: Build a network framework in C++ from scratch](https://github.com/alfmunny/wille)

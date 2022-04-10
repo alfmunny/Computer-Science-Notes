@@ -1,6 +1,6 @@
-# Notes on Computer Systems
+# Notes on Computer Systems: A Programming's Perspective
 
-[The book](https://www.amazon.de/-/en/Randal-Bryant/dp/0136108040/ref=sr_1_5?crid=28X4Q6FCEFFHK&dchild=1&keywords=computer+systems+a+programmer%27s+perspective&qid=1601583136&sprefix=Computer+Systems%2Caps%2C158&sr=8-5)
+[The Book: Computer Systems A Programming's Perspective](https://www.amazon.de/-/en/Randal-Bryant/dp/0136108040/ref=sr_1_5?crid=28X4Q6FCEFFHK&dchild=1&keywords=computer+systems+a+programmer%27s+perspective&qid=1601583136&sprefix=Computer+Systems%2Caps%2C158&sr=8-5)
 
 This is a textbook of the course 18-447 Introduction to Computer Architecture at Carnegie Mellon University.
 
