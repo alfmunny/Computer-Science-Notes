@@ -66,7 +66,7 @@ Currently working on:
 - [ ] [MIT 6.824 Distributed Systems](https://github.com/alfmunny/MIT6.824-Distributed-Systems) :construction:
 
 ## Databases
-
+- [ ] [Let's Build a Simple Database](https://github.com/cstack/db_tutorial)
 ## Machine Learning
 
 - [ ] [Hands on Machine Learning](https://github.com/alfmunny/Hands-On-Machine-Learning/) :construction: work in progress 50%
