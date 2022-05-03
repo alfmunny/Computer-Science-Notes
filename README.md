@@ -47,7 +47,7 @@ Currently working on:
 
 - [ ] [Structure and Interpretation of Computer Programs (SICP)](./structure-and-interpretation-of-computer-programs) :construction: work in progress 20%
 - [ ] [Fluent Python](./fluent-python) work in progress 20%
-- [ ] [Metaprogramming Ruby](https://github.com/alfmunny/notes-metaprogramming-ruby) :ballot_box_with_check: 50%
+- [ ] [Metaprogramming Ruby](./Metaprogramming-Ruby) :ballot_box_with_check: 50%
 - [ ] [Understanding Computation](./Understanding-Computation)
 - [ ] [Effective C++](./effective-c++) work in progress 10%
 - [ ] [More Effective C++](./more-effective-c++)
@@ -67,6 +67,8 @@ Currently working on:
 
 ## Databases
 - [ ] [Let's Build a Simple Database](https://github.com/cstack/db_tutorial)
+
+
 ## Machine Learning
 
 - [ ] [Hands on Machine Learning](https://github.com/alfmunny/Hands-On-Machine-Learning/) :construction: work in progress 50%
