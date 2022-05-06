@@ -1,5 +1,16 @@
 # The Spells
 
+## Argument Array
+
+```ruby
+def my_method(*args)
+  args.map { |arg| arg.reverse }
+end
+
+puts my_method('abc', 'xyz', '123') # => ["cba", "zyx", "321"]
+```
+
+
 ## Around Alias
 
 ```ruby
@@ -10,6 +21,8 @@ class String
     "x#{old_reverse}x"
   end
 end
+
+puts "abc".reverse # => xcbax
 ```
 
 ## Class Extension
@@ -27,7 +40,30 @@ class << C
   include M
 end
 
-C.my_method
+C.my_method # => "a class method"
+```
+
+## Class Extension Mixin
+
+```ruby
+module M
+  def self.included(base)
+    base.extend(ClassMethods)
+  end
+
+  module ClassMethods
+    def my_method
+      'a class method'
+    end
+  end
+end
+
+class C 
+  include M
+end
+
+C.my_method # => 'a class method'
+
 ```
 
 ## Class Instance Variable
@@ -42,6 +78,22 @@ class C
 end
 
 C.class_attribute
+```
+
+## Class Macro
+
+```ruby
+class C; end
+
+class << C
+  def my_macro(arg)
+    "my_macro(#{arg}) called"
+  end
+end
+
+class C
+  my_macro :x # => "my_macro(x) called"
+end
 ```
 
 ## Clean Room
@@ -86,7 +138,7 @@ obj.store { $X = 1 }
 $X = 0
 
 obj.execute
-$X
+$X # => 1
 ```
 
 ## Dynamic Method
@@ -152,4 +204,18 @@ obj.my_singleton_method
 ```ruby
 my_string_of_code = "1 + 1"
 eval(my_string_of_code)
+```
+
+## Self Yield
+
+```ruby
+obj = "abc"
+
+class << obj
+  def my_singleton_method
+    "x"
+  end
+end
+
+obj.my_singleton_method #=> "x"
 ```
