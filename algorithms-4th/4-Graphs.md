@@ -153,7 +153,7 @@ public class DirectedCycle {
                 edgeTo[w] = v;
                 dfs(G, w);
             }
-            else if (onStack[v]) {
+            else if (onStack[w]) {
                 cycle = new Stack<Integer>();
                 for (int x = v; x != w; x = edgeTo[x]) {
                     cycle.push(x);
@@ -161,8 +161,8 @@ public class DirectedCycle {
                 cycle.push(w);
                 cycle.push(v);
             }
-            onStack[v] = false;
         }
+        onStack[v] = false;
     }
 
     public boolean hasCycle() {
