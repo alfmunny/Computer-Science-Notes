@@ -1,4 +1,4 @@
-# Advanced Programming in the Unix Environment
+# Notes on Advanced Programming in the Unix Environment
 
 ## Resources
 
@@ -21,7 +21,7 @@ Reading:
 Homework:
 
 - [X] [Warmup exercise](https://stevens.netmeister.org/631/fixme-exercise.html)
-    - [welcome.c](./homework/hw1/welcome.c)
+    - [welcome.c](./homework/lecture01/welcome.c)
 - [ ] [Compare Code Exercise](https://stevens.netmeister.org/631/compare-code-exercise.html)
 
 Resources:
@@ -46,8 +46,8 @@ Homework:
     - [Notes](./homework/lecture02/README.md)
     - [Code](./homework/lecture02/print-fileno.c)
 
-- [ ] [Implement `bbcp`](./homework/bbcp.1.pdf), [Hints](https://stevens.netmeister.org/631/f21-hw1.html)
-
+- [X] [Implement `bbcp`](./homework/bbcp.1.pdf), [Hints](https://stevens.netmeister.org/631/f21-hw1.html)
+    - [Code](./homework/hw1/bbcp.c)
 
 ### Week 3
 
