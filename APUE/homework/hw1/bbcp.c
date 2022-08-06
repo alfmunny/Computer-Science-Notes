@@ -1,3 +1,5 @@
+/* Create by alfmunny on 07.Aug.2022 */
+
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
@@ -8,6 +10,13 @@
 #include <sys/stat.h>
 
 #define BUFSIZE 1024
+
+/* Notes
+ * 1. Use a small bufsize and read and write the whole content in a while loop
+ * 2. Use the st_mode of the source to set the target's permission
+ * 3. openat() for open a file in another directory
+ * 4. open() a file like "dir/" will cause EISDIR error
+ */
 
 int 
 main(int argc, char** argv) {
