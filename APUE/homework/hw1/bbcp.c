@@ -86,6 +86,7 @@ main(int argc, char** argv) {
 
     (void)close(fd_source);
     (void)close(fd_target);
+    (void)closedir(dp);
 
     return EXIT_SUCCESS;
 }
