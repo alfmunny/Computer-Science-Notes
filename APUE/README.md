@@ -46,8 +46,8 @@ Homework:
     - [Notes](./homework/lecture02/README.md)
     - [Code](./homework/lecture02/print-fileno.c)
 
-- [X] [Implement `bbcp`](./homework/bbcp.1.pdf), [Hints](https://stevens.netmeister.org/631/f21-hw1.html)
-    - [Code](./homework/hw1/bbcp.c)
+- [X] [Implement `bbcp`](./homework/hw1/bbcp.1.pdf), [Hints](https://stevens.netmeister.org/631/f21-hw1.html)
+    - [Code with notes](./homework/hw1/bbcp.c)
 
 ### Week 3
 
