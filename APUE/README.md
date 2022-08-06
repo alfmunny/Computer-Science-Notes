@@ -32,7 +32,7 @@ Resources:
 ### Week 2
 
 Notes:
-- [X] [3. File Descriptors, File IO, File Sharing](3-File-IO-File-Sharing.md)
+- [X] [3. File Descriptors, File IO, File Sharing](./3-File-Descriptor-File-IO-File-Sharing.md)
 
 Reading:
 - [X] Videos
@@ -42,7 +42,10 @@ Slides: [fds.pdf](./slides/02-fds.pdf),  [open-close.pdf](./slides/02-open-close
 
 Homework:
 
-- [ ] [File Descriptors Warmup Exercise](https://stevens.netmeister.org/631/fd-exercise.html)
+- [X] [File Descriptors Warmup Exercise](https://stevens.netmeister.org/631/fd-exercise.html)
+    - [Notes](./homework/lecture02/README.md)
+    - [Code](./homework/lecture02/print-fileno.c)
+
 - [ ] [Implement `bbcp`](./homework/bbcp.1.pdf), [Hints](https://stevens.netmeister.org/631/f21-hw1.html)
 
 
