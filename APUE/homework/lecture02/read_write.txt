@@ -1,0 +1,2 @@
+This is orignal text
+Write after read from file

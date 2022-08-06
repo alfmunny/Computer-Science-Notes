@@ -20,7 +20,8 @@ Reading:
 
 Homework:
 
-- [ ] [Warmup exercise](https://stevens.netmeister.org/631/fixme-exercise.html)
+- [X] [Warmup exercise](https://stevens.netmeister.org/631/fixme-exercise.html)
+    - [welcome.c](./homework/hw1/welcome.c)
 - [ ] [Compare Code Exercise](https://stevens.netmeister.org/631/compare-code-exercise.html)
 
 Resources:

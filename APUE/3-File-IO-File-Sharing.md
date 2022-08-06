@@ -73,7 +73,7 @@ read(2)
 write(2)
 lseek(2)
 ```
-
+### open
 `creat(2)` is same as:
 `open(path, O_CREATE | O_TRUNC | O_WRONLY, mode);`
 
@@ -88,11 +88,42 @@ O_NONBLOCK      do not block on open or for data to become available
 O_APPEND        append on each write
 O_CREAT         create file if it does not exist
 O_TRUNC         truncate size to 0
-O_EXCL          error if O_CREATE and the file exists
+O_EXCL          error if O_CREAT and the file exists
  ```
+### read
+
+`read(2)`
+
+```c
+#define BUFSIZE 10240
+char buf[BUFSIZE];
+
+if (read(fd1, buf, strlen(buf)) != sizeof(buf) - 1) {
+    fprintf(stderr, "Unable to write: %s\n", strerror(errno));
+}
+```
+Note:
+
+What is the difference of `sizeof(buf)` and `strlen(buf)`?
+
+    The char buf[] = "string" will add a '\0' automatically to the string to mark the end of the string.
+    sizeof(buf) returns 7, including '\0'.
+    strlen(buf) returns 6, not including '\0'.
+
+### write
 
 `write(2)`
+
+```c
+char buf[] = "Write something";
+
+if (write(fd1, buf, strlen(buf)) != sizeof(buf) - 1) {
+    fprintf(stderr, "Unable to write: %s\n", strerror(errno));
+}
+
+```
 	
+### lseek
 `lseek(2)`
 	
 ```
@@ -112,6 +143,9 @@ if (lseek(fd, BIGNUM, SEEK_CUR) == -1) {
  But the file system must support sparse file. And `copy` a sparse file may also differ on different systems. You can check it with `man copy`.
  
 `read(2)` Increasing BUFSIZE infinitely will not boost the performance of reading anymore, because the block size of a file in the file system has its limit. You can use `stat` to get the block size.
+
+
+### stat
 
 ```
 stat -f "%k" ./lseek.c
