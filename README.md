@@ -1,6 +1,6 @@
 # Computer Science Notes
 
-A collection of notes of technical books and open courses in computer science. 
+A collection of general notes, notes of books and notes of open courses in computer science. 
 
 It can be used as a road map to learn programming.
 
@@ -8,7 +8,7 @@ Currently working on:
 - [APUE](./APUE)
 - [Build a network fromework in C++ from scratch](https://github.com/alfmunny/wille)
 
-## My Notes
+## General Notes
 
 - [Quick Notes](./Notes/quick-notes.md)
 - [vim](./Notes/vim-cheatsheet.md)
@@ -17,6 +17,19 @@ Currently working on:
 - [Ruby](./Notes/ruby-cheatsheet.md)
 - [Go](./Notes/go-cheatsheet.md)
 - [Dotfiles](./Notes/dotfiles-cheatsheet.md)
+
+## Tooling
+
+- [ ] [MIT6.NULL The missing semester](https://missing.csail.mit.edu)
+
+## Computer Systems
+
+- [ ] [Assembly](./assembly) work in progress 10%
+- [ ] [Advanced Programming in the Unix Environment](./APUE)
+- [ ] [Computer Systems, A Programmer's Perspective](./Computer-Systems-A-Programmers-Perspective) :soon: coming next
+- [ ] [Opearting Systems: Three Easy Pieces](./Operating-Systems-Three-Easy-Steps)
+- [ ] [MIT 6.S081 Operation System Engineering](https://github.com/alfmunny/MIT6.828-Operation-System-Engineering)
+- [ ] [MIT 6.828 Operation System Research Seminar](https://abelay.github.io/6828seminar/index.html)
 
 ## Algorithms
 
@@ -29,14 +42,14 @@ Currently working on:
 - [ ] [MIT 6.046J Design and Analysis of Algorithms](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-design-and-analysis-of-algorithms-spring-2015/)
 - [ ] [MIT 6.851 Advanced Data Structures](https://courses.csail.mit.edu/6.851/)
 
-## Computer Systems
+## Distributed Systems
 
-- [ ] [Assembly](./assembly) work in progress 10%
-- [ ] [Advanced Programming in the Unix Environment](./APUE)
-- [ ] [Computer Systems, A Programmer's Perspective](./Computer-Systems) :soon: coming next
-- [ ] [Opearting Systems: Three Easy Pieces](./Operating-Systems-Three-Easy-Steps)
-- [ ] [MIT 6.S081 Operation System Engineering](https://github.com/alfmunny/MIT6.828-Operation-System-Engineering)
-- [ ] [MIT 6.828 Operation System Research Seminar](https://abelay.github.io/6828seminar/index.html)
+- [ ] [MIT 6.824 Distributed Systems](https://github.com/alfmunny/MIT6.824-Distributed-Systems) :construction:
+
+## Databases
+
+- [ ] [CMU 15-445/645 Intro to Database Systems](./Intro-To-Database-Systems)
+- [ ] [Let's Build a Simple Database](https://github.com/cstack/db_tutorial)
 
 ## Networking
 
@@ -61,14 +74,6 @@ Currently working on:
 - [ ] [Stanford CS243 Program Analysis and Optimization](http://web.stanford.edu/class/cs243/) 
 - [ ] [Stanford CS343 Advanced Topics in Compilers](http://web.stanford.edu/class/cs343/)
 
-
-## Distributed Systems
-- [ ] [MIT 6.824 Distributed Systems](https://github.com/alfmunny/MIT6.824-Distributed-Systems) :construction:
-
-## Databases
-- [ ] [Let's Build a Simple Database](https://github.com/cstack/db_tutorial)
-
-
 ## Machine Learning
 
 - [ ] [Hands on Machine Learning](https://github.com/alfmunny/Hands-On-Machine-Learning/) :construction: work in progress 50%
@@ -77,6 +82,7 @@ Currently working on:
 - [ ] [Stanford CS224n Natural Language Processing](http://web.stanford.edu/class/cs224n)
 
 ## Math
+
 - [ ] [MIT 18.01 Single Variable Caculus](https://ocw.mit.edu/courses/mathematics/18-01-single-variable-calculus-fall-2006/)
 - [ ] [MIT 18.02 Multicariable Variable Caculus](https://ocw.mit.edu/courses/mathematics/18-02-multivariable-calculus-fall-2007/)
 - [ ] [MIT 18.03 Differential Equations](https://ocw.mit.edu/courses/mathematics/18-03-differential-equations-spring-2010/)
