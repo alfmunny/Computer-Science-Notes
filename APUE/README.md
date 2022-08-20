@@ -6,13 +6,13 @@
 - [Course](https://stevens.netmeister.org/631/)
 - [Videos](https://www.youtube.com/playlist?list=PL0qfF8MrJ-jxMfirAdxDs9zIiBg2Wug0z)
 
-## Learning Process
+## Learning Progress
 
 ### Week 1
 
 Notes:
-- [ ] [1. Introduction, Unix History, Basics](1-Introduction-Unix-History.md)
-- [ ] [2. Basics](2-Basics.md)
+- [ ] [Introduction, Unix History, Basics](1-Introduction-Unix-History.md)
+- [ ] [Basics](1-Basics.md)
 
 Reading:
 
@@ -32,7 +32,7 @@ Resources:
 ### Week 2
 
 Notes:
-- [X] [3. File Descriptors, File IO, File Sharing](./3-File-Descriptor-File-IO-File-Sharing.md)
+- [X] [File Descriptors, File IO, File Sharing](./2-File-Descriptor-File-IO-File-Sharing.md)
 
 Reading:
 - [X] Videos
@@ -52,11 +52,17 @@ Homework:
 ### Week 3
 
 Notes:
-- [ ] [File and Directories](4-File-and-Directories.md)
+- [ ] [File and Directories](3-File-and-Directories.md)
 
 ### Week 4
 
+Notes:
+- [ ] [Filesystems](./4-Filesystems.md)
+
 ### Week 5
+
+Notes:
+- [ ] [Unix Tools](./5-Unix-Tools.md)
 
 ### Week 6
 
