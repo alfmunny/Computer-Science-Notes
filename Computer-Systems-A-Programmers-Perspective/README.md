@@ -12,4 +12,24 @@ Online Content:
 - [Useful Github Repo](https://github.com/EugeneLiu/translationCSAPP)
 
 ## Table of Contents
+
 ## Learning Progress
+
+### Representating and Manipulating Information
+
+Notes: [notes](./representating-and-manipulating-information.md)
+
+### Machine-Level Representation
+
+Notes:
+
+### Processor Architecture
+### Optimizing Program Performance
+### Memory Hierarchy
+### Linking
+### Exceptional Control Flow
+### Virtual Memory
+### System-Level IO
+### Network Programming
+### Concurrent Programming
+### Error Handling
