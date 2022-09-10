@@ -136,7 +136,6 @@ int main() {
                         }
                     }
                     else {
-                        std::cout << "-----------------------" << std::endl;
                         for (;;) {
                             int n = read(epoll_events[i].data.fd, buf, sizeof(buf));
                             if (n <= 0) {
