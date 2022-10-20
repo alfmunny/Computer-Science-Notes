@@ -11,12 +11,12 @@ Currently working on:
 ## General Notes
 
 - [Quick Notes](./Notes/quick-notes.md)
-- [vim](./Notes/vim-cheatsheet.md)
+- [vim](./Notes/vim.md)
 - [emacs](./Notes/emacs.md)
 - [C++](./Notes/C++.md)
-- [Ruby](./Notes/ruby-cheatsheet.md)
-- [Go](./Notes/go-cheatsheet.md)
-- [Dotfiles](./Notes/dotfiles-cheatsheet.md)
+- [Ruby](./Notes/ruby.md)
+- [Go](./Notes/go.md)
+- [Dotfiles](./Notes/dotfiles.md)
 
 ## Tooling
 
@@ -62,9 +62,9 @@ Currently working on:
 - [ ] [Fluent Python](./fluent-python) work in progress 20%
 - [ ] [Metaprogramming Ruby](./Metaprogramming-Ruby) :ballot_box_with_check: 50%
 - [ ] [Understanding Computation](./Understanding-Computation)
-- [ ] [Effective C++](./effective-c++) work in progress 10%
-- [ ] [More Effective C++](./more-effective-c++)
-- [ ] [Effective Modern C++](./effective-modern-c++)
+- [X] [Effective C++](./effective-c++) 
+- [X] [More Effective C++](./more-effective-c++)
+- [X] [Effective Modern C++](./effective-modern-c++)
 
 ## Compilers
 
